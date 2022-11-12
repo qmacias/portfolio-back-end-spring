@@ -4,7 +4,8 @@ import org.example.portfolio.domain.data.PersonDto;
 import org.example.portfolio.domain.port.out.PersonPersistencePort;
 
 import org.example.portfolio.infrastructure.entity.PersonEntity;
-import org.example.portfolio.infrastructure.mapper.PersonMapper;
+import org.example.portfolio.infrastructure.mapper.PersonDtoToPersonEntityMapper;
+import org.example.portfolio.infrastructure.mapper.PersonEntityToPersonDtoMapper;
 import org.example.portfolio.infrastructure.repository.PersonRepository;
 
 import java.util.List;
@@ -29,7 +30,9 @@ public class PersonJpaAdapter implements PersonPersistencePort {
         Optional<PersonEntity> personEntity = personRepository.findById(id);
 
         if (personEntity.isPresent()) {
-            return PersonMapper.PERSON_INSTANCE.mapEntityToDto(personEntity.get());
+
+            return PersonEntityToPersonDtoMapper
+                    .TO_PERSON_DTO_MAPPER.mapEntityToDto(personEntity.get());
         }
 
         return null;
@@ -38,11 +41,13 @@ public class PersonJpaAdapter implements PersonPersistencePort {
     @Override
     public PersonDto save(PersonDto personDto) {
 
-        PersonEntity personEntity = PersonMapper.PERSON_INSTANCE.mapDtoToEntity(personDto);
+        PersonEntity personEntity = PersonDtoToPersonEntityMapper
+                .TO_PERSON_ENTITY_MAPPER.mapDtoToEntity(personDto);
 
         PersonEntity personEntitySaved = personRepository.save(personEntity);
 
-        return PersonMapper.PERSON_INSTANCE.mapEntityToDto(personEntitySaved);
+        return PersonEntityToPersonDtoMapper
+                .TO_PERSON_DTO_MAPPER.mapEntityToDto(personEntitySaved);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package org.example.portfolio.infrastructure.mapper.usecase;
+package org.example.portfolio.infrastructure.usecase;
 
 public interface EntityToDtoUseCase<E, D> {
 
