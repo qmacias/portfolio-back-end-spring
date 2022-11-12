@@ -23,6 +23,14 @@ http://localhost:8082/h2-console
 | DELETE | http://localhost:8082/api/person/{id}       | Delete person by id |
 | PUT    | http://localhost:8082/api/person/1/images/1 | Add image to person |
 
+### Images
+
+| Method | Url                                         | Description        |
+|--------|---------------------------------------------|--------------------|
+| POST   | http://localhost:8082/api/images            | Create new image   |
+| GET    | http://localhost:8082/api/images/{id}       | Get image by id    |
+| DELETE | http://localhost:8082/api/images/{id}       | Delete image by id |
+
 ---
 
 ### Reference Documentation
