@@ -1,9 +1,8 @@
-package org.example.portfolio.adapter;
+package org.example.portfolio.infrastructure.adapter;
 
-import org.example.portfolio.data.ImageDto;
-import org.example.portfolio.port.out.ImagePersistencePort;
-
-import org.example.portfolio.repository.ImageRepository;
+import org.example.portfolio.infrastructure.repository.ImageRepository;
+import org.example.portfolio.domain.data.ImageDto;
+import org.example.portfolio.domain.port.out.ImagePersistencePort;
 
 import java.util.List;
 
@@ -26,7 +25,7 @@ public class ImageJpaAdapter implements ImagePersistencePort {
     }
 
     @Override
-    public ImageDto save(ImageDto image) {
+    public ImageDto save(ImageDto imageDto) {
         return null;
     }
 

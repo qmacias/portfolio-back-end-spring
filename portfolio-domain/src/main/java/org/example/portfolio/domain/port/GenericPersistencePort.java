@@ -1,4 +1,4 @@
-package org.example.portfolio.port;
+package org.example.portfolio.domain.port;
 
 import org.springframework.stereotype.Repository;
 

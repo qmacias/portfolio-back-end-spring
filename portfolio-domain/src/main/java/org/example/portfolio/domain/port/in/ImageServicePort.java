@@ -1,6 +1,6 @@
-package org.example.portfolio.port.in;
+package org.example.portfolio.domain.port.in;
 
-import org.example.portfolio.data.ImageDto;
+import org.example.portfolio.domain.data.ImageDto;
 
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ public interface ImageServicePort {
 
     ImageDto getImage(Long id);
 
-    ImageDto addImage(ImageDto image);
+    ImageDto addImage(ImageDto imageDto);
 
     void deleteImage(Long id);
 

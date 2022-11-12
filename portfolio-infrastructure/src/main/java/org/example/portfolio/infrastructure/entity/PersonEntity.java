@@ -1,17 +1,16 @@
-package org.example.portfolio.entity;
+package org.example.portfolio.infrastructure.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.EqualsAndHashCode;
-import org.springframework.beans.BeanUtils;
+import lombok.*;
 
 import javax.persistence.*;
 
+@Data
+@NoArgsConstructor
+@EqualsAndHashCode(
+        onlyExplicitlyIncluded = true
+)
 @Entity
 @Table(name = "person")
-@Getter
-@Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class PersonEntity {
 
     @Id
@@ -26,8 +25,8 @@ public class PersonEntity {
 
     private String degree;
 
-    @Column(unique = true)
     @EqualsAndHashCode.Include
+    @Column(unique = true)
     private String email;
 
     private String summary;
@@ -41,16 +40,15 @@ public class PersonEntity {
     )
     private ImageEntity imageEntity;
 
-    public PersonEntity() {
-    }
-
     public PersonEntity(
+            Long id,
             String name,
             Integer age,
             String degree,
             String email,
             String summary
     ) {
+        this.id = id;
         this.name = name;
         this.age = age;
         this.degree = degree;

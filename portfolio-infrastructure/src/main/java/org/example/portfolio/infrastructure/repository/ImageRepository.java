@@ -1,6 +1,6 @@
-package org.example.portfolio.repository;
+package org.example.portfolio.infrastructure.repository;
 
-import org.example.portfolio.entity.ImageEntity;
+import org.example.portfolio.infrastructure.entity.ImageEntity;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,18 +1,18 @@
 package org.example.portfolio.configuration;
 
-import org.example.portfolio.adapter.ImageJpaAdapter;
-import org.example.portfolio.port.in.ImageServicePort;
-import org.example.portfolio.port.in.PersonServicePort;
-import org.example.portfolio.port.out.ImagePersistencePort;
-import org.example.portfolio.port.out.PersonPersistencePort;
+import org.example.portfolio.infrastructure.adapter.ImageJpaAdapter;
+import org.example.portfolio.domain.port.in.ImageServicePort;
+import org.example.portfolio.domain.port.in.PersonServicePort;
+import org.example.portfolio.domain.port.out.ImagePersistencePort;
+import org.example.portfolio.domain.port.out.PersonPersistencePort;
 
-import org.example.portfolio.repository.ImageRepository;
-import org.example.portfolio.service.ImageService;
-import org.example.portfolio.service.PersonService;
+import org.example.portfolio.infrastructure.repository.ImageRepository;
+import org.example.portfolio.domain.service.ImageService;
+import org.example.portfolio.domain.service.PersonService;
 
-import org.example.portfolio.adapter.PersonJpaAdapter;
+import org.example.portfolio.infrastructure.adapter.PersonJpaAdapter;
 
-import org.example.portfolio.repository.PersonRepository;
+import org.example.portfolio.infrastructure.repository.PersonRepository;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

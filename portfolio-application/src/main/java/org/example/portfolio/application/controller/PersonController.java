@@ -1,10 +1,10 @@
-package org.example.portfolio.controller;
+package org.example.portfolio.application.controller;
 
-import org.example.portfolio.data.ImageDto;
-import org.example.portfolio.data.PersonDto;
+import org.example.portfolio.domain.data.ImageDto;
+import org.example.portfolio.domain.data.PersonDto;
 
-import org.example.portfolio.port.in.ImageServicePort;
-import org.example.portfolio.port.in.PersonServicePort;
+import org.example.portfolio.domain.port.in.ImageServicePort;
+import org.example.portfolio.domain.port.in.PersonServicePort;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -39,8 +39,8 @@ public class PersonController {
     }
 
     @PostMapping
-    public PersonDto addPerson(@RequestBody PersonDto person) {
-        return personService.addPerson(person);
+    public PersonDto addPerson(@RequestBody PersonDto personDto) {
+        return personService.addPerson(personDto);
     }
 
     @DeleteMapping("/{id}")
@@ -50,8 +50,8 @@ public class PersonController {
 
     @PutMapping("/{id}/images/{imageId}")
     public PersonDto assignDetail(@PathVariable Long id, @PathVariable Long imageId) {
-        ImageDto image = imageService.getImage(imageId);
-        return personService.assignImage(id, image);
+        ImageDto imageDto = imageService.getImage(imageId);
+        return personService.assignImage(id, imageDto);
     }
 
 }

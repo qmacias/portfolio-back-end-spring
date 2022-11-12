@@ -1,9 +1,9 @@
-package org.example.portfolio.adapter;
+package org.example.portfolio.infrastructure.adapter;
 
-import org.example.portfolio.data.PersonDto;
-import org.example.portfolio.port.out.PersonPersistencePort;
+import org.example.portfolio.domain.data.PersonDto;
+import org.example.portfolio.domain.port.out.PersonPersistencePort;
 
-import org.example.portfolio.repository.PersonRepository;
+import org.example.portfolio.infrastructure.repository.PersonRepository;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ public class PersonJpaAdapter implements PersonPersistencePort {
     }
 
     @Override
-    public PersonDto save(PersonDto person) {
+    public PersonDto save(PersonDto personDto) {
         return null;
     }
 

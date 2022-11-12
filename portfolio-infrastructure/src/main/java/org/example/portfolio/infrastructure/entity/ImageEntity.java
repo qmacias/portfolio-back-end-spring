@@ -1,15 +1,17 @@
-package org.example.portfolio.entity;
+package org.example.portfolio.infrastructure.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.beans.BeanUtils;
 
 import javax.persistence.*;
 
+@Data
+@NoArgsConstructor
+@EqualsAndHashCode(
+        onlyExplicitlyIncluded = true
+)
 @Entity
 @Table(name = "images")
-@Getter
-@Setter
 public class ImageEntity {
 
     @Id
@@ -20,10 +22,8 @@ public class ImageEntity {
 
     private String path;
 
-    public ImageEntity() {
-    }
-
-    public ImageEntity(String path) {
+    public ImageEntity(Long id, String path) {
+        this.id = id;
         this.path = path;
     }
 

@@ -1,9 +1,8 @@
-package org.example.portfolio.service;
+package org.example.portfolio.domain.service;
 
-import org.example.portfolio.data.ImageDto;
-
-import org.example.portfolio.port.in.ImageServicePort;
-import org.example.portfolio.port.out.ImagePersistencePort;
+import org.example.portfolio.domain.port.in.ImageServicePort;
+import org.example.portfolio.domain.port.out.ImagePersistencePort;
+import org.example.portfolio.domain.data.ImageDto;
 
 import java.util.List;
 
@@ -26,9 +25,8 @@ public class ImageService implements ImageServicePort {
     }
 
     @Override
-    public ImageDto addImage(ImageDto image) {
-        image.setId(0L);
-        return imagePersistencePort.save(image);
+    public ImageDto addImage(ImageDto imageDto) {
+        return imagePersistencePort.save(imageDto);
     }
 
     @Override

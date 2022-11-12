@@ -1,9 +1,9 @@
-package org.example.portfolio.service;
+package org.example.portfolio.domain.service;
 
-import org.example.portfolio.data.ImageDto;
-import org.example.portfolio.data.PersonDto;
-import org.example.portfolio.port.in.PersonServicePort;
-import org.example.portfolio.port.out.PersonPersistencePort;
+import org.example.portfolio.domain.port.in.PersonServicePort;
+import org.example.portfolio.domain.port.out.PersonPersistencePort;
+import org.example.portfolio.domain.data.ImageDto;
+import org.example.portfolio.domain.data.PersonDto;
 
 import org.springframework.stereotype.Service;
 
@@ -39,10 +39,10 @@ public class PersonService implements PersonServicePort {
     }
 
     @Override
-    public PersonDto assignImage(Long personId, ImageDto image) {
-        PersonDto person = personPersistencePort.findById(personId);
-        person.setImage(image.toString());
-        return personPersistencePort.save(person);
+    public PersonDto assignImage(Long personId, ImageDto imageDto) {
+        PersonDto personDto = personPersistencePort.findById(personId);
+        personDto.setImage(imageDto.toString());
+        return personPersistencePort.save(personDto);
     }
 
 }

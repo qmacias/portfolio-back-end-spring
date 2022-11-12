@@ -1,7 +1,7 @@
-package org.example.portfolio.controller;
+package org.example.portfolio.application.controller;
 
-import org.example.portfolio.data.ImageDto;
-import org.example.portfolio.port.in.ImageServicePort;
+import org.example.portfolio.domain.data.ImageDto;
+import org.example.portfolio.domain.port.in.ImageServicePort;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -30,8 +30,8 @@ public class ImageController {
     }
 
     @PostMapping
-    public ImageDto addImage(@RequestBody ImageDto image) {
-        return imageService.addImage(image);
+    public ImageDto addImage(@RequestBody ImageDto imageDto) {
+        return imageService.addImage(imageDto);
     }
 
     @DeleteMapping("/{id}")
