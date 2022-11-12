@@ -4,8 +4,9 @@ import org.example.portfolio.domain.data.ImageDto;
 import org.example.portfolio.domain.port.out.ImagePersistencePort;
 
 import org.example.portfolio.infrastructure.entity.ImageEntity;
-import org.example.portfolio.infrastructure.mapper.impl.ImageMapperImpl;
+import org.example.portfolio.infrastructure.mapper.ImageDtoToImageEntityMapper;
 import org.example.portfolio.infrastructure.repository.ImageRepository;
+import org.example.portfolio.infrastructure.mapper.ImageEntityToImageDtoMapper;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,7 +30,8 @@ public class ImageJpaAdapter implements ImagePersistencePort {
         Optional<ImageEntity> imageEntity = imageRepository.findById(id);
 
         if (imageEntity.isPresent()) {
-            return ImageMapperImpl.IMAGE_INSTANCE.mapEntityToDto(imageEntity.get());
+            return ImageEntityToImageDtoMapper
+                    .TO_IMAGE_DTO_MAPPER.mapEntityToDto(imageEntity.get());
         }
 
         return null;
@@ -38,11 +40,13 @@ public class ImageJpaAdapter implements ImagePersistencePort {
     @Override
     public ImageDto save(ImageDto imageDto) {
 
-        ImageEntity imageEntity = ImageMapperImpl.IMAGE_INSTANCE.mapDtoToEntity(imageDto);
+        ImageEntity imageEntity = ImageDtoToImageEntityMapper
+                .TO_IMAGE_ENTITY_MAPPER.mapDtoToEntity(imageDto);
 
         ImageEntity imageEntitySaved = imageRepository.save(imageEntity);
 
-        return ImageMapperImpl.IMAGE_INSTANCE.mapEntityToDto(imageEntitySaved);
+        return ImageEntityToImageDtoMapper
+                .TO_IMAGE_DTO_MAPPER.mapEntityToDto(imageEntitySaved);
     }
 
     @Override

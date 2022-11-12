@@ -5,7 +5,6 @@ import org.example.portfolio.domain.data.PersonDto;
 import org.example.portfolio.infrastructure.entity.ImageEntity;
 import org.example.portfolio.infrastructure.entity.PersonEntity;
 
-import org.example.portfolio.infrastructure.mapper.impl.PersonEntityToPersonDtoMapperImpl;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest(classes = {
-        org.example.portfolio.domain.data.ImageDto.class,
         org.example.portfolio.domain.data.PersonDto.class
 })
 public class PersonEntityToPersonDtoMapperTest {

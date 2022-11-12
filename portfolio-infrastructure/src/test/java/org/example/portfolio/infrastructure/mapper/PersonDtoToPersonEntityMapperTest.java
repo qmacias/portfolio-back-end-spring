@@ -4,7 +4,6 @@ import org.example.portfolio.domain.data.ImageDto;
 import org.example.portfolio.domain.data.PersonDto;
 
 import org.example.portfolio.infrastructure.entity.PersonEntity;
-import org.example.portfolio.infrastructure.mapper.impl.PersonDtoToPersonEntityMapperImpl;
 
 import org.junit.jupiter.api.Test;
 
