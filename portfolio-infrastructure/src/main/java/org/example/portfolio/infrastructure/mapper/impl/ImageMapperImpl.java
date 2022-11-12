@@ -9,6 +9,8 @@ import org.modelmapper.ModelMapper;
 
 public class ImageMapperImpl implements ImageMapper {
 
+    private ModelMapper modelMapper;
+
     private ImageMapperImpl() {
     }
 
@@ -20,22 +22,20 @@ public class ImageMapperImpl implements ImageMapper {
         return ImageMapperImpl.Holder.IMAGE_MAPPER;
     }
 
-    private ModelMapper mapper = null;
-
     @Override
     public ImageDto mapEntityToDto(ImageEntity imageEntity) {
 
-        mapper = new ModelMapper();
+        this.modelMapper = new ModelMapper();
 
-        return this.mapper.map(imageEntity, ImageDto.class);
+        return this.modelMapper.map(imageEntity, ImageDto.class);
     }
 
     @Override
     public ImageEntity mapDtoToEntity(ImageDto imageDto) {
 
-        mapper = new ModelMapper();
+        this.modelMapper = new ModelMapper();
 
-        return this.mapper.map(imageDto, ImageEntity.class);
+        return this.modelMapper.map(imageDto, ImageEntity.class);
     }
 
 }

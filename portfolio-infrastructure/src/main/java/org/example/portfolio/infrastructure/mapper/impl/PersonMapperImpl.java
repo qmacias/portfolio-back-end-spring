@@ -10,6 +10,8 @@ import org.modelmapper.TypeMap;
 
 public class PersonMapperImpl implements PersonMapper {
 
+    private ModelMapper modelMapper;
+
     private PersonMapperImpl() {
     }
 
@@ -21,36 +23,34 @@ public class PersonMapperImpl implements PersonMapper {
         return Holder.PERSON_MAPPER;
     }
 
-    private ModelMapper mapper = null;
-
     @Override
     public PersonDto mapEntityToDto(PersonEntity personEntity) {
 
-        mapper = new ModelMapper();
+        this.modelMapper = new ModelMapper();
 
         TypeMap<PersonEntity, PersonDto> propertyEntityToDtoMapper =
-                this.mapper.createTypeMap(PersonEntity.class, PersonDto.class);
+                this.modelMapper.createTypeMap(PersonEntity.class, PersonDto.class);
 
         propertyEntityToDtoMapper.addMappings(
                 mapper -> mapper.map(src -> src.getImageEntity(), PersonDto::setImage)
         );
 
-        return this.mapper.map(personEntity, PersonDto.class);
+        return this.modelMapper.map(personEntity, PersonDto.class);
     }
 
     @Override
     public PersonEntity mapDtoToEntity(PersonDto personDto) {
 
-        mapper = new ModelMapper();
+        this.modelMapper = new ModelMapper();
 
         TypeMap<PersonDto, PersonEntity> propertyDtoToEntityMapper =
-                this.mapper.createTypeMap(PersonDto.class, PersonEntity.class);
+                this.modelMapper.createTypeMap(PersonDto.class, PersonEntity.class);
 
         propertyDtoToEntityMapper.addMappings(
                 mapper -> mapper.map(src -> src.getImage(), PersonEntity::setImageEntity)
         );
 
-        return this.mapper.map(personDto, PersonEntity.class);
+        return this.modelMapper.map(personDto, PersonEntity.class);
     }
 
 }
