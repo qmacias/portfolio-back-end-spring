@@ -1,12 +1,10 @@
 package org.example.portfolio.infrastructure.adapter;
 
-import org.example.portfolio.domain.data.ImageDto;
 import org.example.portfolio.domain.data.PersonDto;
 import org.example.portfolio.domain.port.out.PersonPersistencePort;
 
-import org.example.portfolio.infrastructure.entity.ImageEntity;
 import org.example.portfolio.infrastructure.entity.PersonEntity;
-import org.example.portfolio.infrastructure.mapper.Mapper;
+import org.example.portfolio.infrastructure.mapper.PersonMapper;
 import org.example.portfolio.infrastructure.repository.PersonRepository;
 
 import java.util.List;
@@ -31,7 +29,7 @@ public class PersonJpaAdapter implements PersonPersistencePort {
         Optional<PersonEntity> personEntity = personRepository.findById(id);
 
         if (personEntity.isPresent()) {
-            return Mapper.INSTANCE.map(personEntity, PersonDto.class);
+            return PersonMapper.PERSON_INSTANCE.mapEntityToDto(personEntity.get());
         }
 
         return null;
@@ -40,11 +38,11 @@ public class PersonJpaAdapter implements PersonPersistencePort {
     @Override
     public PersonDto save(PersonDto personDto) {
 
-        PersonEntity personEntity = Mapper.INSTANCE.map(personDto, PersonEntity.class);
+        PersonEntity personEntity = PersonMapper.PERSON_INSTANCE.mapDtoToEntity(personDto);
 
         PersonEntity personEntitySaved = personRepository.save(personEntity);
 
-        return Mapper.INSTANCE.map(personEntitySaved, PersonDto.class);
+        return PersonMapper.PERSON_INSTANCE.mapEntityToDto(personEntitySaved);
     }
 
     @Override

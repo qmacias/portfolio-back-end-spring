@@ -40,8 +40,11 @@ public class PersonService implements PersonServicePort {
 
     @Override
     public PersonDto assignImage(Long personId, ImageDto imageDto) {
+
         PersonDto personDto = personPersistencePort.findById(personId);
-        personDto.setImage(imageDto.toString());
+
+        personDto.setImage(imageDto);
+
         return personPersistencePort.save(personDto);
     }
 

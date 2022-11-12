@@ -5,8 +5,10 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public interface Mapper {
+public interface GenericMapper<E, D> {
 
-    ModelMapper INSTANCE = new ModelMapper();
+    D mapEntityToDto(E sourceEntity);
+
+    E mapDtoToEntity(D sourceDto);
 
 }

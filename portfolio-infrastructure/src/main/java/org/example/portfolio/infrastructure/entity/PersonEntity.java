@@ -46,7 +46,8 @@ public class PersonEntity {
             Integer age,
             String degree,
             String email,
-            String summary
+            String summary,
+            ImageEntity imageEntity
     ) {
         this.id = id;
         this.name = name;
@@ -54,6 +55,7 @@ public class PersonEntity {
         this.degree = degree;
         this.email = email;
         this.summary = summary;
+        this.imageEntity = imageEntity;
     }
 
 }

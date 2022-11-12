@@ -50,7 +50,9 @@ public class PersonController {
 
     @PutMapping("/{id}/images/{imageId}")
     public PersonDto assignDetail(@PathVariable Long id, @PathVariable Long imageId) {
+
         ImageDto imageDto = imageService.getImage(imageId);
+
         return personService.assignImage(id, imageDto);
     }
 
