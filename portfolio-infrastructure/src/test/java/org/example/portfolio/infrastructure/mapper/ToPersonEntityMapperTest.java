@@ -1,7 +1,7 @@
 package org.example.portfolio.infrastructure.mapper;
 
-import org.example.portfolio.domain.data.ImageDto;
-import org.example.portfolio.domain.data.PersonDto;
+import org.example.portfolio.domain.model.ImageDto;
+import org.example.portfolio.domain.model.PersonDto;
 
 import org.example.portfolio.infrastructure.entity.PersonEntity;
 
@@ -12,10 +12,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest(classes = {
-        org.example.portfolio.domain.data.ImageDto.class,
-        org.example.portfolio.domain.data.PersonDto.class
+        org.example.portfolio.domain.model.ImageDto.class,
+        org.example.portfolio.domain.model.PersonDto.class
 })
-public class PersonDtoToPersonEntityMapperTest {
+public class ToPersonEntityMapperTest {
 
     @Test
     public void whenMapPersonDtoWithDeepMapping_thenConvertsToPersonEntity() {
@@ -35,7 +35,7 @@ public class PersonDtoToPersonEntityMapperTest {
         );
 
         PersonEntity personEntity =
-                PersonDtoToPersonEntityMapper.TO_PERSON_ENTITY_MAPPER.mapDtoToEntity(personDto);
+                ToPersonEntityMapper.TO_PERSON_ENTITY_MAPPER.mapDtoToEntity(personDto);
 
         assertEquals(personDto.getImage().getId(), personEntity.getImageEntity().getId());
 

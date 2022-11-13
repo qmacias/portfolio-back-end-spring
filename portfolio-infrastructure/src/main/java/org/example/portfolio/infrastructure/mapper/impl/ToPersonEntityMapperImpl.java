@@ -1,20 +1,18 @@
 package org.example.portfolio.infrastructure.mapper.impl;
 
-import org.example.portfolio.domain.data.PersonDto;
+import org.example.portfolio.domain.model.PersonDto;
 
 import org.example.portfolio.infrastructure.entity.PersonEntity;
-import org.example.portfolio.infrastructure.mapper.PersonDtoToPersonEntityMapper;
+import org.example.portfolio.infrastructure.mapper.ToPersonEntityMapper;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 
-import java.util.List;
-
-public class PersonDtoToPersonEntityMapperImpl implements PersonDtoToPersonEntityMapper {
+public class ToPersonEntityMapperImpl implements ToPersonEntityMapper {
 
     private ModelMapper modelMapper;
 
-    private PersonDtoToPersonEntityMapperImpl() {
+    private ToPersonEntityMapperImpl() {
 
         modelMapper = new ModelMapper();
 
@@ -29,12 +27,12 @@ public class PersonDtoToPersonEntityMapperImpl implements PersonDtoToPersonEntit
     }
 
     private static class Holder {
-        static final PersonDtoToPersonEntityMapper
-                TO_PERSON_ENTITY_MAPPER = new PersonDtoToPersonEntityMapperImpl();
+        static final ToPersonEntityMapper
+                TO_PERSON_ENTITY_MAPPER = new ToPersonEntityMapperImpl();
     }
 
-    public static PersonDtoToPersonEntityMapper getInstance() {
-        return PersonDtoToPersonEntityMapperImpl.Holder.TO_PERSON_ENTITY_MAPPER;
+    public static ToPersonEntityMapper getInstance() {
+        return ToPersonEntityMapperImpl.Holder.TO_PERSON_ENTITY_MAPPER;
     }
 
     @Override

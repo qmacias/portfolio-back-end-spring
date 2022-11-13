@@ -1,6 +1,6 @@
 package org.example.portfolio.domain.port.in;
 
-import org.example.portfolio.domain.data.ImageDto;
+import org.example.portfolio.domain.model.ImageDto;
 
 import org.springframework.stereotype.Service;
 

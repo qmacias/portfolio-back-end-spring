@@ -1,6 +1,6 @@
 package org.example.portfolio.application.controller;
 
-import org.example.portfolio.domain.data.ImageDto;
+import org.example.portfolio.domain.model.ImageDto;
 import org.example.portfolio.domain.port.in.ImageServicePort;
 
 import org.springframework.beans.factory.annotation.Autowired;

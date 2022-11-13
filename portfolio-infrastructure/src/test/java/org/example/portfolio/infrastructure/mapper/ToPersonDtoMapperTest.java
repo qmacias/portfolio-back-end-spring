@@ -1,6 +1,6 @@
 package org.example.portfolio.infrastructure.mapper;
 
-import org.example.portfolio.domain.data.PersonDto;
+import org.example.portfolio.domain.model.PersonDto;
 
 import org.example.portfolio.infrastructure.entity.ImageEntity;
 import org.example.portfolio.infrastructure.entity.PersonEntity;
@@ -15,9 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest(classes = {
-        org.example.portfolio.domain.data.PersonDto.class
+        org.example.portfolio.domain.model.PersonDto.class
 })
-public class PersonEntityToPersonDtoMapperTest {
+public class ToPersonDtoMapperTest {
 
     @Test
     public void whenMapPersonEntityWithDeepMapping_thenConvertsToPersonDTO() {
@@ -36,7 +36,7 @@ public class PersonEntityToPersonDtoMapperTest {
                 )
         );
 
-        PersonDto personDto = PersonEntityToPersonDtoMapper
+        PersonDto personDto = ToPersonDtoMapper
                 .TO_PERSON_DTO_MAPPER.mapEntityToDto(personEntity);
 
         assertEquals(
@@ -85,7 +85,7 @@ public class PersonEntityToPersonDtoMapperTest {
 
         personEntityList.add(personEntity2);
 
-        List<PersonDto> personDtoList = PersonEntityToPersonDtoMapper
+        List<PersonDto> personDtoList = ToPersonDtoMapper
                 .TO_PERSON_DTO_MAPPER.mapEntityListToDtoList(personEntityList);
 
 //        assertEquals(personEntityList, personDtoList);

@@ -1,7 +1,7 @@
 package org.example.portfolio.application.controller;
 
-import org.example.portfolio.domain.data.ImageDto;
-import org.example.portfolio.domain.data.PersonDto;
+import org.example.portfolio.domain.model.ImageDto;
+import org.example.portfolio.domain.model.PersonDto;
 
 import org.example.portfolio.domain.port.in.ImageServicePort;
 import org.example.portfolio.domain.port.in.PersonServicePort;

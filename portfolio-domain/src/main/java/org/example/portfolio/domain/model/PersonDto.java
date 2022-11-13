@@ -1,4 +1,4 @@
-package org.example.portfolio.domain.data;
+package org.example.portfolio.domain.model;
 
 import lombok.*;
 

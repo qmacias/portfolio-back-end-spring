@@ -1,11 +1,11 @@
 package org.example.portfolio.infrastructure.adapter;
 
-import org.example.portfolio.domain.data.PersonDto;
+import org.example.portfolio.domain.model.PersonDto;
 import org.example.portfolio.domain.port.out.PersonPersistencePort;
 
 import org.example.portfolio.infrastructure.entity.PersonEntity;
-import org.example.portfolio.infrastructure.mapper.PersonDtoToPersonEntityMapper;
-import org.example.portfolio.infrastructure.mapper.PersonEntityToPersonDtoMapper;
+import org.example.portfolio.infrastructure.mapper.ToPersonEntityMapper;
+import org.example.portfolio.infrastructure.mapper.ToPersonDtoMapper;
 import org.example.portfolio.infrastructure.repository.PersonRepository;
 
 import java.util.List;
@@ -24,7 +24,7 @@ public class PersonJpaAdapter implements PersonPersistencePort {
 
         List<PersonEntity> personEntityList = personRepository.findAll();
 
-        return PersonEntityToPersonDtoMapper
+        return ToPersonDtoMapper
                 .TO_PERSON_DTO_MAPPER.mapEntityListToDtoList(personEntityList);
     }
 
@@ -35,7 +35,7 @@ public class PersonJpaAdapter implements PersonPersistencePort {
 
         if (personEntity.isPresent()) {
 
-            return PersonEntityToPersonDtoMapper
+            return ToPersonDtoMapper
                     .TO_PERSON_DTO_MAPPER.mapEntityToDto(personEntity.get());
         }
 
@@ -45,12 +45,12 @@ public class PersonJpaAdapter implements PersonPersistencePort {
     @Override
     public PersonDto save(PersonDto personDto) {
 
-        PersonEntity personEntity = PersonDtoToPersonEntityMapper
+        PersonEntity personEntity = ToPersonEntityMapper
                 .TO_PERSON_ENTITY_MAPPER.mapDtoToEntity(personDto);
 
         PersonEntity personEntitySaved = personRepository.save(personEntity);
 
-        return PersonEntityToPersonDtoMapper
+        return ToPersonDtoMapper
                 .TO_PERSON_DTO_MAPPER.mapEntityToDto(personEntitySaved);
     }
 

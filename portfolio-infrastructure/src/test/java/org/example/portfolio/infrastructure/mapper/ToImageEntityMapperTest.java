@@ -1,6 +1,6 @@
 package org.example.portfolio.infrastructure.mapper;
 
-import org.example.portfolio.domain.data.ImageDto;
+import org.example.portfolio.domain.model.ImageDto;
 import org.example.portfolio.infrastructure.entity.ImageEntity;
 
 import org.junit.jupiter.api.Test;
@@ -10,9 +10,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(classes = {
-        org.example.portfolio.domain.data.ImageDto.class
+        org.example.portfolio.domain.model.ImageDto.class
 })
-public class ImageDtoToImageEntityMapperTest {
+public class ToImageEntityMapperTest {
 
     @Test
     public void whenMapImageDtoWithExactMatch_thenConvertsToImageEntity() {
@@ -23,7 +23,7 @@ public class ImageDtoToImageEntityMapperTest {
         );
 
         ImageEntity imageEntity =
-                ImageDtoToImageEntityMapper.TO_IMAGE_ENTITY_MAPPER.mapDtoToEntity(imageDto);
+                ToImageEntityMapper.TO_IMAGE_ENTITY_MAPPER.mapDtoToEntity(imageDto);
 
         assertEquals(imageDto.getId(), imageEntity.getId());
 

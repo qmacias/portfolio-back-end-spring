@@ -2,7 +2,7 @@ package org.example.portfolio.domain.service;
 
 import org.example.portfolio.domain.port.in.ImageServicePort;
 import org.example.portfolio.domain.port.out.ImagePersistencePort;
-import org.example.portfolio.domain.data.ImageDto;
+import org.example.portfolio.domain.model.ImageDto;
 
 import java.util.List;
 

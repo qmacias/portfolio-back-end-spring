@@ -1,6 +1,6 @@
 package org.example.portfolio.infrastructure.mapper;
 
-import org.example.portfolio.domain.data.ImageDto;
+import org.example.portfolio.domain.model.ImageDto;
 
 import org.example.portfolio.infrastructure.entity.ImageEntity;
 
@@ -14,9 +14,9 @@ import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(classes = {
-        org.example.portfolio.domain.data.ImageDto.class
+        org.example.portfolio.domain.model.ImageDto.class
 })
-public class ImageEntityToImageDtoMapperTest {
+public class ToImageDtoMapperTest {
 
     @Test
     public void whenMapImageEntityWithExactMatch_thenConvertsToImageDto() {
@@ -26,7 +26,7 @@ public class ImageEntityToImageDtoMapperTest {
                 "https://ui-avatars.com/api/?name=Cristian+Quinto&size=255"
         );
 
-        ImageDto imageDto = ImageEntityToImageDtoMapper
+        ImageDto imageDto = ToImageDtoMapper
                 .TO_IMAGE_DTO_MAPPER.mapEntityToDto(imageEntity);
 
         assertEquals(imageEntity.getId(), imageDto.getId());
@@ -53,7 +53,7 @@ public class ImageEntityToImageDtoMapperTest {
 
         imageEntityList.add(imageEntity2);
 
-        List<ImageDto> imageDtoList = ImageEntityToImageDtoMapper
+        List<ImageDto> imageDtoList = ToImageDtoMapper
                 .TO_IMAGE_DTO_MAPPER.mapEntityListToDtoList(imageEntityList);
 
 //        assertEquals(imageEntityList, imageDtoList);
