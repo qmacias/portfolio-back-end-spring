@@ -21,7 +21,11 @@ public class ImageJpaAdapter implements ImagePersistencePort {
 
     @Override
     public List<ImageDto> findAll() {
-        return null;
+
+        List<ImageEntity> imageEntityList = imageRepository.findAll();
+
+        return ImageEntityToImageDtoMapper
+                .TO_IMAGE_DTO_MAPPER.mapEntityListToDtoList(imageEntityList);
     }
 
     @Override

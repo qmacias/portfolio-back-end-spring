@@ -7,6 +7,8 @@ import org.example.portfolio.infrastructure.mapper.ImageDtoToImageEntityMapper;
 
 import org.modelmapper.ModelMapper;
 
+import java.util.List;
+
 public class ImageDtoToImageEntityMapperImpl implements ImageDtoToImageEntityMapper {
 
     private ModelMapper modelMapper;

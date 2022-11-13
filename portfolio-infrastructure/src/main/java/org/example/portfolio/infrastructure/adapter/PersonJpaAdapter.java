@@ -21,7 +21,11 @@ public class PersonJpaAdapter implements PersonPersistencePort {
 
     @Override
     public List<PersonDto> findAll() {
-        return null;
+
+        List<PersonEntity> personEntityList = personRepository.findAll();
+
+        return PersonEntityToPersonDtoMapper
+                .TO_PERSON_DTO_MAPPER.mapEntityListToDtoList(personEntityList);
     }
 
     @Override

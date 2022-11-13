@@ -8,6 +8,8 @@ import org.example.portfolio.infrastructure.mapper.PersonDtoToPersonEntityMapper
 import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 
+import java.util.List;
+
 public class PersonDtoToPersonEntityMapperImpl implements PersonDtoToPersonEntityMapper {
 
     private ModelMapper modelMapper;

@@ -7,6 +7,9 @@ import org.example.portfolio.infrastructure.mapper.ImageEntityToImageDtoMapper;
 
 import org.modelmapper.ModelMapper;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class ImageEntityToImageDtoMapperImpl implements ImageEntityToImageDtoMapper {
 
     private ModelMapper modelMapper;
@@ -27,6 +30,14 @@ public class ImageEntityToImageDtoMapperImpl implements ImageEntityToImageDtoMap
     @Override
     public ImageDto mapEntityToDto(ImageEntity imageEntity) {
         return modelMapper.map(imageEntity, ImageDto.class);
+    }
+
+    @Override
+    public List<ImageDto> mapEntityListToDtoList(List<ImageEntity> imageEntityList) {
+
+        return imageEntityList.stream()
+                .map(imageEntity -> modelMapper.map(imageEntity, ImageDto.class))
+                .collect(Collectors.toList());
     }
 
 }
