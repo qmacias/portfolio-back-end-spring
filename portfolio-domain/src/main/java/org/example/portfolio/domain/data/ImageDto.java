@@ -1,11 +1,15 @@
 package org.example.portfolio.domain.data;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(
         onlyExplicitlyIncluded = true
+)
+@JsonInclude(
+        JsonInclude.Include.NON_NULL
 )
 public class ImageDto {
 
