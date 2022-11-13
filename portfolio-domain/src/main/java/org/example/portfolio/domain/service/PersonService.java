@@ -30,13 +30,6 @@ public class PersonService implements PersonServicePort {
 
     @Override
     public PersonDto addPerson(PersonDto personDto) {
-
-        personDto.setId(0L);
-
-        if (!(personDto.getImage() == null)) {
-            personDto.getImage().setId(0L);
-        }
-
         return personPersistencePort.save(personDto);
     }
 

@@ -26,7 +26,6 @@ public class ImageService implements ImageServicePort {
 
     @Override
     public ImageDto addImage(ImageDto imageDto) {
-        imageDto.setId(0L);
         return imagePersistencePort.save(imageDto);
     }
 
