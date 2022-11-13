@@ -22,8 +22,8 @@ import org.springframework.context.annotation.Configuration;
 public class ApplicationConfiguration {
 
     @Bean
-    public PersonServicePort getPersonService(PersonPersistencePort personPersistencePort) {
-        return new PersonServiceImpl(personPersistencePort);
+    public PersonServicePort getPersonService(PersonPersistencePort personPersistence) {
+        return new PersonServiceImpl(personPersistence);
     }
 
     @Bean
@@ -37,8 +37,8 @@ public class ApplicationConfiguration {
     }
 
     @Bean
-    public ImageServicePort getImageService(ImagePersistencePort imagePersistencePort) {
-        return new ImageServiceImpl(imagePersistencePort);
+    public ImageServicePort getImageService(ImagePersistencePort imagePersistence) {
+        return new ImageServiceImpl(imagePersistence);
     }
 
 }
