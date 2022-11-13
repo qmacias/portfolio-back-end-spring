@@ -2,7 +2,10 @@ package org.example.portfolio.domain.port.out;
 
 import org.example.portfolio.domain.model.ImageDto;
 
-import org.example.portfolio.domain.port.GenericPersistencePort;
+import org.example.portfolio.domain.usecase.DomainInteractPortUseCase;
 
-public interface ImagePersistencePort extends GenericPersistencePort<ImageDto, Long> {
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface ImagePersistencePort extends DomainInteractPortUseCase<ImageDto, Long> {
 }

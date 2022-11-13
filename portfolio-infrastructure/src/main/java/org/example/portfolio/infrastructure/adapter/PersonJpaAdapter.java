@@ -4,8 +4,10 @@ import org.example.portfolio.domain.model.PersonDto;
 import org.example.portfolio.domain.port.out.PersonPersistencePort;
 
 import org.example.portfolio.infrastructure.entity.PersonEntity;
+
 import org.example.portfolio.infrastructure.mapper.ToPersonEntityMapper;
 import org.example.portfolio.infrastructure.mapper.ToPersonDtoMapper;
+
 import org.example.portfolio.infrastructure.repository.PersonRepository;
 
 import java.util.List;
@@ -20,7 +22,7 @@ public class PersonJpaAdapter implements PersonPersistencePort {
     }
 
     @Override
-    public List<PersonDto> findAll() {
+    public List<PersonDto> getAll() {
 
         List<PersonEntity> personEntityList = personRepository.findAll();
 
@@ -29,7 +31,7 @@ public class PersonJpaAdapter implements PersonPersistencePort {
     }
 
     @Override
-    public PersonDto findById(Long id) {
+    public PersonDto getById(Long id) {
 
         Optional<PersonEntity> personEntity = personRepository.findById(id);
 
@@ -43,7 +45,7 @@ public class PersonJpaAdapter implements PersonPersistencePort {
     }
 
     @Override
-    public PersonDto save(PersonDto personDto) {
+    public PersonDto create(PersonDto personDto) {
 
         PersonEntity personEntity = ToPersonEntityMapper
                 .TO_PERSON_ENTITY_MAPPER.mapDtoToEntity(personDto);
@@ -55,7 +57,7 @@ public class PersonJpaAdapter implements PersonPersistencePort {
     }
 
     @Override
-    public void deleteById(Long id) {
+    public void removeById(Long id) {
         personRepository.deleteById(id);
     }
 

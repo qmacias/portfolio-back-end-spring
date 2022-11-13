@@ -4,6 +4,7 @@ import org.example.portfolio.domain.model.ImageDto;
 import org.example.portfolio.domain.port.in.ImageServicePort;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,22 +22,22 @@ public class ImageController {
 
     @GetMapping
     public List<ImageDto> getAllImages() {
-        return imageService.getAllImages();
+        return imageService.getAll();
     }
 
     @GetMapping("/{id}")
     public ImageDto getImage(@PathVariable Long id) {
-        return imageService.getImage(id);
+        return imageService.getById(id);
     }
 
     @PostMapping
     public ImageDto addImage(@RequestBody ImageDto imageDto) {
-        return imageService.addImage(imageDto);
+        return imageService.create(imageDto);
     }
 
     @DeleteMapping("/{id}")
     public void deleteImage(@PathVariable Long id) {
-        imageService.deleteImage(id);
+        imageService.removeById(id);
     }
 
 }

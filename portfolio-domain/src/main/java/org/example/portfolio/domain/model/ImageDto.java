@@ -1,7 +1,8 @@
 package org.example.portfolio.domain.model;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 @Data
 @NoArgsConstructor

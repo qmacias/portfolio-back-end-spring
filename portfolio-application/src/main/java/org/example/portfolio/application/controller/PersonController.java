@@ -7,6 +7,7 @@ import org.example.portfolio.domain.port.in.ImageServicePort;
 import org.example.portfolio.domain.port.in.PersonServicePort;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,30 +31,30 @@ public class PersonController {
 
     @GetMapping
     public List<PersonDto> getAllPerson() {
-        return personService.getAllPerson();
+        return personService.getAll();
     }
 
     @GetMapping("/{id}")
     public PersonDto getPerson(@PathVariable Long id) {
-        return personService.getPerson(id);
+        return personService.getById(id);
     }
 
     @PostMapping
     public PersonDto addPerson(@RequestBody PersonDto personDto) {
-        return personService.addPerson(personDto);
+        return personService.create(personDto);
     }
 
     @DeleteMapping("/{id}")
     public void deletePerson(@PathVariable Long id) {
-        personService.deletePerson(id);
+        personService.removeById(id);
     }
 
     @PutMapping("/{id}/images/{imageId}")
     public PersonDto assignDetail(@PathVariable Long id, @PathVariable Long imageId) {
 
-        ImageDto imageDto = imageService.getImage(imageId);
+        ImageDto imageDto = imageService.getById(imageId);
 
-        return personService.assignImage(id, imageDto);
+        return personService.assignDetails(imageDto, id);
     }
 
 }

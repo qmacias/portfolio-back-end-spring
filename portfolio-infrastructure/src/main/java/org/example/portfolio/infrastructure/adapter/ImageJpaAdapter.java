@@ -4,9 +4,11 @@ import org.example.portfolio.domain.model.ImageDto;
 import org.example.portfolio.domain.port.out.ImagePersistencePort;
 
 import org.example.portfolio.infrastructure.entity.ImageEntity;
+
 import org.example.portfolio.infrastructure.mapper.ToImageEntityMapper;
-import org.example.portfolio.infrastructure.repository.ImageRepository;
 import org.example.portfolio.infrastructure.mapper.ToImageDtoMapper;
+
+import org.example.portfolio.infrastructure.repository.ImageRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,7 +22,7 @@ public class ImageJpaAdapter implements ImagePersistencePort {
     }
 
     @Override
-    public List<ImageDto> findAll() {
+    public List<ImageDto> getAll() {
 
         List<ImageEntity> imageEntityList = imageRepository.findAll();
 
@@ -29,7 +31,7 @@ public class ImageJpaAdapter implements ImagePersistencePort {
     }
 
     @Override
-    public ImageDto findById(Long id) {
+    public ImageDto getById(Long id) {
 
         Optional<ImageEntity> imageEntity = imageRepository.findById(id);
 
@@ -42,7 +44,7 @@ public class ImageJpaAdapter implements ImagePersistencePort {
     }
 
     @Override
-    public ImageDto save(ImageDto imageDto) {
+    public ImageDto create(ImageDto imageDto) {
 
         ImageEntity imageEntity = ToImageEntityMapper
                 .TO_IMAGE_ENTITY_MAPPER.mapDtoToEntity(imageDto);
@@ -54,7 +56,7 @@ public class ImageJpaAdapter implements ImagePersistencePort {
     }
 
     @Override
-    public void deleteById(Long id) {
+    public void removeById(Long id) {
         imageRepository.deleteById(id);
     }
 
