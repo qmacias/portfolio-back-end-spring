@@ -39,4 +39,5 @@ http://localhost:8082/h2-console
 For further reference, please consider the following sections:
 
 - [Hexagonal Architecture](https://alistair.cockburn.us/hexagonal-architecture/)
-- [What is it and why should you use it?](https://cardoai.com/what-is-hexagonal-architecture-should-you-use-it/)
+- [Ports And Adapters Architecture Explained](https://codesoapbox.dev/ports-adapters-aka-hexagonal-architecture-explained/)
+- [What Is Hexagonal Architecture? Why Should You Use It?](https://cardoai.com/what-is-hexagonal-architecture-should-you-use-it/)
