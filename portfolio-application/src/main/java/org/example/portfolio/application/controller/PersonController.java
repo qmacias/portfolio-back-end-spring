@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/person")
 public class PersonController {
 
@@ -40,17 +41,17 @@ public class PersonController {
     }
 
     @PostMapping
-    public PersonDto addPerson(@RequestBody PersonDto personDto) {
-        return personService.create(personDto);
+    public PersonDto createOrUpdatePerson(@RequestBody PersonDto personDto) {
+        return personService.createOrUpdate(personDto);
     }
 
     @DeleteMapping("/{id}")
-    public void deletePerson(@PathVariable Long id) {
+    public void removePerson(@PathVariable Long id) {
         personService.removeById(id);
     }
 
     @PutMapping("/{id}/images/{imageId}")
-    public PersonDto assignDetail(@PathVariable Long id, @PathVariable Long imageId) {
+    public PersonDto assignImageDetails(@PathVariable Long id, @PathVariable Long imageId) {
 
         ImageDto imageDto = imageService.getById(imageId);
 

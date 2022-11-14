@@ -8,7 +8,7 @@ public interface DomainInteractPortUseCase<T, K> {
 
     T getById(K id);
 
-    T create(T modelDto);
+    T createOrUpdate(T modelDto);
 
     void removeById(K id);
 

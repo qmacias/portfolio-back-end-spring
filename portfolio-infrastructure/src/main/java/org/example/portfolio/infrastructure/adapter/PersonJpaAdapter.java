@@ -1,5 +1,8 @@
 package org.example.portfolio.infrastructure.adapter;
 
+import org.example.portfolio.domain.exception.ConflictException;
+import org.example.portfolio.domain.exception.NotFoundException;
+
 import org.example.portfolio.domain.model.PersonDto;
 import org.example.portfolio.domain.port.out.PersonPersistencePort;
 
@@ -11,7 +14,6 @@ import org.example.portfolio.infrastructure.mapper.ToPersonDtoMapper;
 import org.example.portfolio.infrastructure.repository.PersonRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 public class PersonJpaAdapter implements PersonPersistencePort {
 
@@ -33,22 +35,26 @@ public class PersonJpaAdapter implements PersonPersistencePort {
     @Override
     public PersonDto getById(Long id) {
 
-        Optional<PersonEntity> personEntity = personRepository.findById(id);
+        PersonEntity personEntity = personRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Person id: " + id));
 
-        if (personEntity.isPresent()) {
-
-            return ToPersonDtoMapper
-                    .TO_PERSON_DTO_MAPPER.mapEntityToDto(personEntity.get());
-        }
-
-        return null;
+        return ToPersonDtoMapper
+                .TO_PERSON_DTO_MAPPER.mapEntityToDto(personEntity);
     }
 
     @Override
-    public PersonDto create(PersonDto personDto) {
+    public PersonDto createOrUpdate(PersonDto personDto) {
 
         PersonEntity personEntity = ToPersonEntityMapper
                 .TO_PERSON_ENTITY_MAPPER.mapDtoToEntity(personDto);
+
+        if (personEntity.getId() == null) {
+
+            personRepository.findByEmail(personEntity.getEmail())
+                    .ifPresent(person -> {
+                        throw new ConflictException("Person email exist: " + person.getEmail());
+                    });
+        }
 
         PersonEntity personEntitySaved = personRepository.save(personEntity);
 

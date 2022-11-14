@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/images")
 public class ImageController {
 
@@ -31,12 +32,12 @@ public class ImageController {
     }
 
     @PostMapping
-    public ImageDto addImage(@RequestBody ImageDto imageDto) {
-        return imageService.create(imageDto);
+    public ImageDto createOrUpdateImage(@RequestBody ImageDto imageDto) {
+        return imageService.createOrUpdate(imageDto);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteImage(@PathVariable Long id) {
+    public void removeImage(@PathVariable Long id) {
         imageService.removeById(id);
     }
 

@@ -26,8 +26,8 @@ public class ImageServiceImpl implements ImageServicePort {
     }
 
     @Override
-    public ImageDto create(ImageDto imageDto) {
-        return imagePersistencePort.create(imageDto);
+    public ImageDto createOrUpdate(ImageDto imageDto) {
+        return imagePersistencePort.createOrUpdate(imageDto);
     }
 
     @Override

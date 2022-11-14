@@ -27,8 +27,8 @@ public class PersonServiceImpl implements PersonServicePort {
     }
 
     @Override
-    public PersonDto create(PersonDto personDto) {
-        return personPersistencePort.create(personDto);
+    public PersonDto createOrUpdate(PersonDto personDto) {
+        return personPersistencePort.createOrUpdate(personDto);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class PersonServiceImpl implements PersonServicePort {
 
         personDto.setImage(imageDto);
 
-        return personPersistencePort.create(personDto);
+        return personPersistencePort.createOrUpdate(personDto);
     }
 
 }
