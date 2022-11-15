@@ -7,8 +7,7 @@ import org.example.portfolio.domain.port.out.ImagePersistencePort;
 
 import org.example.portfolio.infrastructure.entity.ImageEntity;
 
-import org.example.portfolio.infrastructure.mapper.ToImageEntityMapper;
-import org.example.portfolio.infrastructure.mapper.ToImageDtoMapper;
+import org.example.portfolio.infrastructure.mapper.ToImageDtoOrEntityMapper;
 
 import org.example.portfolio.infrastructure.repository.ImageRepository;
 
@@ -16,10 +15,16 @@ import java.util.List;
 
 public class ImageJpaAdapter implements ImagePersistencePort {
 
-    private ImageRepository imageRepository;
+    private final ImageRepository imageRepository;
 
-    public ImageJpaAdapter(ImageRepository imageRepository) {
+    private final ToImageDtoOrEntityMapper toImageDtoOrEntityMapper;
+
+    public ImageJpaAdapter(
+            ImageRepository imageRepository,
+            ToImageDtoOrEntityMapper toImageDtoOrEntityMapper
+    ) {
         this.imageRepository = imageRepository;
+        this.toImageDtoOrEntityMapper = toImageDtoOrEntityMapper;
     }
 
     @Override
@@ -27,8 +32,7 @@ public class ImageJpaAdapter implements ImagePersistencePort {
 
         List<ImageEntity> imageEntityList = imageRepository.findAll();
 
-        return ToImageDtoMapper
-                .TO_IMAGE_DTO_MAPPER.mapEntityListToDtoList(imageEntityList);
+        return toImageDtoOrEntityMapper.mapEntityListToDtoList(imageEntityList);
     }
 
     @Override
@@ -37,20 +41,17 @@ public class ImageJpaAdapter implements ImagePersistencePort {
         ImageEntity imageEntity = imageRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Image id: " + id));
 
-        return ToImageDtoMapper
-                .TO_IMAGE_DTO_MAPPER.mapEntityToDto(imageEntity);
+        return toImageDtoOrEntityMapper.mapEntityToDto(imageEntity);
     }
 
     @Override
     public ImageDto createOrUpdate(ImageDto imageDto) {
 
-        ImageEntity imageEntity = ToImageEntityMapper
-                .TO_IMAGE_ENTITY_MAPPER.mapDtoToEntity(imageDto);
+        ImageEntity imageEntity = toImageDtoOrEntityMapper.mapDtoToEntity(imageDto);
 
         ImageEntity imageEntitySaved = imageRepository.save(imageEntity);
 
-        return ToImageDtoMapper
-                .TO_IMAGE_DTO_MAPPER.mapEntityToDto(imageEntitySaved);
+        return toImageDtoOrEntityMapper.mapEntityToDto(imageEntitySaved);
     }
 
     @Override

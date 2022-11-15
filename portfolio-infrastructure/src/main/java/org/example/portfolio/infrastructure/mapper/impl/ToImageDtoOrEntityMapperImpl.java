@@ -3,33 +3,30 @@ package org.example.portfolio.infrastructure.mapper.impl;
 import org.example.portfolio.domain.model.ImageDto;
 
 import org.example.portfolio.infrastructure.entity.ImageEntity;
-import org.example.portfolio.infrastructure.mapper.ToImageDtoMapper;
+
+import org.example.portfolio.infrastructure.mapper.ToImageDtoOrEntityMapper;
 
 import org.modelmapper.ModelMapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ToImageDtoMapperImpl implements ToImageDtoMapper {
+public class ToImageDtoOrEntityMapperImpl implements ToImageDtoOrEntityMapper {
 
     private ModelMapper modelMapper;
 
-    private ToImageDtoMapperImpl() {
-        modelMapper = new ModelMapper();
-    }
-
-    private static class Holder {
-        static final ToImageDtoMapper
-                TO_IMAGE_DTO_MAPPER = new ToImageDtoMapperImpl();
-    }
-
-    public static ToImageDtoMapper getInstance() {
-        return ToImageDtoMapperImpl.Holder.TO_IMAGE_DTO_MAPPER;
+    public ToImageDtoOrEntityMapperImpl(ModelMapper modelMapper) {
+        this.modelMapper = modelMapper;
     }
 
     @Override
     public ImageDto mapEntityToDto(ImageEntity imageEntity) {
         return modelMapper.map(imageEntity, ImageDto.class);
+    }
+
+    @Override
+    public ImageEntity mapDtoToEntity(ImageDto imageDto) {
+        return modelMapper.map(imageDto, ImageEntity.class);
     }
 
     @Override

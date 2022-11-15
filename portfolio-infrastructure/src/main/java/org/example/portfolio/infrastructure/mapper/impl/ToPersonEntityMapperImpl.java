@@ -3,6 +3,7 @@ package org.example.portfolio.infrastructure.mapper.impl;
 import org.example.portfolio.domain.model.PersonDto;
 
 import org.example.portfolio.infrastructure.entity.PersonEntity;
+
 import org.example.portfolio.infrastructure.mapper.ToPersonEntityMapper;
 
 import org.modelmapper.ModelMapper;
@@ -12,11 +13,11 @@ public class ToPersonEntityMapperImpl implements ToPersonEntityMapper {
 
     private ModelMapper modelMapper;
 
-    private ToPersonEntityMapperImpl() {
+    public ToPersonEntityMapperImpl(ModelMapper modelMapper) {
 
-        modelMapper = new ModelMapper();
+        this.modelMapper = modelMapper;
 
-        modelMapper.addMappings(new PropertyMap<PersonDto, PersonEntity>() {
+        this.modelMapper.addMappings(new PropertyMap<PersonDto, PersonEntity>() {
 
             @Override
             protected void configure() {
@@ -24,15 +25,6 @@ public class ToPersonEntityMapperImpl implements ToPersonEntityMapper {
                 map().getImageEntity().setPath(source.getImage().getPath());
             }
         });
-    }
-
-    private static class Holder {
-        static final ToPersonEntityMapper
-                TO_PERSON_ENTITY_MAPPER = new ToPersonEntityMapperImpl();
-    }
-
-    public static ToPersonEntityMapper getInstance() {
-        return ToPersonEntityMapperImpl.Holder.TO_PERSON_ENTITY_MAPPER;
     }
 
     @Override
