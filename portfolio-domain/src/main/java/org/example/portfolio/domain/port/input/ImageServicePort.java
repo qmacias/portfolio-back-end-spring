@@ -1,4 +1,4 @@
-package org.example.portfolio.domain.port.in;
+package org.example.portfolio.domain.port.input;
 
 import org.example.portfolio.domain.model.ImageDto;
 

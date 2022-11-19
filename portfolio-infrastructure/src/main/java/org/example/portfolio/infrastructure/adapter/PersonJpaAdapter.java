@@ -4,7 +4,7 @@ import org.example.portfolio.domain.exception.ConflictException;
 import org.example.portfolio.domain.exception.NotFoundException;
 
 import org.example.portfolio.domain.model.PersonDto;
-import org.example.portfolio.domain.port.out.PersonPersistencePort;
+import org.example.portfolio.domain.port.output.PersonPersistencePort;
 
 import org.example.portfolio.infrastructure.entity.PersonEntity;
 
@@ -12,7 +12,6 @@ import org.example.portfolio.infrastructure.mapper.ToPersonEntityMapper;
 import org.example.portfolio.infrastructure.mapper.ToPersonDtoMapper;
 
 import org.example.portfolio.infrastructure.repository.PersonRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 

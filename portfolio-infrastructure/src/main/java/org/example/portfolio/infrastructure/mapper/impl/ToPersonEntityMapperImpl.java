@@ -23,6 +23,15 @@ public class ToPersonEntityMapperImpl implements ToPersonEntityMapper {
             protected void configure() {
                 map().getImageEntity().setId(source.getImage().getId());
                 map().getImageEntity().setPath(source.getImage().getPath());
+                map().getPhoneEntities().stream()
+                        .forEach(phoneEntity -> source.getPhones().stream()
+                                .forEach(phoneDto -> {
+                                    phoneEntity.setId(phoneDto.getId());
+                                    phoneEntity.setType(phoneDto.getType());
+                                    phoneEntity.setNumber(phoneDto.getNumber());
+                                })
+                        );
+                // FIX: IT DOESN'T WORK! Exception with phonesEntityList mapping
             }
         });
     }

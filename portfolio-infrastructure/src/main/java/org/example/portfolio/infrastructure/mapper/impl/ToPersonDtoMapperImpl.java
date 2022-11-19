@@ -26,6 +26,15 @@ public class ToPersonDtoMapperImpl implements ToPersonDtoMapper {
             protected void configure() {
                 map().getImage().setId(source.getImageEntity().getId());
                 map().getImage().setPath(source.getImageEntity().getPath());
+                map().getPhones().stream()
+                        .forEach(phoneDto -> source.getPhoneEntities().stream()
+                                .forEach(phoneEntity -> {
+                                    phoneDto.setId(phoneEntity.getId());
+                                    phoneDto.setType(phoneEntity.getType());
+                                    phoneDto.setNumber(phoneEntity.getNumber());
+                                })
+                        );
+                // FIX: IT DOESN'T WORK! Exception with phoneDtoList mapping
             }
         });
     }

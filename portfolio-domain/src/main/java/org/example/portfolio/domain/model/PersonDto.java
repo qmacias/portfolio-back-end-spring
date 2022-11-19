@@ -4,6 +4,8 @@ import lombok.*;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(
@@ -29,6 +31,8 @@ public class PersonDto {
 
     private ImageDto image;
 
+    private List<PhoneDto> phones;
+
     public PersonDto(
             Long id,
             String name,
@@ -45,6 +49,16 @@ public class PersonDto {
         this.email = email;
         this.summary = summary;
         this.image = image;
+    }
+
+    public void addPhoneDto(PhoneDto phoneDto) {
+        phones.add(phoneDto);
+    }
+
+    public void removePhoneDto(PhoneDto phoneDto) {
+        if (phones != null) {
+            phones.remove(phoneDto);
+        }
     }
 
 }

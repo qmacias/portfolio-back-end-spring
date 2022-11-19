@@ -3,8 +3,9 @@ package org.example.portfolio.domain.service;
 import org.example.portfolio.domain.model.ImageDto;
 import org.example.portfolio.domain.model.PersonDto;
 
-import org.example.portfolio.domain.port.in.PersonServicePort;
-import org.example.portfolio.domain.port.out.PersonPersistencePort;
+import org.example.portfolio.domain.model.PhoneDto;
+import org.example.portfolio.domain.port.input.PersonServicePort;
+import org.example.portfolio.domain.port.output.PersonPersistencePort;
 
 import java.util.List;
 
@@ -42,6 +43,26 @@ public class PersonServiceImpl implements PersonServicePort {
         PersonDto personDto = personPersistencePort.getById(personId);
 
         personDto.setImage(imageDto);
+
+        return personPersistencePort.createOrUpdate(personDto);
+    }
+
+    @Override
+    public PersonDto addElement(PhoneDto phoneDto, Long personId) {
+
+        PersonDto personDto = personPersistencePort.getById(personId);
+
+        personDto.addPhoneDto(phoneDto);
+
+        return personPersistencePort.createOrUpdate(personDto);
+    }
+
+    @Override
+    public PersonDto removeElement(PhoneDto phoneDto, Long personId) {
+
+        PersonDto personDto = personPersistencePort.getById(personId);
+
+        personDto.removePhoneDto(phoneDto);
 
         return personPersistencePort.createOrUpdate(personDto);
     }

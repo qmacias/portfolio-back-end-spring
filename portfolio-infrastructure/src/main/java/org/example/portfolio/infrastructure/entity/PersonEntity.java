@@ -3,6 +3,8 @@ package org.example.portfolio.infrastructure.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -40,6 +42,15 @@ public class PersonEntity {
     )
     private ImageEntity imageEntity;
 
+    @OneToMany(
+        cascade=CascadeType.ALL,
+        orphanRemoval = true
+    )
+    @JoinColumn(
+        name="person_id"
+    )
+    private List<PhoneEntity> phoneEntities = new ArrayList<>();
+
     public PersonEntity(
             Long id,
             String name,
@@ -56,6 +67,16 @@ public class PersonEntity {
         this.email = email;
         this.summary = summary;
         this.imageEntity = imageEntity;
+    }
+
+    public void addPhoneEntity(PhoneEntity phoneEntity) {
+        phoneEntities.add(phoneEntity);
+    }
+
+    public void removePhoneEntity(PhoneEntity phoneEntity) {
+        if (phoneEntities != null) {
+            phoneEntities.remove(phoneEntity);
+        }
     }
 
 }

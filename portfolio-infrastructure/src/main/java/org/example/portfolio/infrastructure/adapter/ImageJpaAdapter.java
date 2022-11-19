@@ -3,7 +3,7 @@ package org.example.portfolio.infrastructure.adapter;
 import org.example.portfolio.domain.exception.NotFoundException;
 
 import org.example.portfolio.domain.model.ImageDto;
-import org.example.portfolio.domain.port.out.ImagePersistencePort;
+import org.example.portfolio.domain.port.output.ImagePersistencePort;
 
 import org.example.portfolio.infrastructure.entity.ImageEntity;
 
