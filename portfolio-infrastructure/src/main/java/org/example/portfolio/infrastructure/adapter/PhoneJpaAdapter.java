@@ -1,10 +1,15 @@
 package org.example.portfolio.infrastructure.adapter;
 
 import org.example.portfolio.domain.exception.NotFoundException;
+
 import org.example.portfolio.domain.model.PhoneDto;
+
 import org.example.portfolio.domain.port.output.PhonePersistencePort;
+
 import org.example.portfolio.infrastructure.entity.PhoneEntity;
-import org.example.portfolio.infrastructure.mapper.ToPhoneDtoOrEntityMapper;
+
+import org.example.portfolio.infrastructure.mapper.PhoneMapper;
+
 import org.example.portfolio.infrastructure.repository.PhoneRepository;
 
 import java.util.List;
@@ -13,14 +18,14 @@ public class PhoneJpaAdapter implements PhonePersistencePort {
 
     private final PhoneRepository phoneRepository;
 
-    private final ToPhoneDtoOrEntityMapper toPhoneDtoOrEntityMapper;
+    private final PhoneMapper phoneMapper;
 
     public PhoneJpaAdapter(
             PhoneRepository phoneRepository,
-            ToPhoneDtoOrEntityMapper toPhoneDtoOrEntityMapper
+            PhoneMapper phoneMapper
     ) {
         this.phoneRepository = phoneRepository;
-        this.toPhoneDtoOrEntityMapper = toPhoneDtoOrEntityMapper;
+        this.phoneMapper = phoneMapper;
     }
 
     @Override
@@ -28,7 +33,7 @@ public class PhoneJpaAdapter implements PhonePersistencePort {
 
         List<PhoneEntity> phoneEntityList = phoneRepository.findAll();
 
-        return toPhoneDtoOrEntityMapper.mapEntityListToDtoList(phoneEntityList);
+        return phoneMapper.mapEntityListToDtoList(phoneEntityList);
     }
 
     @Override
@@ -37,17 +42,17 @@ public class PhoneJpaAdapter implements PhonePersistencePort {
         PhoneEntity phoneEntity = phoneRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Phone id: " + id));
 
-        return toPhoneDtoOrEntityMapper.mapEntityToDto(phoneEntity);
+        return phoneMapper.mapEntityToDto(phoneEntity);
     }
 
     @Override
     public PhoneDto createOrUpdate(PhoneDto phoneDto) {
 
-        PhoneEntity phoneEntity = toPhoneDtoOrEntityMapper.mapDtoToEntity(phoneDto);
+        PhoneEntity phoneEntity = phoneMapper.mapDtoToEntity(phoneDto);
 
         PhoneEntity phoneEntitySaved = phoneRepository.save(phoneEntity);
 
-        return toPhoneDtoOrEntityMapper.mapEntityToDto(phoneEntitySaved);
+        return phoneMapper.mapEntityToDto(phoneEntitySaved);
     }
 
     @Override

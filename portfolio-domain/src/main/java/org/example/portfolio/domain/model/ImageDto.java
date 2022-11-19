@@ -1,11 +1,11 @@
 package org.example.portfolio.domain.model;
 
-import lombok.*;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 @Data
-@NoArgsConstructor
 @EqualsAndHashCode(
         onlyExplicitlyIncluded = true
 )
@@ -18,7 +18,12 @@ public class ImageDto {
 
     private String path;
 
+    protected ImageDto() {
+        super();
+    }
+
     public ImageDto(Long id, String path) {
+        this();
         this.id = id;
         this.path = path;
     }

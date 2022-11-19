@@ -3,8 +3,8 @@ package org.example.portfolio.domain.usecase;
 import org.springframework.stereotype.Component;
 
 @Component
-public interface DtoToEntityMapperUseCase<D, E> {
+public interface RequestModelMapperUseCase<S, D> {
 
-    E mapDtoToEntity(D sourceDto);
+    D mapDtoToEntity(S sourceDto);
 
 }

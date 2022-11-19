@@ -1,11 +1,11 @@
 package org.example.portfolio.infrastructure.entity;
 
-import lombok.*;
-
 import javax.persistence.*;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 @Data
-@NoArgsConstructor
 @EqualsAndHashCode(
         onlyExplicitlyIncluded = true
 )
@@ -21,7 +21,12 @@ public class ImageEntity {
 
     private String path;
 
+    protected ImageEntity() {
+        super();
+    }
+
     public ImageEntity(Long id, String path) {
+        this();
         this.id = id;
         this.path = path;
     }

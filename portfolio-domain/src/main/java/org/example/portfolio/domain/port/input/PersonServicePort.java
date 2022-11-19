@@ -10,7 +10,10 @@ import org.example.portfolio.domain.usecase.OneToOneMappingUseCase;
 
 import org.springframework.stereotype.Service;
 
+import org.springframework.transaction.annotation.Transactional;
+
 @Service
+@Transactional
 public interface PersonServicePort extends DomainInteractPortUseCase<PersonDto, Long>,
     OneToOneMappingUseCase<PersonDto, ImageDto, Long>, OneToManyMappingUseCase<PersonDto, PhoneDto, Long> {
 }

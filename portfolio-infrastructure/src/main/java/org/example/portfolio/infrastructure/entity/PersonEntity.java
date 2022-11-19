@@ -1,13 +1,14 @@
 package org.example.portfolio.infrastructure.entity;
 
-import lombok.*;
-
 import javax.persistence.*;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
 @EqualsAndHashCode(
         onlyExplicitlyIncluded = true
 )
@@ -43,13 +44,19 @@ public class PersonEntity {
     private ImageEntity imageEntity;
 
     @OneToMany(
-        cascade=CascadeType.ALL,
-        orphanRemoval = true
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
     )
     @JoinColumn(
-        name="person_id"
+            name = "person_id"
     )
-    private List<PhoneEntity> phoneEntities = new ArrayList<>();
+    private List<PhoneEntity> phoneEntities;
+
+    protected PersonEntity() {
+        super();
+        this.imageEntity = new ImageEntity();
+        this.phoneEntities = new ArrayList<>();
+    }
 
     public PersonEntity(
             Long id,
@@ -60,6 +67,7 @@ public class PersonEntity {
             String summary,
             ImageEntity imageEntity
     ) {
+        this();
         this.id = id;
         this.name = name;
         this.age = age;

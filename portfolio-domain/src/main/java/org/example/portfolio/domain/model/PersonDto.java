@@ -1,13 +1,14 @@
 package org.example.portfolio.domain.model;
 
-import lombok.*;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
 @EqualsAndHashCode(
         onlyExplicitlyIncluded = true
 )
@@ -33,6 +34,12 @@ public class PersonDto {
 
     private List<PhoneDto> phones;
 
+    public PersonDto() {
+        super();
+        this.image = new ImageDto();
+        this.phones = new ArrayList<>();
+    }
+
     public PersonDto(
             Long id,
             String name,
@@ -42,6 +49,7 @@ public class PersonDto {
             String summary,
             ImageDto image
     ) {
+        this();
         this.id = id;
         this.name = name;
         this.age = age;

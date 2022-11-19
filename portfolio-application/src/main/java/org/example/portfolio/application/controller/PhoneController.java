@@ -1,9 +1,11 @@
 package org.example.portfolio.application.controller;
 
 import org.example.portfolio.domain.model.PhoneDto;
+
 import org.example.portfolio.domain.port.input.PhoneServicePort;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,7 +28,7 @@ public class PhoneController {
     }
 
     @GetMapping("/{id}")
-    public PhoneDto getPhone(@PathVariable Long id) {
+    public PhoneDto getPhoneById(@PathVariable Long id) {
         return phoneService.getById(id);
     }
 
@@ -36,7 +38,7 @@ public class PhoneController {
     }
 
     @DeleteMapping("/{id}")
-    public void removePhone(@PathVariable Long id) {
+    public void removePhoneById(@PathVariable Long id) {
         phoneService.removeById(id);
     }
 

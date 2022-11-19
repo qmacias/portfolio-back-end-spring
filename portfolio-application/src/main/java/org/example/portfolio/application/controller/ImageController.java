@@ -1,6 +1,7 @@
 package org.example.portfolio.application.controller;
 
 import org.example.portfolio.domain.model.ImageDto;
+
 import org.example.portfolio.domain.port.input.ImageServicePort;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class ImageController {
     }
 
     @GetMapping("/{id}")
-    public ImageDto getImage(@PathVariable Long id) {
+    public ImageDto getImageById(@PathVariable Long id) {
         return imageService.getById(id);
     }
 
@@ -37,7 +38,7 @@ public class ImageController {
     }
 
     @DeleteMapping("/{id}")
-    public void removeImage(@PathVariable Long id) {
+    public void removeImageById(@PathVariable Long id) {
         imageService.removeById(id);
     }
 

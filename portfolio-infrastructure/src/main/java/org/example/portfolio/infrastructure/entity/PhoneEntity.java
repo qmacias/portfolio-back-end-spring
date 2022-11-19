@@ -1,13 +1,11 @@
 package org.example.portfolio.infrastructure.entity;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 @Data
-@NoArgsConstructor
 @EqualsAndHashCode(
         onlyExplicitlyIncluded = true
 )
@@ -25,7 +23,12 @@ public class PhoneEntity {
 
     private String number;
 
+    protected PhoneEntity() {
+        super();
+    }
+
     public PhoneEntity(Long id, String type, String number) {
+        this();
         this.id = id;
         this.type = type;
         this.number = number;

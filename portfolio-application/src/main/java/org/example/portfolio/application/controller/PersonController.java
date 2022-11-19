@@ -2,12 +2,12 @@ package org.example.portfolio.application.controller;
 
 import org.example.portfolio.domain.model.ImageDto;
 import org.example.portfolio.domain.model.PersonDto;
-
 import org.example.portfolio.domain.model.PhoneDto;
+
 import org.example.portfolio.domain.port.input.ImageServicePort;
 import org.example.portfolio.domain.port.input.PersonServicePort;
-
 import org.example.portfolio.domain.port.input.PhoneServicePort;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.*;
@@ -42,7 +42,7 @@ public class PersonController {
     }
 
     @GetMapping("/{id}")
-    public PersonDto getPerson(@PathVariable Long id) {
+    public PersonDto getPersonById(@PathVariable Long id) {
         return personService.getById(id);
     }
 
@@ -52,7 +52,7 @@ public class PersonController {
     }
 
     @DeleteMapping("/{id}")
-    public void removePerson(@PathVariable Long id) {
+    public void removePersonById(@PathVariable Long id) {
         personService.removeById(id);
     }
 
