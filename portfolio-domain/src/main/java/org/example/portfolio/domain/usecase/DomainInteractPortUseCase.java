@@ -2,6 +2,9 @@ package org.example.portfolio.domain.usecase;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public interface DomainInteractPortUseCase<T, K> {
 
     List<T> getAll();
