@@ -2,12 +2,9 @@ package org.example.portfolio.infrastructure.adapter;
 
 import org.example.portfolio.domain.exception.ConflictException;
 import org.example.portfolio.domain.exception.NotFoundException;
-
 import org.example.portfolio.domain.model.PersonDto;
 import org.example.portfolio.domain.port.output.PersonPersistencePort;
-
 import org.example.portfolio.infrastructure.entity.PersonEntity;
-
 import org.example.portfolio.infrastructure.mapper.PersonMapper;
 import org.example.portfolio.infrastructure.repository.PersonRepository;
 

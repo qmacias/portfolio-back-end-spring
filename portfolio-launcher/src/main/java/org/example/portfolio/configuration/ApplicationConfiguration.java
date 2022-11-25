@@ -1,39 +1,25 @@
 package org.example.portfolio.configuration;
 
-import org.example.portfolio.domain.port.input.ImageServicePort;
 import org.example.portfolio.domain.port.input.PersonServicePort;
-import org.example.portfolio.domain.port.input.PhoneServicePort;
-
 import org.example.portfolio.domain.port.output.ImagePersistencePort;
 import org.example.portfolio.domain.port.output.PersonPersistencePort;
 import org.example.portfolio.domain.port.output.PhonePersistencePort;
-
-import org.example.portfolio.domain.service.ImageServiceImpl;
 import org.example.portfolio.domain.service.PersonServiceImpl;
-
-import org.example.portfolio.domain.service.PhoneServiceImpl;
 import org.example.portfolio.infrastructure.adapter.PhoneJpaAdapter;
-
 import org.example.portfolio.infrastructure.mapper.ImageMapper;
 import org.example.portfolio.infrastructure.mapper.PersonMapper;
 import org.example.portfolio.infrastructure.mapper.PhoneMapper;
-
 import org.example.portfolio.infrastructure.mapper.impl.ImageMapperImpl;
 import org.example.portfolio.infrastructure.mapper.impl.PersonMapperImpl;
 import org.example.portfolio.infrastructure.mapper.impl.PhoneMapperImpl;
-
 import org.example.portfolio.infrastructure.repository.ImageRepository;
 import org.example.portfolio.infrastructure.repository.PersonRepository;
-
 import org.example.portfolio.infrastructure.adapter.ImageJpaAdapter;
 import org.example.portfolio.infrastructure.adapter.PersonJpaAdapter;
-
 import org.example.portfolio.infrastructure.repository.PhoneRepository;
 
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
 
 
 @Configuration
@@ -67,16 +53,6 @@ public class ApplicationConfiguration {
     @Bean
     public PersonPersistencePort getPersonPersistence(PersonRepository personRepository, PersonMapper personMapper) {
         return new PersonJpaAdapter(personRepository, personMapper);
-    }
-
-    @Bean
-    public ImageServicePort getImageService(ImagePersistencePort imagePersistence) {
-        return new ImageServiceImpl(imagePersistence);
-    }
-
-    @Bean
-    public PhoneServicePort getPhoneService(PhonePersistencePort phonePersistence) {
-        return new PhoneServiceImpl(phonePersistence);
     }
 
     @Bean

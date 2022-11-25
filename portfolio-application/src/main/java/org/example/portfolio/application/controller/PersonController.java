@@ -1,15 +1,9 @@
 package org.example.portfolio.application.controller;
 
-import org.example.portfolio.domain.model.ImageDto;
 import org.example.portfolio.domain.model.PersonDto;
-import org.example.portfolio.domain.model.PhoneDto;
-
-import org.example.portfolio.domain.port.input.ImageServicePort;
 import org.example.portfolio.domain.port.input.PersonServicePort;
-import org.example.portfolio.domain.port.input.PhoneServicePort;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

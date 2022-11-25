@@ -1,15 +1,10 @@
 package org.example.portfolio.infrastructure.adapter;
 
 import org.example.portfolio.domain.exception.NotFoundException;
-
 import org.example.portfolio.domain.model.ImageDto;
-
 import org.example.portfolio.domain.port.output.ImagePersistencePort;
-
 import org.example.portfolio.infrastructure.entity.ImageEntity;
-
 import org.example.portfolio.infrastructure.mapper.ImageMapper;
-
 import org.example.portfolio.infrastructure.repository.ImageRepository;
 
 import java.util.List;

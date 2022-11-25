@@ -1,9 +1,7 @@
 package org.example.portfolio.infrastructure.mapper.impl;
 
 import org.example.portfolio.domain.model.PersonDto;
-
 import org.example.portfolio.infrastructure.entity.PersonEntity;
-
 import org.example.portfolio.infrastructure.mapper.ImageMapper;
 import org.example.portfolio.infrastructure.mapper.PersonMapper;
 import org.example.portfolio.infrastructure.mapper.PhoneMapper;

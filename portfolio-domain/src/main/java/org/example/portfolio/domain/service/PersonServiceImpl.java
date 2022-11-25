@@ -1,9 +1,6 @@
 package org.example.portfolio.domain.service;
 
-import org.example.portfolio.domain.model.ImageDto;
 import org.example.portfolio.domain.model.PersonDto;
-import org.example.portfolio.domain.model.PhoneDto;
-
 import org.example.portfolio.domain.port.input.PersonServicePort;
 import org.example.portfolio.domain.port.output.PersonPersistencePort;
 

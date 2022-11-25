@@ -1,9 +1,7 @@
 package org.example.portfolio.infrastructure.mapper.impl;
 
 import org.example.portfolio.domain.model.PhoneDto;
-
 import org.example.portfolio.infrastructure.entity.PhoneEntity;
-
 import org.example.portfolio.infrastructure.mapper.PhoneMapper;
 
 import java.util.ArrayList;
