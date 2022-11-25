@@ -45,7 +45,6 @@ Add Person Example:
             "number": "+54 9 2644558963"
         },
         {
-            "id": 2,
             "type": "House",
             "number": "+54 9 2646897412"
         }
