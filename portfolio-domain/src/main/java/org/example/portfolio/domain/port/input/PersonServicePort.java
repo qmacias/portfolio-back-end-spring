@@ -13,11 +13,4 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public interface PersonServicePort extends DomainInteractPortUseCase<PersonDto, Long> {
-
-    public PersonDto assignImageDetails(ImageDto imageDto, Long personId);
-
-    public PersonDto addPhoneToList(PhoneDto phoneDto, Long personId);
-
-    public PersonDto removePhoneFromList(PhoneDto phoneDto, Long personId);
-
 }

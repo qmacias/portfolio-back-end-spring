@@ -50,34 +50,22 @@ public class ApplicationConfiguration {
     }
 
     @Bean
-    public PersonMapper getToPersonMapper(
-            ImageMapper imageMapper,
-            PhoneMapper phoneMapper
-    ) {
+    public PersonMapper getToPersonMapper(ImageMapper imageMapper, PhoneMapper phoneMapper) {
         return new PersonMapperImpl(imageMapper, phoneMapper);
     }
 
     @Bean
-    public ImagePersistencePort getImagePersistence(
-            ImageRepository imageRepository,
-            ImageMapper imageMapper
-    ) {
+    public ImagePersistencePort getImagePersistence(ImageRepository imageRepository, ImageMapper imageMapper) {
         return new ImageJpaAdapter(imageRepository, imageMapper);
     }
 
     @Bean
-    public PhonePersistencePort getPhonePersistence(
-            PhoneRepository phoneRepository,
-            PhoneMapper phoneMapper
-    ) {
+    public PhonePersistencePort getPhonePersistence(PhoneRepository phoneRepository, PhoneMapper phoneMapper) {
         return new PhoneJpaAdapter(phoneRepository, phoneMapper);
     }
 
     @Bean
-    public PersonPersistencePort getPersonPersistence(
-            PersonRepository personRepository,
-            PersonMapper personMapper
-    ) {
+    public PersonPersistencePort getPersonPersistence(PersonRepository personRepository, PersonMapper personMapper) {
         return new PersonJpaAdapter(personRepository, personMapper);
     }
 

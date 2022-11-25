@@ -37,34 +37,4 @@ public class PersonServiceImpl implements PersonServicePort {
         personPersistencePort.removeById(id);
     }
 
-    @Override
-    public PersonDto assignImageDetails(ImageDto imageDto, Long personId) {
-
-        PersonDto personDto = personPersistencePort.getById(personId);
-
-        personDto.setImage(imageDto);
-
-        return personPersistencePort.createOrUpdate(personDto);
-    }
-
-    @Override
-    public PersonDto addPhoneToList(PhoneDto phoneDto, Long personId) {
-
-        PersonDto personDto = personPersistencePort.getById(personId);
-
-        personDto.addPhoneDto(phoneDto);
-
-        return personPersistencePort.createOrUpdate(personDto);
-    }
-
-    @Override
-    public PersonDto removePhoneFromList(PhoneDto phoneDto, Long personId) {
-
-        PersonDto personDto = personPersistencePort.getById(personId);
-
-        personDto.removePhoneDto(phoneDto);
-
-        return personPersistencePort.createOrUpdate(personDto);
-    }
-
 }

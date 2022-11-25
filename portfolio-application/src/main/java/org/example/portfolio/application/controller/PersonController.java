@@ -21,19 +21,9 @@ public class PersonController {
 
     private final PersonServicePort personService;
 
-    private final ImageServicePort imageService;
-
-    private final PhoneServicePort phoneService;
-
     @Autowired
-    public PersonController(
-            PersonServicePort personService,
-            ImageServicePort imageService,
-            PhoneServicePort phoneService
-    ) {
+    public PersonController(PersonServicePort personService) {
         this.personService = personService;
-        this.imageService = imageService;
-        this.phoneService = phoneService;
     }
 
     @GetMapping
@@ -54,30 +44,6 @@ public class PersonController {
     @DeleteMapping("/{id}")
     public void removePersonById(@PathVariable Long id) {
         personService.removeById(id);
-    }
-
-    @PutMapping("/{id}/images/{imageId}")
-    public PersonDto assignImageDetails(@PathVariable Long id, @PathVariable Long imageId) {
-
-        ImageDto imageDto = imageService.getById(imageId);
-
-        return personService.assignImageDetails(imageDto, id);
-    }
-
-    @PutMapping("/{id}/phones/{phoneId}")
-    public PersonDto addPhoneToList(@PathVariable Long id, @PathVariable Long phoneId) {
-
-        PhoneDto phoneDto = phoneService.getById(phoneId);
-
-        return personService.addPhoneToList(phoneDto, id);
-    }
-
-    @PutMapping("/{id}/removePhones/{phoneId}")
-    public PersonDto removePhoneFromList(@PathVariable Long id, @PathVariable Long phoneId) {
-
-        PhoneDto phoneDto = phoneService.getById(phoneId);
-
-        return personService.removePhoneFromList(phoneDto, id);
     }
 
 }
