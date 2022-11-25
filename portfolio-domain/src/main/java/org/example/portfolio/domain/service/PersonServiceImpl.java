@@ -38,7 +38,7 @@ public class PersonServiceImpl implements PersonServicePort {
     }
 
     @Override
-    public PersonDto assignDetails(ImageDto imageDto, Long personId) {
+    public PersonDto assignImageDetails(ImageDto imageDto, Long personId) {
 
         PersonDto personDto = personPersistencePort.getById(personId);
 
@@ -48,7 +48,7 @@ public class PersonServiceImpl implements PersonServicePort {
     }
 
     @Override
-    public PersonDto addElement(PhoneDto phoneDto, Long personId) {
+    public PersonDto addPhoneToList(PhoneDto phoneDto, Long personId) {
 
         PersonDto personDto = personPersistencePort.getById(personId);
 
@@ -58,7 +58,7 @@ public class PersonServiceImpl implements PersonServicePort {
     }
 
     @Override
-    public PersonDto removeElement(PhoneDto phoneDto, Long personId) {
+    public PersonDto removePhoneFromList(PhoneDto phoneDto, Long personId) {
 
         PersonDto personDto = personPersistencePort.getById(personId);
 

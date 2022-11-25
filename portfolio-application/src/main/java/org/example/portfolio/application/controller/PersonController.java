@@ -61,23 +61,23 @@ public class PersonController {
 
         ImageDto imageDto = imageService.getById(imageId);
 
-        return personService.assignDetails(imageDto, id);
+        return personService.assignImageDetails(imageDto, id);
     }
 
     @PutMapping("/{id}/phones/{phoneId}")
-    public PersonDto addPhone(@PathVariable Long id, @PathVariable Long phoneId) {
+    public PersonDto addPhoneToList(@PathVariable Long id, @PathVariable Long phoneId) {
 
         PhoneDto phoneDto = phoneService.getById(phoneId);
 
-        return personService.addElement(phoneDto, id);
+        return personService.addPhoneToList(phoneDto, id);
     }
 
     @PutMapping("/{id}/removePhones/{phoneId}")
-    public PersonDto removePhone(@PathVariable Long id, @PathVariable Long phoneId) {
+    public PersonDto removePhoneFromList(@PathVariable Long id, @PathVariable Long phoneId) {
 
         PhoneDto phoneDto = phoneService.getById(phoneId);
 
-        return personService.removeElement(phoneDto, id);
+        return personService.removePhoneFromList(phoneDto, id);
     }
 
 }
