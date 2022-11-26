@@ -8,5 +8,5 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public interface PersonServicePort extends DomainInteractPortUseCase<PersonDto, Long> {
+public interface PersonServicePort extends DomainInteractPortUseCase<PersonDto, String> {
 }

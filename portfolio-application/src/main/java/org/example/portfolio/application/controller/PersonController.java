@@ -26,7 +26,7 @@ public class PersonController {
     }
 
     @GetMapping("/{id}")
-    public PersonDto getPersonById(@PathVariable Long id) {
+    public PersonDto getPersonById(@PathVariable String id) {
         return personService.getById(id);
     }
 
@@ -36,7 +36,7 @@ public class PersonController {
     }
 
     @DeleteMapping("/{id}")
-    public void removePersonById(@PathVariable Long id) {
+    public void removePersonById(@PathVariable String id) {
         personService.removeById(id);
     }
 

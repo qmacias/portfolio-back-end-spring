@@ -1,6 +1,8 @@
 package org.example.portfolio.infrastructure.entity;
 
-import javax.persistence.*;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,10 +16,7 @@ import lombok.EqualsAndHashCode;
 public class ImageEntity {
 
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.IDENTITY
-    )
-    private Long id;
+    private String id;
 
     private String path;
 
@@ -25,7 +24,7 @@ public class ImageEntity {
         super();
     }
 
-    public ImageEntity(Long id, String path) {
+    public ImageEntity(String id, String path) {
         this();
         this.id = id;
         this.path = path;

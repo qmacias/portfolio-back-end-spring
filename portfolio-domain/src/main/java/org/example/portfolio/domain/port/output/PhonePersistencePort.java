@@ -6,5 +6,5 @@ import org.example.portfolio.domain.usecase.DomainInteractPortUseCase;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PhonePersistencePort extends DomainInteractPortUseCase<PhoneDto, Long> {
+public interface PhonePersistencePort extends DomainInteractPortUseCase<PhoneDto, String> {
 }

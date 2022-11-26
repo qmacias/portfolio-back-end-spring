@@ -32,7 +32,7 @@ public class ImageJpaAdapter implements ImagePersistencePort {
     }
 
     @Override
-    public ImageDto getById(Long id) {
+    public ImageDto getById(String id) {
 
         ImageEntity imageEntity = imageRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Image id: " + id));
@@ -51,7 +51,7 @@ public class ImageJpaAdapter implements ImagePersistencePort {
     }
 
     @Override
-    public void removeById(Long id) {
+    public void removeById(String id) {
         imageRepository.deleteById(id);
     }
 

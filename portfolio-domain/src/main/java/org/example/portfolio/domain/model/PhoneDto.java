@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.util.UUID;
+
 @Data
 @EqualsAndHashCode(
         onlyExplicitlyIncluded = true
@@ -14,7 +16,7 @@ import lombok.EqualsAndHashCode;
 )
 public class PhoneDto {
 
-    private Long id;
+    private String id;
 
     private String type;
 
@@ -22,9 +24,10 @@ public class PhoneDto {
 
     protected PhoneDto() {
         super();
+        this.id = UUID.randomUUID().toString();
     }
 
-    public PhoneDto(Long id, String type, String number) {
+    public PhoneDto(String id, String type, String number) {
         this();
         this.id = id;
         this.type = type;

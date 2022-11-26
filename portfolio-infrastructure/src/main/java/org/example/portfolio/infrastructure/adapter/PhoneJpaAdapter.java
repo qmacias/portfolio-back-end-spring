@@ -32,7 +32,7 @@ public class PhoneJpaAdapter implements PhonePersistencePort {
     }
 
     @Override
-    public PhoneDto getById(Long id) {
+    public PhoneDto getById(String id) {
 
         PhoneEntity phoneEntity = phoneRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Phone id: " + id));
@@ -51,7 +51,7 @@ public class PhoneJpaAdapter implements PhonePersistencePort {
     }
 
     @Override
-    public void removeById(Long id) {
+    public void removeById(String id) {
         phoneRepository.deleteById(id);
     }
 

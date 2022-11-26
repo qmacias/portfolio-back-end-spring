@@ -20,7 +20,7 @@ public class PersonServiceImpl implements PersonServicePort {
     }
 
     @Override
-    public PersonDto getById(Long id) {
+    public PersonDto getById(String id) {
         return personPersistencePort.getById(id);
     }
 
@@ -30,7 +30,7 @@ public class PersonServiceImpl implements PersonServicePort {
     }
 
     @Override
-    public void removeById(Long id) {
+    public void removeById(String id) {
         personPersistencePort.removeById(id);
     }
 

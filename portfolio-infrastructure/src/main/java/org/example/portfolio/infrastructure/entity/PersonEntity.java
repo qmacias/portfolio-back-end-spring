@@ -17,10 +17,7 @@ import java.util.List;
 public class PersonEntity {
 
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.IDENTITY
-    )
-    private Long id;
+    private String id;
 
     private String name;
 
@@ -59,7 +56,7 @@ public class PersonEntity {
     }
 
     public PersonEntity(
-            Long id,
+            String id,
             String name,
             Integer age,
             String degree,

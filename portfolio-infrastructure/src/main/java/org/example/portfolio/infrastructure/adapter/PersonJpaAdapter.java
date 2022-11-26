@@ -33,7 +33,7 @@ public class PersonJpaAdapter implements PersonPersistencePort {
     }
 
     @Override
-    public PersonDto getById(Long id) {
+    public PersonDto getById(String id) {
 
         PersonEntity personEntity = personRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Person id: " + id));
@@ -60,7 +60,7 @@ public class PersonJpaAdapter implements PersonPersistencePort {
     }
 
     @Override
-    public void removeById(Long id) {
+    public void removeById(String id) {
         personRepository.deleteById(id);
     }
 

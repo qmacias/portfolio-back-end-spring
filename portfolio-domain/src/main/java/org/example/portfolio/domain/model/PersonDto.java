@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @EqualsAndHashCode(
@@ -17,7 +18,7 @@ import java.util.List;
 )
 public class PersonDto {
 
-    private Long id;
+    private String id;
 
     private String name;
 
@@ -34,14 +35,15 @@ public class PersonDto {
 
     private List<PhoneDto> phones;
 
-    public PersonDto() {
+    protected PersonDto() {
         super();
+        this.id = UUID.randomUUID().toString();
         this.image = new ImageDto();
         this.phones = new ArrayList<>();
     }
 
     public PersonDto(
-            Long id,
+            String id,
             String name,
             Integer age,
             String degree,

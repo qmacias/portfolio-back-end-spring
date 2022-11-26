@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.util.UUID;
+
 @Data
 @EqualsAndHashCode(
         onlyExplicitlyIncluded = true
@@ -14,15 +16,16 @@ import lombok.EqualsAndHashCode;
 )
 public class ImageDto {
 
-    private Long id;
+    private String id;
 
     private String path;
 
     protected ImageDto() {
         super();
+        this.id = UUID.randomUUID().toString();
     }
 
-    public ImageDto(Long id, String path) {
+    public ImageDto(String id, String path) {
         this();
         this.id = id;
         this.path = path;

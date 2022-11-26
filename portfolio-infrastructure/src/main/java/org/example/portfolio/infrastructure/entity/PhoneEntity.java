@@ -1,6 +1,8 @@
 package org.example.portfolio.infrastructure.entity;
 
-import javax.persistence.*;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,10 +16,7 @@ import lombok.EqualsAndHashCode;
 public class PhoneEntity {
 
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.IDENTITY
-    )
-    private Long id;
+    private String id;
 
     private String type;
 
@@ -27,7 +26,7 @@ public class PhoneEntity {
         super();
     }
 
-    public PhoneEntity(Long id, String type, String number) {
+    public PhoneEntity(String id, String type, String number) {
         this();
         this.id = id;
         this.type = type;
