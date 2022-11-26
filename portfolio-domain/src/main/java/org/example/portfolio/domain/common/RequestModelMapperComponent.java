@@ -1,9 +1,9 @@
-package org.example.portfolio.domain.usecase;
+package org.example.portfolio.domain.common;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public interface RequestModelMapperUseCase<S, D> {
+public interface RequestModelMapperComponent<S, D> {
 
     D mapDtoToEntity(S sourceDto);
 

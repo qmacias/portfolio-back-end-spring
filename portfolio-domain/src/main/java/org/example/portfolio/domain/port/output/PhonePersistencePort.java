@@ -1,10 +1,7 @@
 package org.example.portfolio.domain.port.output;
 
 import org.example.portfolio.domain.model.PhoneDto;
-import org.example.portfolio.domain.usecase.DomainInteractPortUseCase;
+import org.example.portfolio.domain.port.GenericPersistencePort;
 
-import org.springframework.stereotype.Repository;
-
-@Repository
-public interface PhonePersistencePort extends DomainInteractPortUseCase<PhoneDto, String> {
+public interface PhonePersistencePort extends GenericPersistencePort<PhoneDto, String> {
 }

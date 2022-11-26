@@ -1,10 +1,7 @@
 package org.example.portfolio.domain.port.output;
 
 import org.example.portfolio.domain.model.PersonDto;
-import org.example.portfolio.domain.usecase.DomainInteractPortUseCase;
+import org.example.portfolio.domain.port.GenericPersistencePort;
 
-import org.springframework.stereotype.Repository;
-
-@Repository
-public interface PersonPersistencePort extends DomainInteractPortUseCase<PersonDto, String> {
+public interface PersonPersistencePort extends GenericPersistencePort<PersonDto, String> {
 }
