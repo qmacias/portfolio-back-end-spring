@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public interface ResponseModelMapperComponent<S, D> {
+public interface ResponseModelMapper<S, D> {
 
     D mapEntityToDto(S sourceEntity);
 
