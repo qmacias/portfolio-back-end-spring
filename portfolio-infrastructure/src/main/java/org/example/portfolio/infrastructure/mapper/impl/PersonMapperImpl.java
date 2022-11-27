@@ -2,10 +2,7 @@ package org.example.portfolio.infrastructure.mapper.impl;
 
 import org.example.portfolio.domain.model.PersonDto;
 import org.example.portfolio.infrastructure.entity.PersonEntity;
-import org.example.portfolio.infrastructure.mapper.AddressMapper;
-import org.example.portfolio.infrastructure.mapper.ImageMapper;
-import org.example.portfolio.infrastructure.mapper.PersonMapper;
-import org.example.portfolio.infrastructure.mapper.PhoneMapper;
+import org.example.portfolio.infrastructure.mapper.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +34,10 @@ public class PersonMapperImpl implements PersonMapper {
                 AddressMapper.INSTANCE.mapDtoToEntity(addressDto)
         ));
 
+        personDto.getSocialList().forEach(socialDto -> personEntity.addSocialEntity(
+                SocialMapper.INSTANCE.mapDtoToEntity(socialDto)
+        ));
+
         return personEntity;
     }
 
@@ -60,6 +61,10 @@ public class PersonMapperImpl implements PersonMapper {
 
         personEntity.getAddressEntities().forEach(addressEntity -> personDto.addAddressDto(
                 AddressMapper.INSTANCE.mapEntityToDto(addressEntity)
+        ));
+
+        personEntity.getSocialEntities().forEach(socialEntity -> personDto.addSocialDto(
+                SocialMapper.INSTANCE.mapEntityToDto(socialEntity)
         ));
 
         return personDto;

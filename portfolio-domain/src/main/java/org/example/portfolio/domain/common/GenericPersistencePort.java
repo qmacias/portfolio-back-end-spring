@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 @Component
-public interface GenericPersistencePort<T, K> {
+public interface GenericPersistencePort<Dto, Key> {
 
-    List<T> getAll();
+    List<Dto> getAll();
 
-    T getById(K id);
+    Dto getById(Key id);
 
-    T createOrUpdate(T modelDto);
+    Dto createOrUpdate(Dto modelDto);
 
-    void removeById(K id);
+    void removeById(Key id);
 
 }

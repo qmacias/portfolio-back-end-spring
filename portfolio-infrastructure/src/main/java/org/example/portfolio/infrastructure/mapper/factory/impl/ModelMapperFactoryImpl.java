@@ -1,14 +1,8 @@
 package org.example.portfolio.infrastructure.mapper.factory.impl;
 
-import org.example.portfolio.infrastructure.mapper.PersonMapper;
-import org.example.portfolio.infrastructure.mapper.ImageMapper;
-import org.example.portfolio.infrastructure.mapper.PhoneMapper;
-import org.example.portfolio.infrastructure.mapper.AddressMapper;
+import org.example.portfolio.infrastructure.mapper.*;
+import org.example.portfolio.infrastructure.mapper.impl.*;
 import org.example.portfolio.infrastructure.mapper.factory.ModelMapperFactory;
-import org.example.portfolio.infrastructure.mapper.impl.PersonMapperImpl;
-import org.example.portfolio.infrastructure.mapper.impl.ImageMapperImpl;
-import org.example.portfolio.infrastructure.mapper.impl.PhoneMapperImpl;
-import org.example.portfolio.infrastructure.mapper.impl.AddressMapperImpl;
 
 public class ModelMapperFactoryImpl extends ModelMapperFactory {
 
@@ -19,6 +13,8 @@ public class ModelMapperFactoryImpl extends ModelMapperFactory {
     private PhoneMapper phoneMapper = null;
 
     private AddressMapper addressMapper = null;
+
+    private SocialMapper socialMapper = null;
 
     @Override
     public PersonMapper getPersonMapperInstance() {
@@ -58,6 +54,16 @@ public class ModelMapperFactoryImpl extends ModelMapperFactory {
         }
 
         return addressMapper;
+    }
+
+    @Override
+    public SocialMapper getSocialMapperInstance() {
+
+        if (socialMapper == null) {
+            socialMapper = new SocialMapperImpl();
+        }
+
+        return socialMapper;
     }
 
 }

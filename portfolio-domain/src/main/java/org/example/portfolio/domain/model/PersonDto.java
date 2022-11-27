@@ -37,12 +37,15 @@ public class PersonDto {
 
     private List<AddressDto> addressList;
 
+    private List<SocialDto> socialList;
+
     protected PersonDto() {
         super();
         this.id = UUID.randomUUID().toString();
         this.image = new ImageDto();
         this.phoneList = new ArrayList<>();
         this.addressList = new ArrayList<>();
+        this.socialList = new ArrayList<>();
     }
 
     public PersonDto(
@@ -70,6 +73,10 @@ public class PersonDto {
 
     public void addAddressDto(AddressDto addressDto) {
         addressList.add(addressDto);
+    }
+
+    public void addSocialDto(SocialDto socialDto) {
+        socialList.add(socialDto);
     }
 
 }

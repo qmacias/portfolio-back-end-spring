@@ -5,12 +5,12 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public interface GenericModelMapper<D, E> {
+public interface GenericModelMapper<Dto, Entity> {
 
-    E mapDtoToEntity(D sourceDto);
+    Entity mapDtoToEntity(Dto sourceDto);
 
-    D mapEntityToDto(E sourceEntity);
+    Dto mapEntityToDto(Entity sourceEntity);
 
-    List<D> mapEntityListToDtoList(List<E> sourceEntityList);
+    List<Dto> mapEntityListToDtoList(List<Entity> sourceEntityList);
 
 }

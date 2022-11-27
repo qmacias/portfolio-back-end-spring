@@ -58,11 +58,21 @@ public class PersonEntity {
     )
     private List<AddressEntity> addressEntities;
 
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JoinColumn(
+            name = "person_id"
+    )
+    private List<SocialEntity> socialEntities;
+
     protected PersonEntity() {
         super();
         this.imageEntity = new ImageEntity();
         this.phoneEntities = new ArrayList<>();
         this.addressEntities = new ArrayList<>();
+        this.socialEntities = new ArrayList<>();
     }
 
     public PersonEntity(
@@ -90,6 +100,10 @@ public class PersonEntity {
 
     public void addAddressEntity(AddressEntity addressEntity) {
         addressEntities.add(addressEntity);
+    }
+
+    public void addSocialEntity(SocialEntity socialEntity) {
+        socialEntities.add(socialEntity);
     }
 
 }

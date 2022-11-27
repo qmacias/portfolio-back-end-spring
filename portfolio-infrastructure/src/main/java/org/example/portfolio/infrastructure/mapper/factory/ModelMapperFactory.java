@@ -1,15 +1,13 @@
 package org.example.portfolio.infrastructure.mapper.factory;
 
-import org.example.portfolio.infrastructure.mapper.PersonMapper;
-import org.example.portfolio.infrastructure.mapper.ImageMapper;
-import org.example.portfolio.infrastructure.mapper.PhoneMapper;
-import org.example.portfolio.infrastructure.mapper.AddressMapper;
+import org.example.portfolio.infrastructure.mapper.*;
 
 public abstract class ModelMapperFactory {
 
     public static ModelMapperFactory factory = null;
 
     public static ModelMapperFactory getFactory() {
+        assert factory != null;
         return factory;
     }
 
@@ -24,5 +22,7 @@ public abstract class ModelMapperFactory {
     public abstract PhoneMapper getPhoneMapperInstance();
 
     public abstract AddressMapper getAddressMapperInstance();
+
+    public abstract SocialMapper getSocialMapperInstance();
 
 }
