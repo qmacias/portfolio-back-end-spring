@@ -1,4 +1,4 @@
-## Getting Started (updated at: 26-11-22)
+## Getting Started (updated at: 27-11-22)
 
 ### Installation
 ```console
@@ -17,8 +17,6 @@ http://localhost:8082/h2-console
 ---
 ### API Endpoints
 
-### Person
-
 | Method | Url                                         | Description          |
 |--------|---------------------------------------------|----------------------|
 | GET    | http://localhost:8082/api/person            | Get all person       |
@@ -27,54 +25,72 @@ http://localhost:8082/h2-console
 | DELETE | http://localhost:8082/api/person/{id}       | Delete person by id  |
 
 ---
+### Postman Examples
 
-Add Person Example:
+Add Person:
 ```json
 {
     "name": "Cristian Quinto",
     "age": 28,
     "degree": "Jr Full Stack Developer",
-    "email": "cristianquinto@gmail.com",
+    "email": "ezequielqmacias@gmail.com",
     "summary": "This is a simple example of my summary.",
     "image": {
         "path": "https://ui-avatars.com/api/?name=Cristian+Quinto&size=255"
     },
-    "phones": [
+    "phoneList": [
         {
             "type": "Mobile",
-            "number": "+54 9 2644558963"
+            "number": "+54 9 2646269903"
         },
         {
             "type": "House",
-            "number": "+54 9 2646897412"
+            "number": "+54 9 2644216760"
+        }
+    ],
+    "addressList": [
+        {
+            "type": "Work",
+            "description": "Av. Libertador 526 Oeste"
+        },
+        {
+            "type": "House",
+            "description": "Calle Asunción 36 Norte"
         }
     ]
 }
 ```
 
-Edit Person Example:
+Edit Person:
 ```json
 {
-    "id": 1,
+    "id": "4ff8dd3a-2229-48ad-a3c8-c232407ea3cc",
     "name": "Pepe Honguito",
     "age": 30,
     "degree": "Sr Full Stack Developer",
     "email": "pepehonguito@gmail.com",
     "summary": "This is another example of summary.",
     "image": {
-        "id": 1,
+        "id": "c4ba289c-9b76-4af7-a2be-30dcf40d95b5",
         "path": "https://ui-avatars.com/api/?name=Pepe+Honguito&size=255"
     },
-    "phones": [
+    "phoneList": [
         {
-            "id": 1,
+            "id": "37b90918-8163-4278-8de2-391dfbf48942",
             "type": "Work",
-            "number": "+54 9 2645254407"
+            "number": "+54 9 2646269904"
         },
         {
-            "id": 2,
-            "type": "House",
-            "number": "+54 9 2646897412"
+            "id": "e6dddd24-764e-4df8-93fe-bfed6a3ad748",
+            "type": "Gym",
+            "number": "+54 9 2644216761"
+        }
+    ],
+    "addressList": [
+        {
+            "id": "637a0cfa-eee3-410f-9c2a-e1b169c1d9f1",
+            "type": "Other",
+            "description": "Av. Ign. De La Rosa, entre Rivadavia y Córdoba"
         }
     ]
 }
