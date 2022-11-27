@@ -13,11 +13,8 @@ public class PhoneAdapter implements PhonePersistencePort {
 
     private final PhoneRepository phoneRepository;
 
-    private final PhoneMapper phoneMapper;
-
-    public PhoneAdapter(PhoneRepository phoneRepository, PhoneMapper phoneMapper) {
+    public PhoneAdapter(PhoneRepository phoneRepository) {
         this.phoneRepository = phoneRepository;
-        this.phoneMapper = phoneMapper;
     }
 
     @Override
@@ -25,7 +22,7 @@ public class PhoneAdapter implements PhonePersistencePort {
 
         List<PhoneEntity> phoneEntityList = phoneRepository.findAll();
 
-        return phoneMapper.mapEntityListToDtoList(phoneEntityList);
+        return PhoneMapper.INSTANCE.mapEntityListToDtoList(phoneEntityList);
     }
 
     @Override
@@ -34,15 +31,15 @@ public class PhoneAdapter implements PhonePersistencePort {
         PhoneEntity phoneEntity = phoneRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Phone id: " + id));
 
-        return phoneMapper.mapEntityToDto(phoneEntity);
+        return PhoneMapper.INSTANCE.mapEntityToDto(phoneEntity);
     }
 
     @Override
     public PhoneDto createOrUpdate(PhoneDto phoneDto) {
 
-        PhoneEntity phoneEntity = phoneMapper.mapDtoToEntity(phoneDto);
+        PhoneEntity phoneEntity = PhoneMapper.INSTANCE.mapDtoToEntity(phoneDto);
 
-        return phoneMapper.mapEntityToDto(phoneRepository.save(phoneEntity));
+        return PhoneMapper.INSTANCE.mapEntityToDto(phoneRepository.save(phoneEntity));
     }
 
     @Override

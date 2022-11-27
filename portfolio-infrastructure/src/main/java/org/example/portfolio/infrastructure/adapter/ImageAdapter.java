@@ -13,11 +13,8 @@ public class ImageAdapter implements ImagePersistencePort {
 
     private final ImageRepository imageRepository;
 
-    private final ImageMapper imageMapper;
-
-    public ImageAdapter(ImageRepository imageRepository, ImageMapper imageMapper) {
+    public ImageAdapter(ImageRepository imageRepository) {
         this.imageRepository = imageRepository;
-        this.imageMapper = imageMapper;
     }
 
     @Override
@@ -25,7 +22,7 @@ public class ImageAdapter implements ImagePersistencePort {
 
         List<ImageEntity> imageEntityList = imageRepository.findAll();
 
-        return imageMapper.mapEntityListToDtoList(imageEntityList);
+        return ImageMapper.INSTANCE.mapEntityListToDtoList(imageEntityList);
     }
 
     @Override
@@ -34,15 +31,15 @@ public class ImageAdapter implements ImagePersistencePort {
         ImageEntity imageEntity = imageRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Image id: " + id));
 
-        return imageMapper.mapEntityToDto(imageEntity);
+        return ImageMapper.INSTANCE.mapEntityToDto(imageEntity);
     }
 
     @Override
     public ImageDto createOrUpdate(ImageDto imageDto) {
 
-        ImageEntity imageEntity = imageMapper.mapDtoToEntity(imageDto);
+        ImageEntity imageEntity = ImageMapper.INSTANCE.mapDtoToEntity(imageDto);
 
-        return imageMapper.mapEntityToDto(imageRepository.save(imageEntity));
+        return ImageMapper.INSTANCE.mapEntityToDto(imageRepository.save(imageEntity));
     }
 
     @Override

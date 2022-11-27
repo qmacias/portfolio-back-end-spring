@@ -13,11 +13,8 @@ public class AddressAdapter implements AddressPersistencePort {
 
     private final AddressRepository addressRepository;
 
-    private final AddressMapper addressMapper;
-
-    public AddressAdapter(AddressRepository addressRepository, AddressMapper addressMapper) {
+    public AddressAdapter(AddressRepository addressRepository) {
         this.addressRepository = addressRepository;
-        this.addressMapper = addressMapper;
     }
 
     @Override
@@ -25,7 +22,7 @@ public class AddressAdapter implements AddressPersistencePort {
 
         List<AddressEntity> addressEntityList = addressRepository.findAll();
 
-        return addressMapper.mapEntityListToDtoList(addressEntityList);
+        return AddressMapper.INSTANCE.mapEntityListToDtoList(addressEntityList);
     }
 
     @Override
@@ -34,15 +31,15 @@ public class AddressAdapter implements AddressPersistencePort {
         AddressEntity addressEntity = addressRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Address id: " + id));
 
-        return addressMapper.mapEntityToDto(addressEntity);
+        return AddressMapper.INSTANCE.mapEntityToDto(addressEntity);
     }
 
     @Override
     public AddressDto createOrUpdate(AddressDto addressDto) {
 
-        AddressEntity addressEntity = addressMapper.mapDtoToEntity(addressDto);
+        AddressEntity addressEntity = AddressMapper.INSTANCE.mapDtoToEntity(addressDto);
 
-        return addressMapper.mapEntityToDto(addressRepository.save(addressEntity));
+        return AddressMapper.INSTANCE.mapEntityToDto(addressRepository.save(addressEntity));
     }
 
     @Override
