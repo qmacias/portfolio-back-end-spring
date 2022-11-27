@@ -12,14 +12,11 @@ import java.util.List;
 
 public class PersonJpaAdapter implements PersonPersistencePort {
 
-    private PersonRepository personRepository;
+    private final PersonRepository personRepository;
 
-    private PersonMapper personMapper;
+    private final PersonMapper personMapper;
 
-    public PersonJpaAdapter(
-            PersonRepository personRepository,
-            PersonMapper personMapper
-    ) {
+    public PersonJpaAdapter(PersonRepository personRepository, PersonMapper personMapper) {
         this.personRepository = personRepository;
         this.personMapper = personMapper;
     }

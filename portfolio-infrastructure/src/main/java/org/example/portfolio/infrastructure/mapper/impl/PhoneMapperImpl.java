@@ -37,10 +37,9 @@ public class PhoneMapperImpl implements PhoneMapper {
 
         List<PhoneDto> phoneDtoList = new ArrayList<>();
 
-        phoneEntityList.forEach(phoneEntity -> {
-            PhoneDto phoneDto = this.mapEntityToDto(phoneEntity);
-            phoneDtoList.add(phoneDto);
-        });
+        phoneEntityList.forEach(phoneEntity -> phoneDtoList.add(
+                this.mapEntityToDto(phoneEntity)
+        ));
 
         return phoneDtoList;
     }

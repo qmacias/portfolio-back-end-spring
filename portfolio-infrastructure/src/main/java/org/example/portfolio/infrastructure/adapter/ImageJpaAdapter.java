@@ -15,10 +15,7 @@ public class ImageJpaAdapter implements ImagePersistencePort {
 
     private final ImageMapper imageMapper;
 
-    public ImageJpaAdapter(
-            ImageRepository imageRepository,
-            ImageMapper imageMapper
-    ) {
+    public ImageJpaAdapter(ImageRepository imageRepository, ImageMapper imageMapper) {
         this.imageRepository = imageRepository;
         this.imageMapper = imageMapper;
     }

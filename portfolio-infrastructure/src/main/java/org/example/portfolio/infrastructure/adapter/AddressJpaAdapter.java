@@ -15,10 +15,7 @@ public class AddressJpaAdapter implements AddressPersistencePort {
 
     private final AddressMapper addressMapper;
 
-    public AddressJpaAdapter(
-            AddressRepository addressRepository,
-            AddressMapper addressMapper
-    ) {
+    public AddressJpaAdapter(AddressRepository addressRepository, AddressMapper addressMapper) {
         this.addressRepository = addressRepository;
         this.addressMapper = addressMapper;
     }

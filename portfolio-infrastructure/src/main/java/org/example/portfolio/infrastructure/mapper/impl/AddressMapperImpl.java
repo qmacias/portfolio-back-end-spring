@@ -37,10 +37,9 @@ public class AddressMapperImpl implements AddressMapper {
 
         List<AddressDto> addressDtoList = new ArrayList<>();
 
-        addressEntityList.forEach(addressEntity -> {
-            AddressDto addressDto = this.mapEntityToDto(addressEntity);
-            addressDtoList.add(addressDto);
-        });
+        addressEntityList.forEach(addressEntity -> addressDtoList.add(
+                this.mapEntityToDto(addressEntity)
+        ));
 
         return addressDtoList;
     }

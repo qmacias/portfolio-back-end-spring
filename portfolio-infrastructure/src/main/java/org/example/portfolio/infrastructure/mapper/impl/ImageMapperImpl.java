@@ -35,10 +35,9 @@ public class ImageMapperImpl implements ImageMapper {
 
         List<ImageDto> imageDtoList = new ArrayList<>();
 
-        imageEntityList.forEach(imageEntity -> {
-                    ImageDto imageDto = this.mapEntityToDto(imageEntity);
-                    imageDtoList.add(imageDto);
-                });
+        imageEntityList.forEach(imageEntity -> imageDtoList.add(
+                this.mapEntityToDto(imageEntity)
+        ));
 
         return imageDtoList;
     }

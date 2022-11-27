@@ -15,10 +15,7 @@ public class PhoneJpaAdapter implements PhonePersistencePort {
 
     private final PhoneMapper phoneMapper;
 
-    public PhoneJpaAdapter(
-            PhoneRepository phoneRepository,
-            PhoneMapper phoneMapper
-    ) {
+    public PhoneJpaAdapter(PhoneRepository phoneRepository, PhoneMapper phoneMapper) {
         this.phoneRepository = phoneRepository;
         this.phoneMapper = phoneMapper;
     }

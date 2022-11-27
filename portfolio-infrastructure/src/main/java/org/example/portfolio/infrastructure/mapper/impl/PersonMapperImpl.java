@@ -83,10 +83,9 @@ public class PersonMapperImpl implements PersonMapper {
 
         List<PersonDto> personDtoList = new ArrayList<>();
 
-        personEntityList.forEach(personEntity -> {
-            PersonDto personDto = this.mapEntityToDto(personEntity);
-            personDtoList.add(personDto);
-        });
+        personEntityList.forEach(personEntity -> personDtoList.add(
+                this.mapEntityToDto(personEntity)
+        ));
 
         return personDtoList;
     }
