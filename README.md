@@ -1,6 +1,11 @@
 ## Getting Started (updated at: 27-11-22)
 
-### Installation
+### Clone Repository
+```console
+git clone https://github.com/qmacias/portfolio-back-end-spring.git
+```
+---
+### Install Dependencies
 ```console
 mvn clean install
 ```
