@@ -49,10 +49,20 @@ public class PersonEntity {
     )
     private List<PhoneEntity> phoneEntities;
 
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JoinColumn(
+            name = "person_id"
+    )
+    private List<AddressEntity> addressEntities;
+
     protected PersonEntity() {
         super();
         this.imageEntity = new ImageEntity();
         this.phoneEntities = new ArrayList<>();
+        this.addressEntities = new ArrayList<>();
     }
 
     public PersonEntity(
@@ -78,10 +88,8 @@ public class PersonEntity {
         phoneEntities.add(phoneEntity);
     }
 
-    public void removePhoneEntity(PhoneEntity phoneEntity) {
-        if (phoneEntities != null) {
-            phoneEntities.remove(phoneEntity);
-        }
+    public void addAddressEntity(AddressEntity addressEntity) {
+        addressEntities.add(addressEntity);
     }
 
 }

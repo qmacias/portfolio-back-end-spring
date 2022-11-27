@@ -54,9 +54,7 @@ public class PersonJpaAdapter implements PersonPersistencePort {
                     });
         }
 
-        PersonEntity personEntitySaved = personRepository.save(personEntity);
-
-        return personMapper.mapEntityToDto(personEntitySaved);
+        return personMapper.mapEntityToDto(personRepository.save(personEntity));
     }
 
     @Override

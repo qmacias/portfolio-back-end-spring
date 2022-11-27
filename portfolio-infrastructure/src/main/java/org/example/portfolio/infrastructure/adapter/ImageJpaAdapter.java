@@ -45,9 +45,7 @@ public class ImageJpaAdapter implements ImagePersistencePort {
 
         ImageEntity imageEntity = imageMapper.mapDtoToEntity(imageDto);
 
-        ImageEntity imageEntitySaved = imageRepository.save(imageEntity);
-
-        return imageMapper.mapEntityToDto(imageEntitySaved);
+        return imageMapper.mapEntityToDto(imageRepository.save(imageEntity));
     }
 
     @Override

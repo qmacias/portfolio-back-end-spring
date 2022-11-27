@@ -45,9 +45,7 @@ public class PhoneJpaAdapter implements PhonePersistencePort {
 
         PhoneEntity phoneEntity = phoneMapper.mapDtoToEntity(phoneDto);
 
-        PhoneEntity phoneEntitySaved = phoneRepository.save(phoneEntity);
-
-        return phoneMapper.mapEntityToDto(phoneEntitySaved);
+        return phoneMapper.mapEntityToDto(phoneRepository.save(phoneEntity));
     }
 
     @Override

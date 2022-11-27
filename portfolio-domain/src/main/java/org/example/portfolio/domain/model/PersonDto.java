@@ -33,13 +33,16 @@ public class PersonDto {
 
     private ImageDto image;
 
-    private List<PhoneDto> phones;
+    private List<PhoneDto> phoneList;
+
+    private List<AddressDto> addressList;
 
     protected PersonDto() {
         super();
         this.id = UUID.randomUUID().toString();
         this.image = new ImageDto();
-        this.phones = new ArrayList<>();
+        this.phoneList = new ArrayList<>();
+        this.addressList = new ArrayList<>();
     }
 
     public PersonDto(
@@ -62,13 +65,11 @@ public class PersonDto {
     }
 
     public void addPhoneDto(PhoneDto phoneDto) {
-        phones.add(phoneDto);
+        phoneList.add(phoneDto);
     }
 
-    public void removePhoneDto(PhoneDto phoneDto) {
-        if (phones != null) {
-            phones.remove(phoneDto);
-        }
+    public void addAddressDto(AddressDto addressDto) {
+        addressList.add(addressDto);
     }
 
 }

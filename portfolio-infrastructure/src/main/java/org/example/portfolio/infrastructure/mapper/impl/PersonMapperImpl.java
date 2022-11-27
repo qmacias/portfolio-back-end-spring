@@ -2,6 +2,7 @@ package org.example.portfolio.infrastructure.mapper.impl;
 
 import org.example.portfolio.domain.model.PersonDto;
 import org.example.portfolio.infrastructure.entity.PersonEntity;
+import org.example.portfolio.infrastructure.mapper.AddressMapper;
 import org.example.portfolio.infrastructure.mapper.ImageMapper;
 import org.example.portfolio.infrastructure.mapper.PersonMapper;
 import org.example.portfolio.infrastructure.mapper.PhoneMapper;
@@ -15,12 +16,16 @@ public class PersonMapperImpl implements PersonMapper {
 
     private final PhoneMapper phoneMapper;
 
+    private final AddressMapper addressMapper;
+
     public PersonMapperImpl(
             ImageMapper imageMapper,
-            PhoneMapper phoneMapper
+            PhoneMapper phoneMapper,
+            AddressMapper addressMapper
     ) {
         this.imageMapper = imageMapper;
         this.phoneMapper = phoneMapper;
+        this.addressMapper = addressMapper;
     }
 
     @Override
@@ -37,8 +42,12 @@ public class PersonMapperImpl implements PersonMapper {
                 imageMapper.mapDtoToEntity(personDto.getImage())
         );
 
-        personDto.getPhones().forEach(phoneDto -> personEntity.addPhoneEntity(
+        personDto.getPhoneList().forEach(phoneDto -> personEntity.addPhoneEntity(
                 phoneMapper.mapDtoToEntity(phoneDto)
+        ));
+
+        personDto.getAddressList().forEach(addressDto -> personEntity.addAddressEntity(
+                addressMapper.mapDtoToEntity(addressDto)
         ));
 
         return personEntity;
@@ -62,6 +71,10 @@ public class PersonMapperImpl implements PersonMapper {
                 phoneMapper.mapEntityToDto(phoneEntity)
         ));
 
+        personEntity.getAddressEntities().forEach(addressEntity -> personDto.addAddressDto(
+                addressMapper.mapEntityToDto(addressEntity)
+        ));
+
         return personDto;
     }
 
@@ -71,9 +84,9 @@ public class PersonMapperImpl implements PersonMapper {
         List<PersonDto> personDtoList = new ArrayList<>();
 
         personEntityList.forEach(personEntity -> {
-                    PersonDto personDto = this.mapEntityToDto(personEntity);
-                    personDtoList.add(personDto);
-                });
+            PersonDto personDto = this.mapEntityToDto(personEntity);
+            personDtoList.add(personDto);
+        });
 
         return personDtoList;
     }
