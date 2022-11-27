@@ -9,13 +9,13 @@ import org.example.portfolio.infrastructure.repository.ImageRepository;
 
 import java.util.List;
 
-public class ImageJpaAdapter implements ImagePersistencePort {
+public class ImageAdapter implements ImagePersistencePort {
 
     private final ImageRepository imageRepository;
 
     private final ImageMapper imageMapper;
 
-    public ImageJpaAdapter(ImageRepository imageRepository, ImageMapper imageMapper) {
+    public ImageAdapter(ImageRepository imageRepository, ImageMapper imageMapper) {
         this.imageRepository = imageRepository;
         this.imageMapper = imageMapper;
     }

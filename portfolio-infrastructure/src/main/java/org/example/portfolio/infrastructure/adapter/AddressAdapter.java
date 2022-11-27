@@ -9,13 +9,13 @@ import org.example.portfolio.infrastructure.repository.AddressRepository;
 
 import java.util.List;
 
-public class AddressJpaAdapter implements AddressPersistencePort {
+public class AddressAdapter implements AddressPersistencePort {
 
     private final AddressRepository addressRepository;
 
     private final AddressMapper addressMapper;
 
-    public AddressJpaAdapter(AddressRepository addressRepository, AddressMapper addressMapper) {
+    public AddressAdapter(AddressRepository addressRepository, AddressMapper addressMapper) {
         this.addressRepository = addressRepository;
         this.addressMapper = addressMapper;
     }

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 @Component
-public interface GenericPersistence<T, K> {
+public interface GenericPersistencePort<T, K> {
 
     List<T> getAll();
 

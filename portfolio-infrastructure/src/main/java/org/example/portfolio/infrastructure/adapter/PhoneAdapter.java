@@ -9,13 +9,13 @@ import org.example.portfolio.infrastructure.repository.PhoneRepository;
 
 import java.util.List;
 
-public class PhoneJpaAdapter implements PhonePersistencePort {
+public class PhoneAdapter implements PhonePersistencePort {
 
     private final PhoneRepository phoneRepository;
 
     private final PhoneMapper phoneMapper;
 
-    public PhoneJpaAdapter(PhoneRepository phoneRepository, PhoneMapper phoneMapper) {
+    public PhoneAdapter(PhoneRepository phoneRepository, PhoneMapper phoneMapper) {
         this.phoneRepository = phoneRepository;
         this.phoneMapper = phoneMapper;
     }

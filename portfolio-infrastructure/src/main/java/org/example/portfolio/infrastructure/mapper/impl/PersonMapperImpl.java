@@ -12,20 +12,7 @@ import java.util.List;
 
 public class PersonMapperImpl implements PersonMapper {
 
-    private final ImageMapper imageMapper;
-
-    private final PhoneMapper phoneMapper;
-
-    private final AddressMapper addressMapper;
-
-    public PersonMapperImpl(
-            ImageMapper imageMapper,
-            PhoneMapper phoneMapper,
-            AddressMapper addressMapper
-    ) {
-        this.imageMapper = imageMapper;
-        this.phoneMapper = phoneMapper;
-        this.addressMapper = addressMapper;
+    public PersonMapperImpl() {
     }
 
     @Override
@@ -39,15 +26,15 @@ public class PersonMapperImpl implements PersonMapper {
                 personDto.getEmail(),
                 personDto.getSummary(),
 
-                imageMapper.mapDtoToEntity(personDto.getImage())
+                ImageMapper.INSTANCE.mapDtoToEntity(personDto.getImage())
         );
 
         personDto.getPhoneList().forEach(phoneDto -> personEntity.addPhoneEntity(
-                phoneMapper.mapDtoToEntity(phoneDto)
+                PhoneMapper.INSTANCE.mapDtoToEntity(phoneDto)
         ));
 
         personDto.getAddressList().forEach(addressDto -> personEntity.addAddressEntity(
-                addressMapper.mapDtoToEntity(addressDto)
+                AddressMapper.INSTANCE.mapDtoToEntity(addressDto)
         ));
 
         return personEntity;
@@ -64,15 +51,15 @@ public class PersonMapperImpl implements PersonMapper {
                 personEntity.getEmail(),
                 personEntity.getSummary(),
 
-                imageMapper.mapEntityToDto(personEntity.getImageEntity())
+                ImageMapper.INSTANCE.mapEntityToDto(personEntity.getImageEntity())
         );
 
         personEntity.getPhoneEntities().forEach(phoneEntity -> personDto.addPhoneDto(
-                phoneMapper.mapEntityToDto(phoneEntity)
+                PhoneMapper.INSTANCE.mapEntityToDto(phoneEntity)
         ));
 
         personEntity.getAddressEntities().forEach(addressEntity -> personDto.addAddressDto(
-                addressMapper.mapEntityToDto(addressEntity)
+                AddressMapper.INSTANCE.mapEntityToDto(addressEntity)
         ));
 
         return personDto;
