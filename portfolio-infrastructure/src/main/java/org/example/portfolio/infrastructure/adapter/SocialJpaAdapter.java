@@ -9,11 +9,11 @@ import org.example.portfolio.infrastructure.repository.SocialRepository;
 
 import java.util.List;
 
-public class SocialAdapter implements SocialPersistencePort {
+public class SocialJpaAdapter implements SocialPersistencePort {
 
     private final SocialRepository socialRepository;
 
-    public SocialAdapter(SocialRepository socialRepository) {
+    public SocialJpaAdapter(SocialRepository socialRepository) {
         this.socialRepository = socialRepository;
     }
 

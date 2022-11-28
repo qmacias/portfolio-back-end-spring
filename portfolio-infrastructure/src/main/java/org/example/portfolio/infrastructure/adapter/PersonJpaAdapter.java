@@ -10,11 +10,11 @@ import org.example.portfolio.infrastructure.repository.PersonRepository;
 
 import java.util.List;
 
-public class PersonAdapter implements PersonPersistencePort {
+public class PersonJpaAdapter implements PersonPersistencePort {
 
     private final PersonRepository personRepository;
 
-    public PersonAdapter(PersonRepository personRepository) {
+    public PersonJpaAdapter(PersonRepository personRepository) {
         this.personRepository = personRepository;
     }
 

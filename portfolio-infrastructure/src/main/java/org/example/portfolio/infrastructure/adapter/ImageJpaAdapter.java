@@ -9,11 +9,11 @@ import org.example.portfolio.infrastructure.repository.ImageRepository;
 
 import java.util.List;
 
-public class ImageAdapter implements ImagePersistencePort {
+public class ImageJpaAdapter implements ImagePersistencePort {
 
     private final ImageRepository imageRepository;
 
-    public ImageAdapter(ImageRepository imageRepository) {
+    public ImageJpaAdapter(ImageRepository imageRepository) {
         this.imageRepository = imageRepository;
     }
 

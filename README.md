@@ -62,6 +62,14 @@ Add Person:
             "type": "House",
             "description": "Calle Asunción 36 Norte"
         }
+    ],
+    "socialList": [
+        {
+            "link": "https://www.instagram.com/cqube.argentina"
+        },
+        {
+            "link": "https://www.instagram.com/cristian.quinto.m"
+        }
     ]
 }
 ```
@@ -97,7 +105,8 @@ Edit Person:
             "type": "Other",
             "description": "Av. Ign. De La Rosa, entre Rivadavia y Córdoba"
         }
-    ]
+    ],
+    "socialList": []
 }
 ```
 ---
