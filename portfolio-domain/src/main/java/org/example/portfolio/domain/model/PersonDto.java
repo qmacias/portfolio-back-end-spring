@@ -1,50 +1,41 @@
 package org.example.portfolio.domain.model;
 
+import lombok.Getter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.ArrayList;
 
-@Data
-@EqualsAndHashCode(
-        onlyExplicitlyIncluded = true
-)
-@JsonInclude(
-        JsonInclude.Include.NON_NULL
-)
-public class PersonDto implements Serializable {
+@Getter
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class PersonDto {
 
-    private String id;
+    protected String id;
 
-    private String name;
+    protected String name;
 
-    private Integer age;
+    protected Integer age;
 
-    private String degree;
+    protected String degree;
 
-    @EqualsAndHashCode.Include
-    private String email;
+    protected String email;
 
-    private String summary;
+    protected String summary;
 
-    private ImageDto image;
+    protected ImageDto image;
 
-    private List<PhoneDto> phoneList = new ArrayList<>();
+    private final List<PhoneDto> phoneList = new ArrayList<>();
 
-    private List<AddressDto> addressList = new ArrayList<>();
+    private final List<AddressDto> addressList = new ArrayList<>();
 
-    private List<SocialDto> socialList = new ArrayList<>();
+    private final List<SocialDto> socialList = new ArrayList<>();
 
     PersonDto() {
         this.id = UUID.randomUUID().toString();
     }
 
-    public PersonDto(
+    protected PersonDto(
             String id,
             String name,
             Integer age,

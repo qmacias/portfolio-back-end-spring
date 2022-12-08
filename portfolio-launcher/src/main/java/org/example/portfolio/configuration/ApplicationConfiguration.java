@@ -1,8 +1,9 @@
 package org.example.portfolio.configuration;
 
+import org.example.portfolio.domain.service.PersonServiceImpl;
 import org.example.portfolio.domain.port.input.PersonServicePort;
 import org.example.portfolio.domain.port.output.PersonPersistencePort;
-import org.example.portfolio.domain.service.PersonServiceImpl;
+
 import org.example.portfolio.infrastructure.adapter.PersonJpaAdapter;
 import org.example.portfolio.infrastructure.repository.PersonRepository;
 import org.example.portfolio.infrastructure.mapper.factory.ModelMapperFactory;

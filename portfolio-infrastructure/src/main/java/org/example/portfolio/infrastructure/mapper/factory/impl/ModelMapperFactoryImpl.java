@@ -18,51 +18,41 @@ public class ModelMapperFactoryImpl extends ModelMapperFactory {
 
     @Override
     public PersonMapper getPersonMapperInstance() {
-
         if (personMapper == null) {
             personMapper = new PersonMapperImpl();
         }
-
         return personMapper;
     }
 
     @Override
     public ImageMapper getImageMapperInstance() {
-
         if (imageMapper == null) {
             imageMapper = new ImageMapperImpl();
         }
-
         return imageMapper;
     }
 
     @Override
     public PhoneMapper getPhoneMapperInstance() {
-
         if (phoneMapper == null) {
             phoneMapper = new PhoneMapperImpl();
         }
-
         return phoneMapper;
     }
 
     @Override
     public AddressMapper getAddressMapperInstance() {
-
         if (addressMapper == null) {
             addressMapper = new AddressMapperImpl();
         }
-
         return addressMapper;
     }
 
     @Override
     public SocialMapper getSocialMapperInstance() {
-
         if (socialMapper == null) {
             socialMapper = new SocialMapperImpl();
         }
-
         return socialMapper;
     }
 

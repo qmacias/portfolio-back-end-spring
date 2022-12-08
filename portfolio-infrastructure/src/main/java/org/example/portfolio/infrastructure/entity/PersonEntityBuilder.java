@@ -1,20 +1,6 @@
 package org.example.portfolio.infrastructure.entity;
 
-public class PersonEntityBuilder {
-
-    private String id;
-
-    private String name;
-
-    private Integer age;
-
-    private String degree;
-
-    private String email;
-
-    private String summary;
-
-    private ImageEntity imageEntity;
+public class PersonEntityBuilder extends PersonEntity {
 
     public PersonEntityBuilder setId(String id) {
         this.id = id;

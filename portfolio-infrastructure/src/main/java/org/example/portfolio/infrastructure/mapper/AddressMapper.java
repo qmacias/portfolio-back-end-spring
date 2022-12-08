@@ -6,7 +6,5 @@ import org.example.portfolio.domain.common.GenericModelMapper;
 import org.example.portfolio.infrastructure.mapper.factory.ModelMapperFactory;
 
 public interface AddressMapper extends GenericModelMapper<AddressDto, AddressEntity> {
-
     AddressMapper INSTANCE = ModelMapperFactory.getFactory().getAddressMapperInstance();
-
 }

@@ -14,7 +14,6 @@ public class SocialMapperImpl implements SocialMapper {
 
     @Override
     public SocialEntity mapDtoToEntity(SocialDto socialDto) {
-
         return SocialEntity.of(
                 socialDto.getId(),
                 socialDto.getLink()
@@ -23,7 +22,6 @@ public class SocialMapperImpl implements SocialMapper {
 
     @Override
     public SocialDto mapEntityToDto(SocialEntity socialEntity) {
-
         return SocialDto.of(
                 socialEntity.getId(),
                 socialEntity.getLink()

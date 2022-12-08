@@ -6,7 +6,5 @@ import org.example.portfolio.domain.common.GenericModelMapper;
 import org.example.portfolio.infrastructure.mapper.factory.ModelMapperFactory;
 
 public interface PhoneMapper extends GenericModelMapper<PhoneDto, PhoneEntity> {
-
     PhoneMapper INSTANCE = ModelMapperFactory.getFactory().getPhoneMapperInstance();
-
 }

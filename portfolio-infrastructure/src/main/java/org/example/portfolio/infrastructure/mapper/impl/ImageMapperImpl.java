@@ -14,7 +14,6 @@ public class ImageMapperImpl implements ImageMapper {
 
     @Override
     public ImageEntity mapDtoToEntity(ImageDto imageDto) {
-
         return ImageEntity.of(
                 imageDto.getId(),
                 imageDto.getPath()
@@ -23,7 +22,6 @@ public class ImageMapperImpl implements ImageMapper {
 
     @Override
     public ImageDto mapEntityToDto(ImageEntity imageEntity) {
-
         return ImageDto.of(
                 imageEntity.getId(),
                 imageEntity.getPath()

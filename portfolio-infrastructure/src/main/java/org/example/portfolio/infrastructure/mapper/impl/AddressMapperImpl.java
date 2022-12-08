@@ -14,7 +14,6 @@ public class AddressMapperImpl implements AddressMapper {
 
     @Override
     public AddressEntity mapDtoToEntity(AddressDto addressDto) {
-
         return AddressEntity.of(
                 addressDto.getId(),
                 addressDto.getType(),
@@ -24,7 +23,6 @@ public class AddressMapperImpl implements AddressMapper {
 
     @Override
     public AddressDto mapEntityToDto(AddressEntity addressEntity) {
-
         return AddressDto.of(
                 addressEntity.getId(),
                 addressEntity.getType(),

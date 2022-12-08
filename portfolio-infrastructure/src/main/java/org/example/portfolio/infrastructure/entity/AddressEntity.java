@@ -3,23 +3,22 @@ package org.example.portfolio.infrastructure.entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Entity;
+import javax.persistence.Column;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import java.io.Serializable;
 
-@Data
-@EqualsAndHashCode(
-        onlyExplicitlyIncluded = true
-)
 @Entity
 @Table(name = "address")
-public class AddressEntity {
+public class AddressEntity implements Serializable {
 
     @Id
+    @Column
     private String id;
 
+    @Column
     private String type;
 
+    @Column
     private String description;
 
     protected AddressEntity() {
@@ -34,6 +33,18 @@ public class AddressEntity {
 
     public static AddressEntity of(String id, String type, String description) {
         return new AddressEntity(id, type, description);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
 }

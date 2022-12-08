@@ -6,7 +6,5 @@ import org.example.portfolio.domain.common.GenericModelMapper;
 import org.example.portfolio.infrastructure.mapper.factory.ModelMapperFactory;
 
 public interface ImageMapper extends GenericModelMapper<ImageDto, ImageEntity> {
-
     ImageMapper INSTANCE = ModelMapperFactory.getFactory().getImageMapperInstance();
-
 }

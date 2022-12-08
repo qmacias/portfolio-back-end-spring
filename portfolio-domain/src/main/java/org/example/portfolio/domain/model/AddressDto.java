@@ -1,21 +1,10 @@
 package org.example.portfolio.domain.model;
 
+import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
-import java.io.Serializable;
-import java.util.UUID;
-
-@Data
-@EqualsAndHashCode(
-        onlyExplicitlyIncluded = true
-)
-@JsonInclude(
-        JsonInclude.Include.NON_NULL
-)
-public class AddressDto implements Serializable {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class AddressDto {
 
     private String id;
 
@@ -36,6 +25,18 @@ public class AddressDto implements Serializable {
 
     public static AddressDto of(String id, String type, String description) {
         return new AddressDto(id, type, description);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
 }

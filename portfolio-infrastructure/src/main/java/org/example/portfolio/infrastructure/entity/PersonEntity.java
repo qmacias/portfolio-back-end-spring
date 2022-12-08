@@ -2,75 +2,57 @@ package org.example.portfolio.infrastructure.entity;
 
 import javax.persistence.*;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.ArrayList;
+import java.io.Serializable;
 
-@Data
-@EqualsAndHashCode(
-        onlyExplicitlyIncluded = true
-)
+@Getter
 @Entity
 @Table(name = "person")
-public class PersonEntity {
+public class PersonEntity implements Serializable {
 
     @Id
-    private String id;
+    @Column
+    protected String id;
 
-    private String name;
+    @Column
+    protected String name;
 
-    private Integer age;
+    @Column
+    protected Integer age;
 
-    private String degree;
+    @Column
+    protected String degree;
 
-    @EqualsAndHashCode.Include
     @Column(unique = true)
-    private String email;
+    protected String email;
 
-    private String summary;
+    @Column
+    protected String summary;
 
-    @OneToOne(
-            cascade = CascadeType.ALL
-    )
-    @JoinColumn(
-            name = "image_id",
-            referencedColumnName = "id"
-    )
-    private ImageEntity imageEntity;
+    @JoinColumn(name = "image_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    protected ImageEntity imageEntity;
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    @JoinColumn(
-            name = "person_id"
-    )
-    private List<PhoneEntity> phoneEntities = new ArrayList<>();
+    @JoinColumn(name = "person_id")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private final List<PhoneEntity> phoneEntities = new ArrayList<>();
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    @JoinColumn(
-            name = "person_id"
-    )
-    private List<AddressEntity> addressEntities = new ArrayList<>();
+    @JoinColumn(name = "person_id")
+    @OneToMany( cascade = CascadeType.ALL, orphanRemoval = true)
+    private final List<AddressEntity> addressEntities = new ArrayList<>();
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    @JoinColumn(
-            name = "person_id"
-    )
-    private List<SocialEntity> socialEntities = new ArrayList<>();
+    @JoinColumn(name = "person_id")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private final List<SocialEntity> socialEntities = new ArrayList<>();
 
     protected PersonEntity() {
     }
 
-    public PersonEntity(
+    protected PersonEntity(
             String id,
             String name,
             Integer age,
@@ -99,6 +81,20 @@ public class PersonEntity {
 
     public void addSocialEntity(SocialEntity socialEntity) {
         socialEntities.add(socialEntity);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.email);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof PersonEntity) {
+            PersonEntity other = (PersonEntity) obj;
+            return Objects.equals(this.email, other.email);
+        }
+        return false;
     }
 
 }

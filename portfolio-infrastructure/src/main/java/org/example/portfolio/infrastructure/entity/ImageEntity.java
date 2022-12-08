@@ -3,21 +3,19 @@ package org.example.portfolio.infrastructure.entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Entity;
+import javax.persistence.Column;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import java.io.Serializable;
 
-@Data
-@EqualsAndHashCode(
-        onlyExplicitlyIncluded = true
-)
 @Entity
 @Table(name = "images")
-public class ImageEntity {
+public class ImageEntity implements Serializable {
 
     @Id
+    @Column
     private String id;
 
+    @Column
     private String path;
 
     protected ImageEntity() {
@@ -31,6 +29,14 @@ public class ImageEntity {
 
     public static ImageEntity of(String id, String path) {
         return new ImageEntity(id, path);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getPath() {
+        return path;
     }
 
 }

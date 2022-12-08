@@ -3,21 +3,19 @@ package org.example.portfolio.infrastructure.entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Entity;
+import javax.persistence.Column;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import java.io.Serializable;
 
-@Data
-@EqualsAndHashCode(
-        onlyExplicitlyIncluded = true
-)
 @Entity
 @Table(name = "social")
-public class SocialEntity {
+public class SocialEntity implements Serializable {
 
     @Id
+    @Column
     private String id;
 
+    @Column
     private String link;
 
     protected SocialEntity() {
@@ -31,6 +29,14 @@ public class SocialEntity {
 
     public static SocialEntity of(String id, String link) {
         return new SocialEntity(id, link);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getLink() {
+        return link;
     }
 
 }

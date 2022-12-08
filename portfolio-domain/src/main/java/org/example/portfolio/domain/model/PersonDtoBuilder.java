@@ -1,20 +1,6 @@
 package org.example.portfolio.domain.model;
 
-public class PersonDtoBuilder {
-
-    private String id;
-
-    private String name;
-
-    private Integer age;
-
-    private String degree;
-
-    private String email;
-
-    private String summary;
-
-    private ImageDto image;
+public class PersonDtoBuilder extends PersonDto {
 
     public PersonDtoBuilder setId(String id) {
         this.id = id;
@@ -54,4 +40,5 @@ public class PersonDtoBuilder {
     public PersonDto createPersonDto() {
         return new PersonDto(id, name, age, degree, email, summary, image);
     }
+
 }
