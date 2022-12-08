@@ -1,7 +1,9 @@
 package org.example.portfolio.infrastructure.mapper.impl;
 
 import org.example.portfolio.domain.model.PersonDto;
+import org.example.portfolio.domain.model.PersonDtoBuilder;
 import org.example.portfolio.infrastructure.entity.PersonEntity;
+import org.example.portfolio.infrastructure.entity.PersonEntityBuilder;
 import org.example.portfolio.infrastructure.mapper.*;
 
 import java.util.ArrayList;
@@ -15,16 +17,16 @@ public class PersonMapperImpl implements PersonMapper {
     @Override
     public PersonEntity mapDtoToEntity(PersonDto personDto) {
 
-        PersonEntity personEntity = new PersonEntity(
-                personDto.getId(),
-                personDto.getName(),
-                personDto.getAge(),
-                personDto.getDegree(),
-                personDto.getEmail(),
-                personDto.getSummary(),
-
-                ImageMapper.INSTANCE.mapDtoToEntity(personDto.getImage())
-        );
+        PersonEntity personEntity = new PersonEntityBuilder()
+                .setId(personDto.getId())
+                .setName(personDto.getName())
+                .setAge(personDto.getAge())
+                .setDegree(personDto.getDegree())
+                .setEmail(personDto.getEmail())
+                .setSummary(personDto.getSummary())
+                .setImageEntity(
+                        ImageMapper.INSTANCE.mapDtoToEntity(personDto.getImage())
+                ).createPersonEntity();
 
         personDto.getPhoneList().forEach(phoneDto -> personEntity.addPhoneEntity(
                 PhoneMapper.INSTANCE.mapDtoToEntity(phoneDto)
@@ -44,16 +46,16 @@ public class PersonMapperImpl implements PersonMapper {
     @Override
     public PersonDto mapEntityToDto(PersonEntity personEntity) {
 
-        PersonDto personDto = new PersonDto(
-                personEntity.getId(),
-                personEntity.getName(),
-                personEntity.getAge(),
-                personEntity.getDegree(),
-                personEntity.getEmail(),
-                personEntity.getSummary(),
-
-                ImageMapper.INSTANCE.mapEntityToDto(personEntity.getImageEntity())
-        );
+        PersonDto personDto = new PersonDtoBuilder()
+                .setId(personEntity.getId())
+                .setName(personEntity.getName())
+                .setAge(personEntity.getAge())
+                .setDegree(personEntity.getDegree())
+                .setEmail(personEntity.getEmail())
+                .setSummary(personEntity.getSummary())
+                .setImage(
+                        ImageMapper.INSTANCE.mapEntityToDto(personEntity.getImageEntity())
+                ).createPersonDto();
 
         personEntity.getPhoneEntities().forEach(phoneEntity -> personDto.addPhoneDto(
                 PhoneMapper.INSTANCE.mapEntityToDto(phoneEntity)

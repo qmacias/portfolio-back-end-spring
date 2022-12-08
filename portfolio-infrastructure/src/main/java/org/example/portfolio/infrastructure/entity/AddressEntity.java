@@ -23,13 +23,17 @@ public class AddressEntity {
     private String description;
 
     protected AddressEntity() {
-        super();
     }
 
-    public AddressEntity(String id, String type, String description) {
+    private AddressEntity(String id, String type, String description) {
+        this();
         this.id = id;
         this.type = type;
         this.description = description;
+    }
+
+    public static AddressEntity of(String id, String type, String description) {
+        return new AddressEntity(id, type, description);
     }
 
 }

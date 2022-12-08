@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -16,7 +17,7 @@ import java.util.UUID;
 @JsonInclude(
         JsonInclude.Include.NON_NULL
 )
-public class PersonDto {
+public class PersonDto implements Serializable {
 
     private String id;
 
@@ -33,19 +34,14 @@ public class PersonDto {
 
     private ImageDto image;
 
-    private List<PhoneDto> phoneList;
+    private List<PhoneDto> phoneList = new ArrayList<>();
 
-    private List<AddressDto> addressList;
+    private List<AddressDto> addressList = new ArrayList<>();
 
-    private List<SocialDto> socialList;
+    private List<SocialDto> socialList = new ArrayList<>();
 
-    protected PersonDto() {
-        super();
+    PersonDto() {
         this.id = UUID.randomUUID().toString();
-        this.image = new ImageDto();
-        this.phoneList = new ArrayList<>();
-        this.addressList = new ArrayList<>();
-        this.socialList = new ArrayList<>();
     }
 
     public PersonDto(

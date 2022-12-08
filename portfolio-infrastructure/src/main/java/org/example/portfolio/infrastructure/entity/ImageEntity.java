@@ -21,13 +21,16 @@ public class ImageEntity {
     private String path;
 
     protected ImageEntity() {
-        super();
     }
 
-    public ImageEntity(String id, String path) {
+    private ImageEntity(String id, String path) {
         this();
         this.id = id;
         this.path = path;
+    }
+
+    public static ImageEntity of(String id, String path) {
+        return new ImageEntity(id, path);
     }
 
 }

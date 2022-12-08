@@ -21,13 +21,16 @@ public class SocialEntity {
     private String link;
 
     protected SocialEntity() {
-        super();
     }
 
-    public SocialEntity(String id, String link) {
+    private SocialEntity(String id, String link) {
         this();
         this.id = id;
         this.link = link;
+    }
+
+    public static SocialEntity of(String id, String link) {
+        return new SocialEntity(id, link);
     }
 
 }

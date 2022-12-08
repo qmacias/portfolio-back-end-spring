@@ -23,14 +23,17 @@ public class PhoneEntity {
     private String number;
 
     protected PhoneEntity() {
-        super();
     }
 
-    public PhoneEntity(String id, String type, String number) {
+    private PhoneEntity(String id, String type, String number) {
         this();
         this.id = id;
         this.type = type;
         this.number = number;
+    }
+
+    public static PhoneEntity of(String id, String type, String number) {
+        return new PhoneEntity(id, type, number);
     }
 
 }

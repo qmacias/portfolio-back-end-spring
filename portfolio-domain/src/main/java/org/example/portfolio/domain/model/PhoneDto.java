@@ -22,16 +22,19 @@ public class PhoneDto {
 
     private String number;
 
-    protected PhoneDto() {
-        super();
+    PhoneDto() {
         this.id = UUID.randomUUID().toString();
     }
 
-    public PhoneDto(String id, String type, String number) {
+    private PhoneDto(String id, String type, String number) {
         this();
         this.id = id;
         this.type = type;
         this.number = number;
+    }
+
+    public static PhoneDto of(String id, String type, String number) {
+        return new PhoneDto(id, type, number);
     }
 
 }

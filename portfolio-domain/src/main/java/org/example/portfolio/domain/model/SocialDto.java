@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 @Data
@@ -14,21 +15,24 @@ import java.util.UUID;
 @JsonInclude(
         JsonInclude.Include.NON_NULL
 )
-public class SocialDto {
+public class SocialDto implements Serializable {
 
     private String id;
 
     private String link;
 
-    protected SocialDto() {
-        super();
+    SocialDto() {
         this.id = UUID.randomUUID().toString();
     }
 
-    public SocialDto(String id, String link) {
+    private SocialDto(String id, String link) {
         this();
         this.id = id;
         this.link = link;
+    }
+
+    public static SocialDto of(String id, String link) {
+        return new SocialDto(id, link);
     }
 
 }

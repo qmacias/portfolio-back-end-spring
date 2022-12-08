@@ -47,7 +47,7 @@ public class PersonEntity {
     @JoinColumn(
             name = "person_id"
     )
-    private List<PhoneEntity> phoneEntities;
+    private List<PhoneEntity> phoneEntities = new ArrayList<>();
 
     @OneToMany(
             cascade = CascadeType.ALL,
@@ -56,7 +56,7 @@ public class PersonEntity {
     @JoinColumn(
             name = "person_id"
     )
-    private List<AddressEntity> addressEntities;
+    private List<AddressEntity> addressEntities = new ArrayList<>();
 
     @OneToMany(
             cascade = CascadeType.ALL,
@@ -65,14 +65,9 @@ public class PersonEntity {
     @JoinColumn(
             name = "person_id"
     )
-    private List<SocialEntity> socialEntities;
+    private List<SocialEntity> socialEntities = new ArrayList<>();
 
     protected PersonEntity() {
-        super();
-        this.imageEntity = new ImageEntity();
-        this.phoneEntities = new ArrayList<>();
-        this.addressEntities = new ArrayList<>();
-        this.socialEntities = new ArrayList<>();
     }
 
     public PersonEntity(

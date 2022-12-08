@@ -15,7 +15,7 @@ public class PhoneMapperImpl implements PhoneMapper {
     @Override
     public PhoneEntity mapDtoToEntity(PhoneDto phoneDto) {
 
-        return new PhoneEntity(
+        return PhoneEntity.of(
                 phoneDto.getId(),
                 phoneDto.getType(),
                 phoneDto.getNumber()
@@ -25,7 +25,7 @@ public class PhoneMapperImpl implements PhoneMapper {
     @Override
     public PhoneDto mapEntityToDto(PhoneEntity phoneEntity) {
 
-        return new PhoneDto(
+        return PhoneDto.of(
                 phoneEntity.getId(),
                 phoneEntity.getType(),
                 phoneEntity.getNumber()
