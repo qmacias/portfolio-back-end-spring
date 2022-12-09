@@ -33,12 +33,12 @@ public class PersonDtoBuilder extends PersonDto {
     }
 
     public PersonDtoBuilder setImage(ImageDto image) {
-        this.image = image;
+        this.imageDto = image;
         return this;
     }
 
     public PersonDto createPersonDto() {
-        return new PersonDto(id, name, age, degree, email, summary, image);
+        return new PersonDto(id, name, age, degree, email, summary, imageDto);
     }
 
 }

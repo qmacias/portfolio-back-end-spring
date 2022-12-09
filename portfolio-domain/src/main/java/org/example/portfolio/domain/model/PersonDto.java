@@ -1,35 +1,46 @@
 package org.example.portfolio.domain.model;
 
-import lombok.Getter;
+import com.google.common.collect.Lists;
+import com.google.common.collect.ImmutableList;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.ArrayList;
 
-@Getter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PersonDto {
 
+    @lombok.Getter(onMethod_ = {@JsonProperty("id")})
     protected String id;
 
+    @lombok.Getter(onMethod_ = {@JsonProperty("name")})
     protected String name;
 
+    @lombok.Getter(onMethod_ = {@JsonProperty("age")})
     protected Integer age;
 
+    @lombok.Getter(onMethod_ = {@JsonProperty("degree")})
     protected String degree;
 
+    @lombok.Getter(onMethod_ = {@JsonProperty("email")})
     protected String email;
 
+    @lombok.Getter(onMethod_ = {@JsonProperty("summary")})
     protected String summary;
 
-    protected ImageDto image;
+    @lombok.Getter(onMethod_ = {@JsonProperty("image")})
+    protected ImageDto imageDto;
 
-    private final List<PhoneDto> phoneList = new ArrayList<>();
+    @JsonProperty("phones")
+    private final List<PhoneDto> phoneList = Lists.newArrayList();
 
-    private final List<AddressDto> addressList = new ArrayList<>();
+    @JsonProperty("address")
+    private final List<AddressDto> addressList = Lists.newArrayList();
 
-    private final List<SocialDto> socialList = new ArrayList<>();
+    @JsonProperty("social")
+    private final List<SocialDto> socialList = Lists.newArrayList();
 
     PersonDto() {
         this.id = UUID.randomUUID().toString();
@@ -42,7 +53,7 @@ public class PersonDto {
             String degree,
             String email,
             String summary,
-            ImageDto image
+            ImageDto imageDto
     ) {
         this();
         this.id = id;
@@ -51,7 +62,7 @@ public class PersonDto {
         this.degree = degree;
         this.email = email;
         this.summary = summary;
-        this.image = image;
+        this.imageDto = imageDto;
     }
 
     public void addPhoneDto(PhoneDto phoneDto) {
@@ -64,6 +75,18 @@ public class PersonDto {
 
     public void addSocialDto(SocialDto socialDto) {
         socialList.add(socialDto);
+    }
+
+    public List<PhoneDto> getPhoneList() {
+        return ImmutableList.copyOf(phoneList);
+    }
+
+    public List<AddressDto> getAddressList() {
+        return ImmutableList.copyOf(addressList);
+    }
+
+    public List<SocialDto> getSocialList() {
+        return ImmutableList.copyOf(socialList);
     }
 
 }

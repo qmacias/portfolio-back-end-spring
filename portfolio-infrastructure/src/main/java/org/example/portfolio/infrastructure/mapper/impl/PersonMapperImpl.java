@@ -25,7 +25,7 @@ public class PersonMapperImpl implements PersonMapper {
                 .setEmail(personDto.getEmail())
                 .setSummary(personDto.getSummary())
                 .setImageEntity(
-                        ImageMapper.INSTANCE.mapDtoToEntity(personDto.getImage())
+                        ImageMapper.INSTANCE.mapDtoToEntity(personDto.getImageDto())
                 ).createPersonEntity();
 
         personDto.getPhoneList().forEach(phoneDto -> personEntity.addPhoneEntity(
