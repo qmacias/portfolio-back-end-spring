@@ -1,8 +1,5 @@
 package org.example.portfolio.domain.model;
 
-import com.google.common.collect.Lists;
-import com.google.common.collect.ImmutableList;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -33,14 +30,14 @@ public class PersonDto {
     @lombok.Getter(onMethod_ = {@JsonProperty("image")})
     protected ImageDto imageDto;
 
-    @JsonProperty("phones")
-    private final List<PhoneDto> phoneList = Lists.newArrayList();
+    @lombok.Getter(onMethod_ = {@JsonProperty("phones")})
+    protected List<PhoneDto> phoneDtoList;
 
-    @JsonProperty("address")
-    private final List<AddressDto> addressList = Lists.newArrayList();
+    @lombok.Getter(onMethod_ = {@JsonProperty("address")})
+    protected List<AddressDto> addressDtoList;
 
-    @JsonProperty("social")
-    private final List<SocialDto> socialList = Lists.newArrayList();
+    @lombok.Getter(onMethod_ = {@JsonProperty("social")})
+    protected List<SocialDto> socialDtoList;
 
     PersonDto() {
         this.id = UUID.randomUUID().toString();
@@ -53,7 +50,10 @@ public class PersonDto {
             String degree,
             String email,
             String summary,
-            ImageDto imageDto
+            ImageDto imageDto,
+            List<PhoneDto> phoneDtoList,
+            List<AddressDto> addressDtoList,
+            List<SocialDto> socialDtoList
     ) {
         this();
         this.id = id;
@@ -63,30 +63,9 @@ public class PersonDto {
         this.email = email;
         this.summary = summary;
         this.imageDto = imageDto;
-    }
-
-    public void addPhoneDto(PhoneDto phoneDto) {
-        phoneList.add(phoneDto);
-    }
-
-    public void addAddressDto(AddressDto addressDto) {
-        addressList.add(addressDto);
-    }
-
-    public void addSocialDto(SocialDto socialDto) {
-        socialList.add(socialDto);
-    }
-
-    public List<PhoneDto> getPhoneList() {
-        return ImmutableList.copyOf(phoneList);
-    }
-
-    public List<AddressDto> getAddressList() {
-        return ImmutableList.copyOf(addressList);
-    }
-
-    public List<SocialDto> getSocialList() {
-        return ImmutableList.copyOf(socialList);
+        this.phoneDtoList = phoneDtoList;
+        this.addressDtoList = addressDtoList;
+        this.socialDtoList = socialDtoList;
     }
 
 }

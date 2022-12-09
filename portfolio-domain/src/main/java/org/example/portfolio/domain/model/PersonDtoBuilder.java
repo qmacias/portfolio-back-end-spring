@@ -1,5 +1,7 @@
 package org.example.portfolio.domain.model;
 
+import java.util.List;
+
 public class PersonDtoBuilder extends PersonDto {
 
     public PersonDtoBuilder setId(String id) {
@@ -32,13 +34,30 @@ public class PersonDtoBuilder extends PersonDto {
         return this;
     }
 
-    public PersonDtoBuilder setImage(ImageDto image) {
-        this.imageDto = image;
+    public PersonDtoBuilder setImageDto(ImageDto imageDto) {
+        this.imageDto = imageDto;
+        return this;
+    }
+
+    public PersonDtoBuilder setPhoneDtoList(List<PhoneDto> phoneDtoList) {
+        this.phoneDtoList = phoneDtoList;
+        return this;
+    }
+
+    public PersonDtoBuilder setAddressDtoList(List<AddressDto> addressDtoList) {
+        this.addressDtoList = addressDtoList;
+        return this;
+    }
+
+    public PersonDtoBuilder setSocialDtoList(List<SocialDto> socialDtoList) {
+        this.socialDtoList = socialDtoList;
         return this;
     }
 
     public PersonDto createPersonDto() {
-        return new PersonDto(id, name, age, degree, email, summary, imageDto);
+        return new PersonDto(id, name, age, degree, email, summary, imageDto,
+                phoneDtoList, addressDtoList, socialDtoList
+        );
     }
 
 }

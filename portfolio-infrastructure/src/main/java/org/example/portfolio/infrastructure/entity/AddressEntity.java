@@ -1,9 +1,6 @@
 package org.example.portfolio.infrastructure.entity;
 
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Entity;
-import javax.persistence.Column;
+import javax.persistence.*;
 
 import java.io.Serializable;
 
@@ -12,16 +9,17 @@ import java.io.Serializable;
 public class AddressEntity implements Serializable {
 
     @Id
-    @Column
+    @Column(name = "id")
     private String id;
 
-    @Column
+    @Column(name = "type")
     private String type;
 
-    @Column
+    @Column(name = "description")
     private String description;
 
     protected AddressEntity() {
+        super();
     }
 
     private AddressEntity(String id, String type, String description) {

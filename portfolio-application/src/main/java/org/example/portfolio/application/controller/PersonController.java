@@ -3,8 +3,9 @@ package org.example.portfolio.application.controller;
 import org.example.portfolio.domain.model.PersonDto;
 import org.example.portfolio.domain.port.input.PersonServicePort;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 

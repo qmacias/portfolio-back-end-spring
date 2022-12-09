@@ -1,9 +1,6 @@
 package org.example.portfolio.infrastructure.entity;
 
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Entity;
-import javax.persistence.Column;
+import javax.persistence.*;
 
 import java.io.Serializable;
 
@@ -12,13 +9,14 @@ import java.io.Serializable;
 public class ImageEntity implements Serializable {
 
     @Id
-    @Column
+    @Column(name = "id")
     private String id;
 
-    @Column
+    @Column(name = "path")
     private String path;
 
     protected ImageEntity() {
+        super();
     }
 
     private ImageEntity(String id, String path) {

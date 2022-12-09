@@ -13,4 +13,6 @@ public interface GenericModelMapper<Dto, Entity> {
 
     List<Dto> mapEntityListToDtoList(List<Entity> sourceEntityList);
 
+    List<Entity> mapDtoListToEntityList(List<Dto> sourceDtoList);
+
 }

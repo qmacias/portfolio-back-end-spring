@@ -1,8 +1,8 @@
 package org.example.portfolio.domain.common;
 
-import java.util.List;
-
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 public interface GenericPersistencePort<Dto, Key> {

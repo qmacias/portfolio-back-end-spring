@@ -1,7 +1,7 @@
 package org.example.portfolio.domain.port.output;
 
-import org.example.portfolio.domain.common.GenericPersistencePort;
 import org.example.portfolio.domain.model.SocialDto;
+import org.example.portfolio.domain.common.GenericPersistencePort;
 
 import org.springframework.stereotype.Repository;
 

@@ -1,5 +1,7 @@
 package org.example.portfolio.infrastructure.entity;
 
+import java.util.List;
+
 public class PersonEntityBuilder extends PersonEntity {
 
     public PersonEntityBuilder setId(String id) {
@@ -37,8 +39,23 @@ public class PersonEntityBuilder extends PersonEntity {
         return this;
     }
 
+    public PersonEntityBuilder setPhoneEntities(List<PhoneEntity> phoneEntities) {
+        this.phoneEntities = phoneEntities;
+        return this;
+    }
+
+    public PersonEntityBuilder setAddressEntities(List<AddressEntity> addressEntities) {
+        this.addressEntities = addressEntities;
+        return this;
+    }
+
+    public PersonEntityBuilder setSocialEntities(List<SocialEntity> socialEntities) {
+        this.socialEntities = socialEntities;
+        return this;
+    }
+
     public PersonEntity createPersonEntity() {
-        return new PersonEntity(id, name, age, degree, email, summary, imageEntity);
+        return new PersonEntity(id, name, age, degree, email, summary, imageEntity, phoneEntities, addressEntities, socialEntities);
     }
 
 }

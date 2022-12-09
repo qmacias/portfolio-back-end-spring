@@ -1,15 +1,20 @@
 package org.example.portfolio.domain.model;
 
-import java.util.UUID;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.UUID;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PhoneDto {
 
+    @JsonProperty("id")
     private String id;
 
+    @JsonProperty("type")
     private String type;
 
+    @JsonProperty("number")
     private String number;
 
     PhoneDto() {

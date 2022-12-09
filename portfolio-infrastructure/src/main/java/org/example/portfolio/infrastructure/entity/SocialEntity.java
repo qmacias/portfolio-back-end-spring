@@ -1,9 +1,6 @@
 package org.example.portfolio.infrastructure.entity;
 
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Entity;
-import javax.persistence.Column;
+import javax.persistence.*;
 
 import java.io.Serializable;
 
@@ -12,13 +9,14 @@ import java.io.Serializable;
 public class SocialEntity implements Serializable {
 
     @Id
-    @Column
+    @Column(name = "id")
     private String id;
 
-    @Column
+    @Column(name = "link")
     private String link;
 
     protected SocialEntity() {
+        super();
     }
 
     private SocialEntity(String id, String link) {

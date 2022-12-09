@@ -1,12 +1,12 @@
 package org.example.portfolio.infrastructure.entity;
 
-import javax.persistence.*;
-
 import lombok.Getter;
+
+import javax.persistence.*;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.ArrayList;
+
 import java.io.Serializable;
 
 @Getter
@@ -15,22 +15,22 @@ import java.io.Serializable;
 public class PersonEntity implements Serializable {
 
     @Id
-    @Column
+    @Column(name = "id")
     protected String id;
 
-    @Column
+    @Column(name = "name")
     protected String name;
 
-    @Column
+    @Column(name = "age")
     protected Integer age;
 
-    @Column
+    @Column(name = "degree")
     protected String degree;
 
-    @Column(unique = true)
+    @Column(name = "email", unique = true)
     protected String email;
 
-    @Column
+    @Column(name = "summary")
     protected String summary;
 
     @JoinColumn(name = "image_id")
@@ -39,17 +39,18 @@ public class PersonEntity implements Serializable {
 
     @JoinColumn(name = "person_id")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private final List<PhoneEntity> phoneEntities = new ArrayList<>();
-
-    @JoinColumn(name = "person_id")
-    @OneToMany( cascade = CascadeType.ALL, orphanRemoval = true)
-    private final List<AddressEntity> addressEntities = new ArrayList<>();
+    protected List<PhoneEntity> phoneEntities;
 
     @JoinColumn(name = "person_id")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private final List<SocialEntity> socialEntities = new ArrayList<>();
+    protected List<AddressEntity> addressEntities;
+
+    @JoinColumn(name = "person_id")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    protected List<SocialEntity> socialEntities;
 
     protected PersonEntity() {
+        super();
     }
 
     protected PersonEntity(
@@ -59,7 +60,10 @@ public class PersonEntity implements Serializable {
             String degree,
             String email,
             String summary,
-            ImageEntity imageEntity
+            ImageEntity imageEntity,
+            List<PhoneEntity> phoneEntities,
+            List<AddressEntity> addressEntities,
+            List<SocialEntity> socialEntities
     ) {
         this();
         this.id = id;
@@ -69,18 +73,9 @@ public class PersonEntity implements Serializable {
         this.email = email;
         this.summary = summary;
         this.imageEntity = imageEntity;
-    }
-
-    public void addPhoneEntity(PhoneEntity phoneEntity) {
-        phoneEntities.add(phoneEntity);
-    }
-
-    public void addAddressEntity(AddressEntity addressEntity) {
-        addressEntities.add(addressEntity);
-    }
-
-    public void addSocialEntity(SocialEntity socialEntity) {
-        socialEntities.add(socialEntity);
+        this.phoneEntities = phoneEntities;
+        this.addressEntities = addressEntities;
+        this.socialEntities = socialEntities;
     }
 
     @Override
