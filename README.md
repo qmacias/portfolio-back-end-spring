@@ -1,4 +1,4 @@
-## Getting Started (updated at: 27-11-22)
+## Getting Started (updated at: 10-12-22)
 
 ### Clone Repository
 ```console
@@ -43,7 +43,7 @@ Add Person:
     "image": {
         "path": "https://ui-avatars.com/api/?name=Cristian+Quinto&size=255"
     },
-    "phoneList": [
+    "phones": [
         {
             "type": "Mobile",
             "number": "+54 9 2646269903"
@@ -53,7 +53,7 @@ Add Person:
             "number": "+54 9 2644216760"
         }
     ],
-    "addressList": [
+    "address": [
         {
             "type": "Work",
             "description": "Av. Libertador 526 Oeste"
@@ -63,7 +63,7 @@ Add Person:
             "description": "Calle Asunción 36 Norte"
         }
     ],
-    "socialList": [
+    "social": [
         {
             "link": "https://www.instagram.com/cqube.argentina"
         },
@@ -77,36 +77,36 @@ Add Person:
 Edit Person:
 ```json
 {
-    "id": "4ff8dd3a-2229-48ad-a3c8-c232407ea3cc",
+    "id": "3049d9ae-9ca4-403c-bed8-7a058e0e300c",
     "name": "Pepe Honguito",
     "age": 30,
     "degree": "Sr Full Stack Developer",
     "email": "pepehonguito@gmail.com",
     "summary": "This is another example of summary.",
     "image": {
-        "id": "c4ba289c-9b76-4af7-a2be-30dcf40d95b5",
+        "id": "a7ebfd26-c18c-4585-8818-8446d857381a",
         "path": "https://ui-avatars.com/api/?name=Pepe+Honguito&size=255"
     },
-    "phoneList": [
+    "phones": [
         {
-            "id": "37b90918-8163-4278-8de2-391dfbf48942",
+            "id": "9802de07-4a6a-475d-9bb8-d970de5ce375",
             "type": "Work",
             "number": "+54 9 2646269904"
         },
         {
-            "id": "e6dddd24-764e-4df8-93fe-bfed6a3ad748",
+            "id": "f958afb8-c6a1-4055-83b7-a1fecaf0fa37",
             "type": "Gym",
             "number": "+54 9 2644216761"
         }
     ],
-    "addressList": [
+    "address": [
         {
-            "id": "637a0cfa-eee3-410f-9c2a-e1b169c1d9f1",
+            "id": "1c1916f9-7700-45e2-bea1-c19d5e48c3b0",
             "type": "Other",
             "description": "Av. Ign. De La Rosa, entre Rivadavia y Córdoba"
         }
     ],
-    "socialList": []
+    "social": []
 }
 ```
 ---
