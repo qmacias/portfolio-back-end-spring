@@ -6,11 +6,12 @@ import javax.persistence.*;
 
 import java.time.Period;
 import java.time.LocalDate;
+import java.time.format.FormatStyle;
 import java.time.format.DateTimeFormatter;
 
-import java.io.Serializable;
-import java.time.format.DateTimeFormatterBuilder;
 import java.util.List;
+
+import java.io.Serializable;
 
 @Getter
 @Entity
@@ -28,10 +29,10 @@ public class JobEntity implements Serializable {
     protected String description;
 
     @Column(name = "start_date")
-    protected LocalDate startDate;
+    protected String startDate;
 
     @Column(name = "finish_date")
-    protected LocalDate finishDate;
+    protected String finishDate;
 
     @JoinColumn(name = "job_id")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -45,8 +46,8 @@ public class JobEntity implements Serializable {
             String id,
             String position,
             String description,
-            LocalDate startDate,
-            LocalDate finishDate,
+            String startDate,
+            String finishDate,
             List<AchievementEntity> achievementEntities
     ) {
         this();
@@ -58,16 +59,21 @@ public class JobEntity implements Serializable {
         this.achievementEntities = achievementEntities;
     }
 
-    public Period calculatePeriod() {
-        return Period.between(this.startDate, this.finishDate);
+    protected Period calculatePeriod() {
+        return Period.between(this.toLocalDate(this.startDate), this.toLocalDate(this.finishDate));
+    }
+
+    protected String formatInputString(String date) {
+        return DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(this.toLocalDate(date));
+    }
+
+    private LocalDate toLocalDate(String date) {
+        return LocalDate.parse(date, this.getDateTimeFormatter());
     }
 
     private DateTimeFormatter getDateTimeFormatter() {
+        // modify pattern according to input string format type
         return DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    }
-
-    protected LocalDate parseLocalDate(String date) {
-        return LocalDate.parse(date, getDateTimeFormatter());
     }
 
 }

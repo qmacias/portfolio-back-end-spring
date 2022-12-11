@@ -36,8 +36,8 @@ public class JobMapperImpl implements JobMapper {
                 .setId(jobEntity.getId())
                 .setPosition(jobEntity.getPosition())
                 .setDescription(jobEntity.getDescription())
-                .setStartDate(jobEntity.getStartDate().toString())
-                .setFinishDate(jobEntity.getFinishDate().toString())
+                .setStartDate(jobEntity.getStartDate())
+                .setFinishDate(jobEntity.getFinishDate())
                 .setAchievementDtoList(AchievementMapper.INSTANCE.mapEntityListToDtoList(jobEntity.getAchievementEntities()))
                 .createJobDto();
     }
