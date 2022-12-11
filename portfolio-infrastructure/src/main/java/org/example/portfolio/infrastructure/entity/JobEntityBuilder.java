@@ -24,12 +24,12 @@ public class JobEntityBuilder extends JobEntity {
     }
 
     public JobEntityBuilder setStartDate(String startDate) {
-        this.startDate = CustomDateFormatter.formatInputString(startDate);
+        this.startDate = CustomDateFormatter.formatInputString(startDate, "dd/MM/yyyy", "MMM yyyy");
         return this;
     }
 
     public JobEntityBuilder setFinishDate(String finishDate) {
-        this.finishDate = CustomDateFormatter.formatInputString(finishDate);
+        this.finishDate = CustomDateFormatter.formatInputString(finishDate, "dd/MM/yyyy", "MMM yyyy");
         return this;
     }
 

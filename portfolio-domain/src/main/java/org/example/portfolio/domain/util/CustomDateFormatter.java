@@ -2,32 +2,20 @@ package org.example.portfolio.domain.util;
 
 import lombok.experimental.UtilityClass;
 
-import java.time.Period;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 @UtilityClass
 public class CustomDateFormatter {
 
-//    public static String calculatePeriod(String startDate, String endDate) {
-//        Period period = Period.between(toLocalDate(startDate), toLocalDate(endDate));
-//        return period.getMonths() + " months";
-//    }
+    private DateTimeFormatter formatter = null;
 
-    public static String formatInputString(String date) {
-        return getCustomDateTimeFormatter().format(toLocalDate(date));
+    public static String formatInputString(String date, String from, String to) {
+        return FormatterPatternSelector.CUSTOM_PATTERN.apply(from).format(toLocalDate(date, to));
     }
 
-    private static LocalDate toLocalDate(String date) {
-        return LocalDate.parse(date, getLocalDateTimeFormatter());
-    }
-
-    private static DateTimeFormatter getLocalDateTimeFormatter() {
-        return DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    }
-
-    private static DateTimeFormatter getCustomDateTimeFormatter() {
-        return DateTimeFormatter.ofPattern("MMM yyyy");
+    private static LocalDate toLocalDate(String date, String format) {
+        return LocalDate.parse(date, FormatterPatternSelector.LOCAL_PATTERN.apply(format));
     }
 
 }
