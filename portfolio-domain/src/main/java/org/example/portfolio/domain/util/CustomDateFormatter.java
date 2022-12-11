@@ -8,14 +8,20 @@ import java.time.format.DateTimeFormatter;
 @UtilityClass
 public class CustomDateFormatter {
 
-    private DateTimeFormatter formatter = null;
-
-    public static String formatInputString(String date, String from, String to) {
-        return FormatterPatternSelector.CUSTOM_PATTERN.apply(from).format(toLocalDate(date, to));
+    public static String formatInputString(String date) {
+        return getCustomDateTimeFormatter().format(toLocalDate(date));
     }
 
-    private static LocalDate toLocalDate(String date, String format) {
-        return LocalDate.parse(date, FormatterPatternSelector.LOCAL_PATTERN.apply(format));
+    private static LocalDate toLocalDate(String date) {
+        return LocalDate.parse(date, getLocalDateTimeFormatter());
+    }
+
+    private static DateTimeFormatter getLocalDateTimeFormatter() {
+        return DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    }
+
+    private static DateTimeFormatter getCustomDateTimeFormatter() {
+        return DateTimeFormatter.ofPattern("MMM yyyy");
     }
 
 }
