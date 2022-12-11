@@ -1,5 +1,6 @@
 package org.example.portfolio.infrastructure.entity;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public class JobEntityBuilder extends JobEntity {
@@ -22,12 +23,14 @@ public class JobEntityBuilder extends JobEntity {
     }
 
     public JobEntityBuilder setStartDate(String startDate) {
-        this.startDate = startDate;
+        this.startDate = parseLocalDate(startDate);
+        System.out.println(this.startDate.toString());
         return this;
     }
 
     public JobEntityBuilder setFinishDate(String finishDate) {
-        this.finishDate = finishDate;
+        this.finishDate = parseLocalDate(finishDate);
+        System.out.println(this.finishDate.toString());
         return this;
     }
 
