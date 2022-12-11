@@ -25,4 +25,8 @@ public abstract class ModelMapperFactory {
 
     public abstract SocialMapper getSocialMapperInstance();
 
+    public abstract JobMapper getJobMapperInstance();
+
+    public abstract AchievementMapper getAchievementMapperInstance();
+
 }

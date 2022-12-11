@@ -16,6 +16,10 @@ public class ModelMapperFactoryImpl extends ModelMapperFactory {
 
     private SocialMapper socialMapper = null;
 
+    private JobMapper jobMapper = null;
+
+    private AchievementMapper achievementMapper = null;
+
     @Override
     public PersonMapper getPersonMapperInstance() {
         if (personMapper == null) {
@@ -54,6 +58,22 @@ public class ModelMapperFactoryImpl extends ModelMapperFactory {
             socialMapper = new SocialMapperImpl();
         }
         return socialMapper;
+    }
+
+    @Override
+    public JobMapper getJobMapperInstance() {
+        if (jobMapper == null) {
+            jobMapper = new JobMapperImpl();
+        }
+        return jobMapper;
+    }
+
+    @Override
+    public AchievementMapper getAchievementMapperInstance() {
+        if (achievementMapper == null) {
+            achievementMapper = new AchievementMapperImpl();
+        }
+        return achievementMapper;
     }
 
 }

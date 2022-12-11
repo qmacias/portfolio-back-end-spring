@@ -9,7 +9,7 @@ import java.io.Serializable;
 public class ImageEntity implements Serializable {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "id", updatable = false)
     private String id;
 
     @Column(name = "path")

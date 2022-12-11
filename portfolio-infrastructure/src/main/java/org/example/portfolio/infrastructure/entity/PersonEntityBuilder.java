@@ -54,8 +54,15 @@ public class PersonEntityBuilder extends PersonEntity {
         return this;
     }
 
+    public PersonEntityBuilder setJobEntities(List<JobEntity> jobEntities) {
+        this.jobEntities = jobEntities;
+        return this;
+    }
+
     public PersonEntity createPersonEntity() {
-        return new PersonEntity(id, name, age, degree, email, summary, imageEntity, phoneEntities, addressEntities, socialEntities);
+        return new PersonEntity(id, name, age, degree, email, summary, imageEntity,
+                phoneEntities, addressEntities, socialEntities, jobEntities
+        );
     }
 
 }

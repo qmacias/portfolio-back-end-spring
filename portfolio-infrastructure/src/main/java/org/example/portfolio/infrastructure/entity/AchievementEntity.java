@@ -5,40 +5,32 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "address")
-public class AddressEntity implements Serializable {
+@Table(name = "jobs")
+public class AchievementEntity implements Serializable {
 
     @Id
     @Column(name = "id", updatable = false)
     private String id;
 
-    @Column(name = "type")
-    private String type;
-
     @Column(name = "description")
     private String description;
 
-    protected AddressEntity() {
+    protected AchievementEntity() {
         super();
     }
 
-    private AddressEntity(String id, String type, String description) {
+    private AchievementEntity(String id, String description) {
         this();
         this.id = id;
-        this.type = type;
         this.description = description;
     }
 
-    public static AddressEntity of(String id, String type, String description) {
-        return new AddressEntity(id, type, description);
+    public static AchievementEntity of(String id, String description) {
+        return new AchievementEntity(id, description);
     }
 
     public String getId() {
         return id;
-    }
-
-    public String getType() {
-        return type;
     }
 
     public String getDescription() {

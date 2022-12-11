@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class PersonEntity implements Serializable {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "id", updatable = false)
     protected String id;
 
     @Column(name = "name")
@@ -49,6 +49,10 @@ public class PersonEntity implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     protected List<SocialEntity> socialEntities;
 
+    @JoinColumn(name = "person_id")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    protected List<JobEntity> jobEntities;
+
     protected PersonEntity() {
         super();
     }
@@ -63,7 +67,8 @@ public class PersonEntity implements Serializable {
             ImageEntity imageEntity,
             List<PhoneEntity> phoneEntities,
             List<AddressEntity> addressEntities,
-            List<SocialEntity> socialEntities
+            List<SocialEntity> socialEntities,
+            List<JobEntity> jobEntities
     ) {
         this();
         this.id = id;
@@ -76,6 +81,7 @@ public class PersonEntity implements Serializable {
         this.phoneEntities = phoneEntities;
         this.addressEntities = addressEntities;
         this.socialEntities = socialEntities;
+        this.jobEntities = jobEntities;
     }
 
     @Override

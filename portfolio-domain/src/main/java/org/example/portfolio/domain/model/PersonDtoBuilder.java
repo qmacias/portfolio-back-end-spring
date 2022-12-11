@@ -54,9 +54,14 @@ public class PersonDtoBuilder extends PersonDto {
         return this;
     }
 
+    public PersonDtoBuilder setJobDtoList(List<JobDto> jobDtoList) {
+        this.jobDtoList = jobDtoList;
+        return this;
+    }
+
     public PersonDto createPersonDto() {
         return new PersonDto(id, name, age, degree, email, summary, imageDto,
-                phoneDtoList, addressDtoList, socialDtoList
+                phoneDtoList, addressDtoList, socialDtoList, jobDtoList
         );
     }
 

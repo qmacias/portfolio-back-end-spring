@@ -39,6 +39,9 @@ public class PersonDto {
     @lombok.Getter(onMethod_ = {@JsonProperty("social")})
     protected List<SocialDto> socialDtoList;
 
+    @lombok.Getter(onMethod_ = {@JsonProperty("jobs")})
+    protected List<JobDto> jobDtoList;
+
     PersonDto() {
         this.id = UUID.randomUUID().toString();
     }
@@ -53,7 +56,8 @@ public class PersonDto {
             ImageDto imageDto,
             List<PhoneDto> phoneDtoList,
             List<AddressDto> addressDtoList,
-            List<SocialDto> socialDtoList
+            List<SocialDto> socialDtoList,
+            List<JobDto> jobDtoList
     ) {
         this();
         this.id = id;
@@ -66,6 +70,7 @@ public class PersonDto {
         this.phoneDtoList = phoneDtoList;
         this.addressDtoList = addressDtoList;
         this.socialDtoList = socialDtoList;
+        this.jobDtoList = jobDtoList;
     }
 
 }

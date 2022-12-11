@@ -3,9 +3,10 @@ package org.example.portfolio.infrastructure.mapper.impl;
 import org.example.portfolio.domain.model.PersonDto;
 import org.example.portfolio.domain.model.PersonDtoBuilder;
 
-import org.example.portfolio.infrastructure.mapper.*;
 import org.example.portfolio.infrastructure.entity.PersonEntity;
 import org.example.portfolio.infrastructure.entity.PersonEntityBuilder;
+
+import org.example.portfolio.infrastructure.mapper.*;
 
 import java.util.List;
 
@@ -29,6 +30,7 @@ public class PersonMapperImpl implements PersonMapper {
                 .setPhoneEntities(PhoneMapper.INSTANCE.mapDtoListToEntityList(personDto.getPhoneDtoList()))
                 .setAddressEntities(AddressMapper.INSTANCE.mapDtoListToEntityList(personDto.getAddressDtoList()))
                 .setSocialEntities(SocialMapper.INSTANCE.mapDtoListToEntityList(personDto.getSocialDtoList()))
+                .setJobEntities(JobMapper.INSTANCE.mapDtoListToEntityList(personDto.getJobDtoList()))
                 .createPersonEntity();
     }
 
@@ -45,6 +47,7 @@ public class PersonMapperImpl implements PersonMapper {
                 .setPhoneDtoList(PhoneMapper.INSTANCE.mapEntityListToDtoList(personEntity.getPhoneEntities()))
                 .setAddressDtoList(AddressMapper.INSTANCE.mapEntityListToDtoList(personEntity.getAddressEntities()))
                 .setSocialDtoList(SocialMapper.INSTANCE.mapEntityListToDtoList(personEntity.getSocialEntities()))
+                .setJobDtoList(JobMapper.INSTANCE.mapEntityListToDtoList(personEntity.getJobEntities()))
                 .createPersonDto();
     }
 
