@@ -64,16 +64,24 @@ public class JobEntity implements Serializable {
     }
 
     protected String formatInputString(String date) {
-        return DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(this.toLocalDate(date));
+        //return DateTimeFormatter.ofLocalizedDate(null).format(this.toLocalDate(date));
+        return this.getCustomDateTimeFormatter().format(this.toLocalDate(date));
     }
 
     private LocalDate toLocalDate(String date) {
-        return LocalDate.parse(date, this.getDateTimeFormatter());
+//        LocalDate source = LocalDate.parse(date, this.getSpanishDateTimeFormatter());
+//        return LocalDate.parse(date, this.getCustomDateTimeFormatter());
+        return LocalDate.parse(date, this.getLocalDateTimeFormatter());
     }
 
-    private DateTimeFormatter getDateTimeFormatter() {
+    private DateTimeFormatter getLocalDateTimeFormatter() {
         // modify pattern according to input string format type
         return DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    }
+
+    private DateTimeFormatter getCustomDateTimeFormatter() {
+        // modify pattern according to input string format type
+        return DateTimeFormatter.ofPattern("MMM yyyy");
     }
 
 }
