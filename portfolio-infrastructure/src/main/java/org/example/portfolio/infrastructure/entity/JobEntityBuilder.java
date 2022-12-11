@@ -1,5 +1,7 @@
 package org.example.portfolio.infrastructure.entity;
 
+import org.example.portfolio.domain.util.CustomDateFormatter;
+
 import java.util.List;
 
 public class JobEntityBuilder extends JobEntity {
@@ -22,14 +24,12 @@ public class JobEntityBuilder extends JobEntity {
     }
 
     public JobEntityBuilder setStartDate(String startDate) {
-        this.startDate = formatInputString(startDate);
-        System.out.println("Start Date: " + this.startDate);
+        this.startDate = CustomDateFormatter.formatInputString(startDate);
         return this;
     }
 
     public JobEntityBuilder setFinishDate(String finishDate) {
-        this.finishDate = formatInputString(finishDate);
-        System.out.println("Finish Date: " + this.finishDate);
+        this.finishDate = CustomDateFormatter.formatInputString(finishDate);
         return this;
     }
 
