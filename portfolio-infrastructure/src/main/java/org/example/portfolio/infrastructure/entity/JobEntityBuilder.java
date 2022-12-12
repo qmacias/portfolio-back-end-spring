@@ -1,7 +1,5 @@
 package org.example.portfolio.infrastructure.entity;
 
-import org.example.portfolio.domain.util.CustomDateFormatter;
-
 import java.util.List;
 
 public class JobEntityBuilder extends JobEntity {
@@ -24,12 +22,17 @@ public class JobEntityBuilder extends JobEntity {
     }
 
     public JobEntityBuilder setStartDate(String startDate) {
-        this.startDate = CustomDateFormatter.formatInputString(startDate);
+        this.startDate = startDate;
         return this;
     }
 
     public JobEntityBuilder setFinishDate(String finishDate) {
-        this.finishDate = CustomDateFormatter.formatInputString(finishDate);
+        this.finishDate = finishDate;
+        return this;
+    }
+
+    public JobEntityBuilder setPeriod(String period) {
+        this.period = period;
         return this;
     }
 
@@ -39,7 +42,7 @@ public class JobEntityBuilder extends JobEntity {
     }
 
     public JobEntity createJobEntity() {
-        return new JobEntity(id, position, description, startDate, finishDate, achievementEntities);
+        return new JobEntity(id, position, description, startDate, finishDate, period, achievementEntities);
     }
 
 }

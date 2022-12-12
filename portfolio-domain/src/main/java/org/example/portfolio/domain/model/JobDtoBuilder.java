@@ -29,13 +29,18 @@ public class JobDtoBuilder extends JobDto {
         return this;
     }
 
+    public JobDtoBuilder setPeriod(String period) {
+        this.period = period;
+        return this;
+    }
+
     public JobDtoBuilder setAchievementDtoList(List<AchievementDto> achievementDtoList) {
         this.achievementDtoList = achievementDtoList;
         return this;
     }
 
     public JobDto createJobDto() {
-        return new JobDto(id, position, description, startDate, finishDate, achievementDtoList);
+        return new JobDto(id, position, description, startDate, finishDate, period, achievementDtoList);
     }
 
 }

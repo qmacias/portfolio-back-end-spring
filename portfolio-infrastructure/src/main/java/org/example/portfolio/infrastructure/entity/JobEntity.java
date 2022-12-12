@@ -29,6 +29,9 @@ public class JobEntity implements Serializable {
     @Column(name = "finish_date")
     protected String finishDate;
 
+    @Column(name = "period")
+    protected String period;
+
     @JoinColumn(name = "job_id")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     protected List<AchievementEntity> achievementEntities;
@@ -43,6 +46,7 @@ public class JobEntity implements Serializable {
             String description,
             String startDate,
             String finishDate,
+            String period,
             List<AchievementEntity> achievementEntities
     ) {
         this();
@@ -51,6 +55,7 @@ public class JobEntity implements Serializable {
         this.description = description;
         this.startDate = startDate;
         this.finishDate = finishDate;
+        this.period = period;
         this.achievementEntities = achievementEntities;
     }
 

@@ -24,6 +24,9 @@ public class JobDto {
     @lombok.Getter(onMethod_ = {@JsonProperty("finish_date")})
     protected String finishDate;
 
+    @lombok.Getter(onMethod_ = {@JsonProperty("period")})
+    protected String period;
+
     @lombok.Getter(onMethod_ = {@JsonProperty("achievements")})
     protected List<AchievementDto> achievementDtoList;
 
@@ -37,6 +40,7 @@ public class JobDto {
             String description,
             String startDate,
             String finishDate,
+            String period,
             List<AchievementDto> achievementDtoList
     ) {
         this();
@@ -45,6 +49,7 @@ public class JobDto {
         this.description = description;
         this.startDate = startDate;
         this.finishDate = finishDate;
+        this.period = period;
         this.achievementDtoList = achievementDtoList;
     }
 

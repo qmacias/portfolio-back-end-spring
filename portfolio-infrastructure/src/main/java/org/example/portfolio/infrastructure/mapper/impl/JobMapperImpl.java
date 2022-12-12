@@ -2,6 +2,7 @@ package org.example.portfolio.infrastructure.mapper.impl;
 
 import org.example.portfolio.domain.model.JobDto;
 import org.example.portfolio.domain.model.JobDtoBuilder;
+import org.example.portfolio.domain.util.CustomDateFormatter;
 
 import org.example.portfolio.infrastructure.entity.JobEntity;
 import org.example.portfolio.infrastructure.entity.JobEntityBuilder;
@@ -24,8 +25,9 @@ public class JobMapperImpl implements JobMapper {
                 .setId(jobDto.getId())
                 .setPosition(jobDto.getPosition())
                 .setDescription(jobDto.getDescription())
-                .setStartDate(jobDto.getStartDate())
-                .setFinishDate(jobDto.getFinishDate())
+                .setStartDate(CustomDateFormatter.formatInputString(jobDto.getStartDate()))
+                .setFinishDate(CustomDateFormatter.formatInputString(jobDto.getFinishDate()))
+                .setPeriod(CustomDateFormatter.calculatePeriod(jobDto.getStartDate(), jobDto.getFinishDate()))
                 .setAchievementEntities(AchievementMapper.INSTANCE.mapDtoListToEntityList(jobDto.getAchievementDtoList()))
                 .createJobEntity();
     }
@@ -38,6 +40,7 @@ public class JobMapperImpl implements JobMapper {
                 .setDescription(jobEntity.getDescription())
                 .setStartDate(jobEntity.getStartDate())
                 .setFinishDate(jobEntity.getFinishDate())
+                .setPeriod(jobEntity.getPeriod())
                 .setAchievementDtoList(AchievementMapper.INSTANCE.mapEntityListToDtoList(jobEntity.getAchievementEntities()))
                 .createJobDto();
     }
