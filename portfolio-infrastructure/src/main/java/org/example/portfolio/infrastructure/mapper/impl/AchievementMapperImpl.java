@@ -9,14 +9,14 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
-public class AchievementMapperImpl implements AchievementMapper {
+public class AchievementMapperImpl extends AchievementMapper {
 
     public AchievementMapperImpl() {
     }
 
     @Override
     public AchievementEntity mapDtoToEntity(AchievementDto achievementDto) {
-        return AchievementEntity.of(achievementDto.getId(), achievementDto.getDescription());
+        return AchievementEntity.of(this.checkIdentity(achievementDto.getId()), achievementDto.getDescription());
     }
 
     @Override

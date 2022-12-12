@@ -9,14 +9,14 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
-public class PhoneMapperImpl implements PhoneMapper {
+public class PhoneMapperImpl extends PhoneMapper {
 
     public PhoneMapperImpl() {
     }
 
     @Override
     public PhoneEntity mapDtoToEntity(PhoneDto phoneDto) {
-        return PhoneEntity.of(phoneDto.getId(), phoneDto.getType(), phoneDto.getNumber());
+        return PhoneEntity.of(this.checkIdentity(phoneDto.getId()), phoneDto.getType(), phoneDto.getNumber());
     }
 
     @Override

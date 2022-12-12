@@ -9,14 +9,14 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
-public class ImageMapperImpl implements ImageMapper {
+public class ImageMapperImpl extends ImageMapper {
 
     public ImageMapperImpl() {
     }
 
     @Override
     public ImageEntity mapDtoToEntity(ImageDto imageDto) {
-        return ImageEntity.of(imageDto.getId(), imageDto.getPath());
+        return ImageEntity.of(this.checkIdentity(imageDto.getId()), imageDto.getPath());
     }
 
     @Override

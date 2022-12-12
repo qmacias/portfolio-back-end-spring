@@ -3,8 +3,6 @@ package org.example.portfolio.domain.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.UUID;
-
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ImageDto {
 
@@ -15,7 +13,6 @@ public class ImageDto {
     private String path;
 
     ImageDto() {
-        this.id = UUID.randomUUID().toString();
     }
 
     private ImageDto(String id, String path) {

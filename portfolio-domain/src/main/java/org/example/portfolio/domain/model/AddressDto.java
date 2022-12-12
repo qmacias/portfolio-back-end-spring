@@ -3,8 +3,6 @@ package org.example.portfolio.domain.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.UUID;
-
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AddressDto {
 
@@ -18,7 +16,6 @@ public class AddressDto {
     private String description;
 
     AddressDto() {
-        this.id = UUID.randomUUID().toString();
     }
 
     private AddressDto(String id, String type, String description) {

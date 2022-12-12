@@ -14,7 +14,7 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
-public class JobMapperImpl implements JobMapper {
+public class JobMapperImpl extends JobMapper {
 
     public JobMapperImpl() {
     }
@@ -22,7 +22,7 @@ public class JobMapperImpl implements JobMapper {
     @Override
     public JobEntity mapDtoToEntity(JobDto jobDto) {
         return new JobEntityBuilder()
-                .setId(jobDto.getId())
+                .setId(this.checkIdentity(jobDto.getId()))
                 .setPosition(jobDto.getPosition())
                 .setDescription(jobDto.getDescription())
                 .setStartDate(CustomDateFormatter.formatInputString(jobDto.getStartDate()))

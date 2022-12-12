@@ -9,14 +9,14 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
-public class SocialMapperImpl implements SocialMapper {
+public class SocialMapperImpl extends SocialMapper {
 
     public SocialMapperImpl() {
     }
 
     @Override
     public SocialEntity mapDtoToEntity(SocialDto socialDto) {
-        return SocialEntity.of(socialDto.getId(), socialDto.getLink());
+        return SocialEntity.of(this.checkIdentity(socialDto.getId()), socialDto.getLink());
     }
 
     @Override

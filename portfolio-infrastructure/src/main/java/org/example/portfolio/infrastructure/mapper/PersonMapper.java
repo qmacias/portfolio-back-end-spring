@@ -6,6 +6,6 @@ import org.example.portfolio.domain.common.GenericModelMapper;
 import org.example.portfolio.infrastructure.entity.PersonEntity;
 import org.example.portfolio.infrastructure.mapper.factory.ModelMapperFactory;
 
-public interface PersonMapper extends GenericModelMapper<PersonDto, PersonEntity> {
-    PersonMapper INSTANCE = ModelMapperFactory.getFactory().getPersonMapperInstance();
+public abstract class PersonMapper extends GenericModelMapper<PersonDto, PersonEntity> {
+    public static final PersonMapper INSTANCE = ModelMapperFactory.getFactory().getPersonMapperInstance();
 }

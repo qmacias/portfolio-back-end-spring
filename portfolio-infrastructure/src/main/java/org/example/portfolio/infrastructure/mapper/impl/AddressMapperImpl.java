@@ -9,14 +9,14 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
-public class AddressMapperImpl implements AddressMapper {
+public class AddressMapperImpl extends AddressMapper {
 
     public AddressMapperImpl() {
     }
 
     @Override
     public AddressEntity mapDtoToEntity(AddressDto addressDto) {
-        return AddressEntity.of(addressDto.getId(), addressDto.getType(), addressDto.getDescription());
+        return AddressEntity.of(this.checkIdentity(addressDto.getId()), addressDto.getType(), addressDto.getDescription());
     }
 
     @Override

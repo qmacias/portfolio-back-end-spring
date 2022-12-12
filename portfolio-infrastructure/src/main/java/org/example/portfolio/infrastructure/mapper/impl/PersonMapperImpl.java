@@ -12,7 +12,7 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
-public class PersonMapperImpl implements PersonMapper {
+public class PersonMapperImpl extends PersonMapper {
 
     public PersonMapperImpl() {
     }
@@ -20,7 +20,7 @@ public class PersonMapperImpl implements PersonMapper {
     @Override
     public PersonEntity mapDtoToEntity(PersonDto personDto) {
         return new PersonEntityBuilder()
-                .setId(personDto.getId())
+                .setId(this.checkIdentity(personDto.getId()))
                 .setName(personDto.getName())
                 .setAge(personDto.getAge())
                 .setDegree(personDto.getDegree())

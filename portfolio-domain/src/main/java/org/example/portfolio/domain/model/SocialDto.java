@@ -3,8 +3,6 @@ package org.example.portfolio.domain.model;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.UUID;
-
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SocialDto {
 
@@ -15,7 +13,6 @@ public class SocialDto {
     private String link;
 
     SocialDto() {
-        this.id = UUID.randomUUID().toString();
     }
 
     private SocialDto(String id, String link) {
