@@ -14,8 +14,8 @@ public class PersonDto {
     @lombok.Getter(onMethod_ = {@JsonProperty("name")})
     protected String name;
 
-    @lombok.Getter(onMethod_ = {@JsonProperty("age")})
-    protected Integer age;
+    @lombok.Getter(onMethod_ = {@JsonProperty("birthdate")})
+    protected String birthdate;
 
     @lombok.Getter(onMethod_ = {@JsonProperty("degree")})
     protected String degree;
@@ -47,7 +47,7 @@ public class PersonDto {
     protected PersonDto(
             String id,
             String name,
-            Integer age,
+            String birthdate,
             String degree,
             String email,
             String summary,
@@ -60,7 +60,7 @@ public class PersonDto {
         this();
         this.id = id;
         this.name = name;
-        this.age = age;
+        this.birthdate = birthdate;
         this.degree = degree;
         this.email = email;
         this.summary = summary;

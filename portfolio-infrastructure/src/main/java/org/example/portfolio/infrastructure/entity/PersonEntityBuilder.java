@@ -14,8 +14,8 @@ public class PersonEntityBuilder extends PersonEntity {
         return this;
     }
 
-    public PersonEntityBuilder setAge(Integer age) {
-        this.age = age;
+    public PersonEntityBuilder setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
         return this;
     }
 
@@ -60,7 +60,7 @@ public class PersonEntityBuilder extends PersonEntity {
     }
 
     public PersonEntity createPersonEntity() {
-        return new PersonEntity(id, name, age, degree, email, summary, imageEntity,
+        return new PersonEntity(id, name, birthdate, degree, email, summary, imageEntity,
                 phoneEntities, addressEntities, socialEntities, jobEntities
         );
     }

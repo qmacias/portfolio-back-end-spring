@@ -21,8 +21,8 @@ public class PersonEntity implements Serializable {
     @Column(name = "name")
     protected String name;
 
-    @Column(name = "age")
-    protected Integer age;
+    @Column(name = "birthdate", nullable = false)
+    protected String birthdate;
 
     @Column(name = "degree")
     protected String degree;
@@ -60,7 +60,7 @@ public class PersonEntity implements Serializable {
     protected PersonEntity(
             String id,
             String name,
-            Integer age,
+            String birthdate,
             String degree,
             String email,
             String summary,
@@ -73,7 +73,7 @@ public class PersonEntity implements Serializable {
         this();
         this.id = id;
         this.name = name;
-        this.age = age;
+        this.birthdate = birthdate;
         this.degree = degree;
         this.email = email;
         this.summary = summary;

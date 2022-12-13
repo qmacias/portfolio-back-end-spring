@@ -14,8 +14,8 @@ public class PersonDtoBuilder extends PersonDto {
         return this;
     }
 
-    public PersonDtoBuilder setAge(Integer age) {
-        this.age = age;
+    public PersonDtoBuilder setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
         return this;
     }
 
@@ -60,7 +60,7 @@ public class PersonDtoBuilder extends PersonDto {
     }
 
     public PersonDto createPersonDto() {
-        return new PersonDto(id, name, age, degree, email, summary, imageDto,
+        return new PersonDto(id, name, birthdate, degree, email, summary, imageDto,
                 phoneDtoList, addressDtoList, socialDtoList, jobDtoList
         );
     }
