@@ -8,7 +8,7 @@ import org.example.portfolio.infrastructure.entity.JobEntity;
 import org.example.portfolio.infrastructure.mapper.JobMapper;
 import org.example.portfolio.infrastructure.repository.JobRepository;
 
-import java.util.List;
+import java.util.Set;
 
 public class JobJpaAdapter implements JobPersistencePort {
 
@@ -19,9 +19,9 @@ public class JobJpaAdapter implements JobPersistencePort {
     }
 
     @Override
-    public List<JobDto> getAll() {
-        List<JobEntity> jobEntities = jobRepository.findAll();
-        return JobMapper.INSTANCE.mapEntityListToDtoList(jobEntities);
+    public Set<JobDto> getAll() {
+        Set<JobEntity> jobEntities = jobRepository.findAllSet();
+        return JobMapper.INSTANCE.mapEntitySetToDtoSet(jobEntities);
     }
 
     @Override

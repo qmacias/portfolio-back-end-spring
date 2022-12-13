@@ -2,7 +2,6 @@ package org.example.portfolio.infrastructure.mapper.impl;
 
 import org.example.portfolio.domain.model.JobDto;
 import org.example.portfolio.domain.model.JobDtoBuilder;
-import org.example.portfolio.domain.util.CustomDateFormatter;
 
 import org.example.portfolio.infrastructure.entity.JobEntity;
 import org.example.portfolio.infrastructure.entity.JobEntityBuilder;
@@ -11,9 +10,9 @@ import org.example.portfolio.infrastructure.mapper.DurationMapper;
 import org.example.portfolio.infrastructure.mapper.JobMapper;
 import org.example.portfolio.infrastructure.mapper.AchievementMapper;
 
-import java.util.List;
+import java.util.Set;
 
-import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 
 public class JobMapperImpl extends JobMapper {
 
@@ -27,7 +26,7 @@ public class JobMapperImpl extends JobMapper {
                 .setPosition(jobDto.getPosition())
                 .setDescription(jobDto.getDescription())
                 .setDuration(DurationMapper.INSTANCE.mapDtoToEntity(jobDto.getDuration()))
-                .setAchievementEntities(AchievementMapper.INSTANCE.mapDtoListToEntityList(jobDto.getAchievementDtoList()))
+                .setAchievementEntities(AchievementMapper.INSTANCE.mapDtoSetToEntitySet(jobDto.getAchievementDtoSet()))
                 .createJobEntity();
     }
 
@@ -38,28 +37,28 @@ public class JobMapperImpl extends JobMapper {
                 .setPosition(jobEntity.getPosition())
                 .setDescription(jobEntity.getDescription())
                 .setDuration(DurationMapper.INSTANCE.mapEntityToDto(jobEntity.getDurationEntity()))
-                .setAchievementDtoList(AchievementMapper.INSTANCE.mapEntityListToDtoList(jobEntity.getAchievementEntities()))
+                .setAchievementDtoSet(AchievementMapper.INSTANCE.mapEntitySetToDtoSet(jobEntity.getAchievementEntities()))
                 .createJobDto();
     }
 
     @Override
-    public List<JobDto> mapEntityListToDtoList(List<JobEntity> jobEntities) {
+    public Set<JobDto> mapEntitySetToDtoSet(Set<JobEntity> jobEntities) {
 
-        List<JobDto> jobDtoList = Lists.newArrayList();
+        Set<JobDto> jobDtoSet = Sets.newHashSet();
 
-        jobEntities.forEach(jobEntity -> jobDtoList.add(
+        jobEntities.forEach(jobEntity -> jobDtoSet.add(
                 this.mapEntityToDto(jobEntity)
         ));
 
-        return jobDtoList;
+        return jobDtoSet;
     }
 
     @Override
-    public List<JobEntity> mapDtoListToEntityList(List<JobDto> jobDtoList) {
+    public Set<JobEntity> mapDtoSetToEntitySet(Set<JobDto> jobDtoSet) {
 
-        List<JobEntity> jobEntities = Lists.newArrayList();
+        Set<JobEntity> jobEntities = Sets.newHashSet();
 
-        jobDtoList.forEach(jobDto -> jobEntities.add(
+        jobDtoSet.forEach(jobDto -> jobEntities.add(
                 this.mapDtoToEntity(jobDto)
         ));
 

@@ -8,7 +8,7 @@ import org.example.portfolio.infrastructure.entity.AddressEntity;
 import org.example.portfolio.infrastructure.mapper.AddressMapper;
 import org.example.portfolio.infrastructure.repository.AddressRepository;
 
-import java.util.List;
+import java.util.Set;
 
 public class AddressJpaAdapter implements AddressPersistencePort {
 
@@ -19,9 +19,9 @@ public class AddressJpaAdapter implements AddressPersistencePort {
     }
 
     @Override
-    public List<AddressDto> getAll() {
-        List<AddressEntity> addressEntityList = addressRepository.findAll();
-        return AddressMapper.INSTANCE.mapEntityListToDtoList(addressEntityList);
+    public Set<AddressDto> getAll() {
+        Set<AddressEntity> addressEntities = addressRepository.findAllSet();
+        return AddressMapper.INSTANCE.mapEntitySetToDtoSet(addressEntities);
     }
 
     @Override

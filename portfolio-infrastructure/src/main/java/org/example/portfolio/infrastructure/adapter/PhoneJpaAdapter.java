@@ -8,7 +8,7 @@ import org.example.portfolio.infrastructure.entity.PhoneEntity;
 import org.example.portfolio.infrastructure.mapper.PhoneMapper;
 import org.example.portfolio.infrastructure.repository.PhoneRepository;
 
-import java.util.List;
+import java.util.Set;
 
 public class PhoneJpaAdapter implements PhonePersistencePort {
 
@@ -19,9 +19,9 @@ public class PhoneJpaAdapter implements PhonePersistencePort {
     }
 
     @Override
-    public List<PhoneDto> getAll() {
-        List<PhoneEntity> phoneEntityList = phoneRepository.findAll();
-        return PhoneMapper.INSTANCE.mapEntityListToDtoList(phoneEntityList);
+    public Set<PhoneDto> getAll() {
+        Set<PhoneEntity> phoneEntities = phoneRepository.findAllSet();
+        return PhoneMapper.INSTANCE.mapEntitySetToDtoSet(phoneEntities);
     }
 
     @Override

@@ -8,7 +8,7 @@ import org.example.portfolio.infrastructure.entity.ImageEntity;
 import org.example.portfolio.infrastructure.mapper.ImageMapper;
 import org.example.portfolio.infrastructure.repository.ImageRepository;
 
-import java.util.List;
+import java.util.Set;
 
 public class ImageJpaAdapter implements ImagePersistencePort {
 
@@ -19,9 +19,9 @@ public class ImageJpaAdapter implements ImagePersistencePort {
     }
 
     @Override
-    public List<ImageDto> getAll() {
-        List<ImageEntity> imageEntityList = imageRepository.findAll();
-        return ImageMapper.INSTANCE.mapEntityListToDtoList(imageEntityList);
+    public Set<ImageDto> getAll() {
+        Set<ImageEntity> imageEntities = imageRepository.findAllSet();
+        return ImageMapper.INSTANCE.mapEntitySetToDtoSet(imageEntities);
     }
 
     @Override

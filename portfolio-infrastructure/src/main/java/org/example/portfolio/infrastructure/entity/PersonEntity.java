@@ -4,10 +4,10 @@ import lombok.Getter;
 
 import javax.persistence.*;
 
-import java.util.List;
 import java.util.Objects;
 
 import java.io.Serializable;
+import java.util.Set;
 
 @Getter
 @Entity
@@ -39,19 +39,19 @@ public class PersonEntity implements Serializable {
 
     @JoinColumn(name = "person_id")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    protected List<PhoneEntity> phoneEntities;
+    protected Set<PhoneEntity> phoneEntities;
 
     @JoinColumn(name = "person_id")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    protected List<AddressEntity> addressEntities;
+    protected Set<AddressEntity> addressEntities;
 
     @JoinColumn(name = "person_id")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    protected List<SocialEntity> socialEntities;
+    protected Set<SocialEntity> socialEntities;
 
     @JoinColumn(name = "person_id")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    protected List<JobEntity> jobEntities;
+    protected Set<JobEntity> jobEntities;
 
     protected PersonEntity() {
         super();
@@ -65,10 +65,10 @@ public class PersonEntity implements Serializable {
             String email,
             String summary,
             ImageEntity imageEntity,
-            List<PhoneEntity> phoneEntities,
-            List<AddressEntity> addressEntities,
-            List<SocialEntity> socialEntities,
-            List<JobEntity> jobEntities
+            Set<PhoneEntity> phoneEntities,
+            Set<AddressEntity> addressEntities,
+            Set<SocialEntity> socialEntities,
+            Set<JobEntity> jobEntities
     ) {
         this();
         this.id = id;

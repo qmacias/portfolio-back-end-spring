@@ -1,6 +1,6 @@
 package org.example.portfolio.domain.model;
 
-import java.util.List;
+import java.util.Set;
 
 public class JobDtoBuilder extends JobDto {
 
@@ -24,13 +24,13 @@ public class JobDtoBuilder extends JobDto {
         return this;
     }
 
-    public JobDtoBuilder setAchievementDtoList(List<AchievementDto> achievementDtoList) {
-        this.achievementDtoList = achievementDtoList;
+    public JobDtoBuilder setAchievementDtoSet(Set<AchievementDto> achievementDtoSet) {
+        this.achievementDtoSet = achievementDtoSet;
         return this;
     }
 
     public JobDto createJobDto() {
-        return new JobDto(id, position, description, duration, achievementDtoList);
+        return new JobDto(id, position, description, duration, achievementDtoSet);
     }
 
 }

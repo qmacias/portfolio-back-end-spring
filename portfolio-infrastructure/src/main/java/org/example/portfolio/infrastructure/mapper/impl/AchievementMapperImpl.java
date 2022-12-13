@@ -5,9 +5,9 @@ import org.example.portfolio.domain.model.AchievementDto;
 import org.example.portfolio.infrastructure.entity.AchievementEntity;
 import org.example.portfolio.infrastructure.mapper.AchievementMapper;
 
-import java.util.List;
+import java.util.Set;
 
-import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 
 public class AchievementMapperImpl extends AchievementMapper {
 
@@ -25,23 +25,23 @@ public class AchievementMapperImpl extends AchievementMapper {
     }
 
     @Override
-    public List<AchievementDto> mapEntityListToDtoList(List<AchievementEntity> achievementEntities) {
+    public Set<AchievementDto> mapEntitySetToDtoSet(Set<AchievementEntity> achievementEntities) {
 
-        List<AchievementDto> achievementDtoList = Lists.newArrayList();
+        Set<AchievementDto> achievementDtoSet = Sets.newHashSet();
 
-        achievementEntities.forEach(achievementEntity -> achievementDtoList.add(
+        achievementEntities.forEach(achievementEntity -> achievementDtoSet.add(
                 this.mapEntityToDto(achievementEntity)
         ));
 
-        return achievementDtoList;
+        return achievementDtoSet;
     }
 
     @Override
-    public List<AchievementEntity> mapDtoListToEntityList(List<AchievementDto> achievementDtoList) {
+    public Set<AchievementEntity> mapDtoSetToEntitySet(Set<AchievementDto> achievementDtoSet) {
 
-        List<AchievementEntity> achievementEntities = Lists.newArrayList();
+        Set<AchievementEntity> achievementEntities = Sets.newHashSet();
 
-        achievementDtoList.forEach(achievementDto -> achievementEntities.add(
+        achievementDtoSet.forEach(achievementDto -> achievementEntities.add(
                 this.mapDtoToEntity(achievementDto)
         ));
 

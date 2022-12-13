@@ -1,11 +1,13 @@
 package org.example.portfolio.infrastructure.mapper.impl;
 
-import com.google.common.collect.Lists;
 import org.example.portfolio.domain.model.DurationDto;
+
 import org.example.portfolio.infrastructure.entity.DurationEntity;
 import org.example.portfolio.infrastructure.mapper.DurationMapper;
 
-import java.util.List;
+import java.util.Set;
+
+import com.google.common.collect.Sets;
 
 public class DurationMapperImpl extends DurationMapper {
 
@@ -23,23 +25,23 @@ public class DurationMapperImpl extends DurationMapper {
     }
 
     @Override
-    public List<DurationDto> mapEntityListToDtoList(List<DurationEntity> durationEntities) {
+    public Set<DurationDto> mapEntitySetToDtoSet(Set<DurationEntity> durationEntities) {
 
-        List<DurationDto> durationDtoList = Lists.newArrayList();
+        Set<DurationDto> durationDtoSet = Sets.newHashSet();
 
-        durationEntities.forEach(durationEntity -> durationDtoList.add(
+        durationEntities.forEach(durationEntity -> durationDtoSet.add(
                 this.mapEntityToDto(durationEntity)
         ));
 
-        return durationDtoList;
+        return durationDtoSet;
     }
 
     @Override
-    public List<DurationEntity> mapDtoListToEntityList(List<DurationDto> durationDtoList) {
+    public Set<DurationEntity> mapDtoSetToEntitySet(Set<DurationDto> durationDtoSet) {
 
-        List<DurationEntity> durationEntities = Lists.newArrayList();
+        Set<DurationEntity> durationEntities = Sets.newHashSet();
 
-        durationDtoList.forEach(durationDto -> durationEntities.add(
+        durationDtoSet.forEach(durationDto -> durationEntities.add(
                 this.mapDtoToEntity(durationDto)
         ));
 

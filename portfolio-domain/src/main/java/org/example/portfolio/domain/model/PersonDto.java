@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import java.util.List;
+import java.util.Set;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({"id", "name", "birthdate", "degree", "email", "summary",
@@ -33,16 +33,16 @@ public class PersonDto {
     protected ImageDto imageDto;
 
     @lombok.Getter(onMethod_ = {@JsonProperty("phones")})
-    protected List<PhoneDto> phoneDtoList;
+    protected Set<PhoneDto> phoneDtoSet;
 
     @lombok.Getter(onMethod_ = {@JsonProperty("address")})
-    protected List<AddressDto> addressDtoList;
+    protected Set<AddressDto> addressDtoSet;
 
     @lombok.Getter(onMethod_ = {@JsonProperty("social")})
-    protected List<SocialDto> socialDtoList;
+    protected Set<SocialDto> socialDtoSet;
 
     @lombok.Getter(onMethod_ = {@JsonProperty("jobs")})
-    protected List<JobDto> jobDtoList;
+    protected Set<JobDto> jobDtoSet;
 
     PersonDto() {
     }
@@ -55,10 +55,10 @@ public class PersonDto {
             String email,
             String summary,
             ImageDto imageDto,
-            List<PhoneDto> phoneDtoList,
-            List<AddressDto> addressDtoList,
-            List<SocialDto> socialDtoList,
-            List<JobDto> jobDtoList
+            Set<PhoneDto> phoneDtoSet,
+            Set<AddressDto> addressDtoSet,
+            Set<SocialDto> socialDtoSet,
+            Set<JobDto> jobDtoSet
     ) {
         this();
         this.id = id;
@@ -68,10 +68,10 @@ public class PersonDto {
         this.email = email;
         this.summary = summary;
         this.imageDto = imageDto;
-        this.phoneDtoList = phoneDtoList;
-        this.addressDtoList = addressDtoList;
-        this.socialDtoList = socialDtoList;
-        this.jobDtoList = jobDtoList;
+        this.phoneDtoSet = phoneDtoSet;
+        this.addressDtoSet = addressDtoSet;
+        this.socialDtoSet = socialDtoSet;
+        this.jobDtoSet = jobDtoSet;
     }
 
 }

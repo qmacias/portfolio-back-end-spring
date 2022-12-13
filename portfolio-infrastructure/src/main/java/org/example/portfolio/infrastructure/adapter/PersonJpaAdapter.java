@@ -9,7 +9,7 @@ import org.example.portfolio.infrastructure.entity.PersonEntity;
 import org.example.portfolio.infrastructure.mapper.PersonMapper;
 import org.example.portfolio.infrastructure.repository.PersonRepository;
 
-import java.util.List;
+import java.util.Set;
 
 public class PersonJpaAdapter implements PersonPersistencePort {
 
@@ -20,9 +20,9 @@ public class PersonJpaAdapter implements PersonPersistencePort {
     }
 
     @Override
-    public List<PersonDto> getAll() {
-        List<PersonEntity> personEntityList = personRepository.findAll();
-        return PersonMapper.INSTANCE.mapEntityListToDtoList(personEntityList);
+    public Set<PersonDto> getAll() {
+        Set<PersonEntity> personEntities = personRepository.findAllSet();
+        return PersonMapper.INSTANCE.mapEntitySetToDtoSet(personEntities);
     }
 
     @Override

@@ -1,10 +1,8 @@
 package org.example.portfolio.infrastructure.entity;
 
-import java.util.List;
+import java.util.Set;
 
 public class JobEntityBuilder extends JobEntity {
-
-    private List<AchievementEntity> achievementEntities;
 
     public JobEntityBuilder setId(String id) {
         this.id = id;
@@ -26,7 +24,7 @@ public class JobEntityBuilder extends JobEntity {
         return this;
     }
 
-    public JobEntityBuilder setAchievementEntities(List<AchievementEntity> achievementEntities) {
+    public JobEntityBuilder setAchievementEntities(Set<AchievementEntity> achievementEntities) {
         this.achievementEntities = achievementEntities;
         return this;
     }

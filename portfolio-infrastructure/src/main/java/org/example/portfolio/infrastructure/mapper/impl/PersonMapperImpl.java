@@ -8,9 +8,9 @@ import org.example.portfolio.infrastructure.entity.PersonEntityBuilder;
 
 import org.example.portfolio.infrastructure.mapper.*;
 
-import java.util.List;
+import java.util.Set;
 
-import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 
 public class PersonMapperImpl extends PersonMapper {
 
@@ -27,10 +27,10 @@ public class PersonMapperImpl extends PersonMapper {
                 .setEmail(personDto.getEmail())
                 .setSummary(personDto.getSummary())
                 .setImageEntity(ImageMapper.INSTANCE.mapDtoToEntity(personDto.getImageDto()))
-                .setPhoneEntities(PhoneMapper.INSTANCE.mapDtoListToEntityList(personDto.getPhoneDtoList()))
-                .setAddressEntities(AddressMapper.INSTANCE.mapDtoListToEntityList(personDto.getAddressDtoList()))
-                .setSocialEntities(SocialMapper.INSTANCE.mapDtoListToEntityList(personDto.getSocialDtoList()))
-                .setJobEntities(JobMapper.INSTANCE.mapDtoListToEntityList(personDto.getJobDtoList()))
+                .setPhoneEntities(PhoneMapper.INSTANCE.mapDtoSetToEntitySet(personDto.getPhoneDtoSet()))
+                .setAddressEntities(AddressMapper.INSTANCE.mapDtoSetToEntitySet(personDto.getAddressDtoSet()))
+                .setSocialEntities(SocialMapper.INSTANCE.mapDtoSetToEntitySet(personDto.getSocialDtoSet()))
+                .setJobEntities(JobMapper.INSTANCE.mapDtoSetToEntitySet(personDto.getJobDtoSet()))
                 .createPersonEntity();
     }
 
@@ -44,31 +44,31 @@ public class PersonMapperImpl extends PersonMapper {
                 .setEmail(personEntity.getEmail())
                 .setSummary(personEntity.getSummary())
                 .setImageDto(ImageMapper.INSTANCE.mapEntityToDto(personEntity.getImageEntity()))
-                .setPhoneDtoList(PhoneMapper.INSTANCE.mapEntityListToDtoList(personEntity.getPhoneEntities()))
-                .setAddressDtoList(AddressMapper.INSTANCE.mapEntityListToDtoList(personEntity.getAddressEntities()))
-                .setSocialDtoList(SocialMapper.INSTANCE.mapEntityListToDtoList(personEntity.getSocialEntities()))
-                .setJobDtoList(JobMapper.INSTANCE.mapEntityListToDtoList(personEntity.getJobEntities()))
+                .setPhoneDtoSet(PhoneMapper.INSTANCE.mapEntitySetToDtoSet(personEntity.getPhoneEntities()))
+                .setAddressDtoSet(AddressMapper.INSTANCE.mapEntitySetToDtoSet(personEntity.getAddressEntities()))
+                .setSocialDtoSet(SocialMapper.INSTANCE.mapEntitySetToDtoSet(personEntity.getSocialEntities()))
+                .setJobDtoSet(JobMapper.INSTANCE.mapEntitySetToDtoSet(personEntity.getJobEntities()))
                 .createPersonDto();
     }
 
     @Override
-    public List<PersonDto> mapEntityListToDtoList(List<PersonEntity> personEntityList) {
+    public Set<PersonDto> mapEntitySetToDtoSet(Set<PersonEntity> personEntities) {
 
-        List<PersonDto> personDtoList = Lists.newArrayList();
+        Set<PersonDto> personDtoSet = Sets.newHashSet();
 
-        personEntityList.forEach(personEntity -> personDtoList.add(
+        personEntities.forEach(personEntity -> personDtoSet.add(
                 this.mapEntityToDto(personEntity)
         ));
 
-        return personDtoList;
+        return personDtoSet;
     }
 
     @Override
-    public List<PersonEntity> mapDtoListToEntityList(List<PersonDto> personDtoList) {
+    public Set<PersonEntity> mapDtoSetToEntitySet(Set<PersonDto> personDtoSet) {
 
-        List<PersonEntity> personEntities = Lists.newArrayList();
+        Set<PersonEntity> personEntities = Sets.newHashSet();
 
-        personDtoList.forEach(personDto -> personEntities.add(
+        personDtoSet.forEach(personDto -> personEntities.add(
                 this.mapDtoToEntity(personDto)
         ));
 

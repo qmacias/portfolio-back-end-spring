@@ -1,6 +1,6 @@
 package org.example.portfolio.infrastructure.entity;
 
-import java.util.List;
+import java.util.Set;
 
 public class PersonEntityBuilder extends PersonEntity {
 
@@ -39,22 +39,22 @@ public class PersonEntityBuilder extends PersonEntity {
         return this;
     }
 
-    public PersonEntityBuilder setPhoneEntities(List<PhoneEntity> phoneEntities) {
+    public PersonEntityBuilder setPhoneEntities(Set<PhoneEntity> phoneEntities) {
         this.phoneEntities = phoneEntities;
         return this;
     }
 
-    public PersonEntityBuilder setAddressEntities(List<AddressEntity> addressEntities) {
+    public PersonEntityBuilder setAddressEntities(Set<AddressEntity> addressEntities) {
         this.addressEntities = addressEntities;
         return this;
     }
 
-    public PersonEntityBuilder setSocialEntities(List<SocialEntity> socialEntities) {
+    public PersonEntityBuilder setSocialEntities(Set<SocialEntity> socialEntities) {
         this.socialEntities = socialEntities;
         return this;
     }
 
-    public PersonEntityBuilder setJobEntities(List<JobEntity> jobEntities) {
+    public PersonEntityBuilder setJobEntities(Set<JobEntity> jobEntities) {
         this.jobEntities = jobEntities;
         return this;
     }

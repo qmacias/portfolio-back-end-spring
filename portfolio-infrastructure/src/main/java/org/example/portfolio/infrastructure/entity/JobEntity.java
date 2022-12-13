@@ -4,7 +4,7 @@ import lombok.Getter;
 
 import javax.persistence.*;
 
-import java.util.List;
+import java.util.Set;
 
 import java.io.Serializable;
 
@@ -29,7 +29,7 @@ public class JobEntity implements Serializable {
 
     @JoinColumn(name = "job_id")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    protected List<AchievementEntity> achievementEntities;
+    protected Set<AchievementEntity> achievementEntities;
 
     protected JobEntity() {
         super();
@@ -40,7 +40,7 @@ public class JobEntity implements Serializable {
             String position,
             String description,
             DurationEntity durationEntity,
-            List<AchievementEntity> achievementEntities
+            Set<AchievementEntity> achievementEntities
     ) {
         this();
         this.id = id;

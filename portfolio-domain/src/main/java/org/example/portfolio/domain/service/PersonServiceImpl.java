@@ -4,7 +4,7 @@ import org.example.portfolio.domain.model.PersonDto;
 import org.example.portfolio.domain.port.input.PersonServicePort;
 import org.example.portfolio.domain.port.output.PersonPersistencePort;
 
-import java.util.List;
+import java.util.Set;
 
 public class PersonServiceImpl implements PersonServicePort {
 
@@ -15,7 +15,7 @@ public class PersonServiceImpl implements PersonServicePort {
     }
 
     @Override
-    public List<PersonDto> getAllPerson() {
+    public Set<PersonDto> getAllPerson() {
         return personPersistencePort.getAll();
     }
 

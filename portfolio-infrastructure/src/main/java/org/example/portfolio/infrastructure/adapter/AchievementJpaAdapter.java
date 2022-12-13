@@ -8,7 +8,7 @@ import org.example.portfolio.infrastructure.entity.AchievementEntity;
 import org.example.portfolio.infrastructure.mapper.AchievementMapper;
 import org.example.portfolio.infrastructure.repository.AchievementRepository;
 
-import java.util.List;
+import java.util.Set;
 
 public class AchievementJpaAdapter implements AchievementPersistencePort {
 
@@ -19,9 +19,9 @@ public class AchievementJpaAdapter implements AchievementPersistencePort {
     }
 
     @Override
-    public List<AchievementDto> getAll() {
-        List<AchievementEntity> achievementEntities = achievementRepository.findAll();
-        return AchievementMapper.INSTANCE.mapEntityListToDtoList(achievementEntities);
+    public Set<AchievementDto> getAll() {
+        Set<AchievementEntity> achievementEntities = achievementRepository.findAllSet();
+        return AchievementMapper.INSTANCE.mapEntitySetToDtoSet(achievementEntities);
     }
 
     @Override

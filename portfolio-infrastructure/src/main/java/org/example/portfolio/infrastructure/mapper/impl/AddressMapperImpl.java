@@ -5,9 +5,9 @@ import org.example.portfolio.domain.model.AddressDto;
 import org.example.portfolio.infrastructure.entity.AddressEntity;
 import org.example.portfolio.infrastructure.mapper.AddressMapper;
 
-import java.util.List;
+import java.util.Set;
 
-import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 
 public class AddressMapperImpl extends AddressMapper {
 
@@ -25,23 +25,23 @@ public class AddressMapperImpl extends AddressMapper {
     }
 
     @Override
-    public List<AddressDto> mapEntityListToDtoList(List<AddressEntity> addressEntityList) {
+    public Set<AddressDto> mapEntitySetToDtoSet(Set<AddressEntity> addressEntities) {
 
-        List<AddressDto> addressDtoList = Lists.newArrayList();
+        Set<AddressDto> addressDtoSet = Sets.newHashSet();
 
-        addressEntityList.forEach(addressEntity -> addressDtoList.add(
+        addressEntities.forEach(addressEntity -> addressDtoSet.add(
                 this.mapEntityToDto(addressEntity)
         ));
 
-        return addressDtoList;
+        return addressDtoSet;
     }
 
     @Override
-    public List<AddressEntity> mapDtoListToEntityList(List<AddressDto> addressDtoList) {
+    public Set<AddressEntity> mapDtoSetToEntitySet(Set<AddressDto> addressDtoSet) {
 
-        List<AddressEntity> addressEntities = Lists.newArrayList();
+        Set<AddressEntity> addressEntities = Sets.newHashSet();
 
-        addressDtoList.forEach(addressDto -> addressEntities.add(
+        addressDtoSet.forEach(addressDto -> addressEntities.add(
                 this.mapDtoToEntity(addressDto)
         ));
 

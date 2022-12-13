@@ -2,12 +2,12 @@ package org.example.portfolio.domain.common;
 
 import org.springframework.stereotype.Component;
 
-import java.util.List;
+import java.util.Set;
 
 @Component
 public interface GenericPersistencePort<Dto, Key> {
 
-    List<Dto> getAll();
+    Set<Dto> getAll();
 
     Dto getById(Key id);
 

@@ -8,7 +8,7 @@ import org.example.portfolio.infrastructure.entity.SocialEntity;
 import org.example.portfolio.infrastructure.mapper.SocialMapper;
 import org.example.portfolio.infrastructure.repository.SocialRepository;
 
-import java.util.List;
+import java.util.Set;
 
 public class SocialJpaAdapter implements SocialPersistencePort {
 
@@ -19,9 +19,9 @@ public class SocialJpaAdapter implements SocialPersistencePort {
     }
 
     @Override
-    public List<SocialDto> getAll() {
-        List<SocialEntity> socialEntityList = socialRepository.findAll();
-        return SocialMapper.INSTANCE.mapEntityListToDtoList(socialEntityList);
+    public Set<SocialDto> getAll() {
+        Set<SocialEntity> socialEntities = socialRepository.findAllSet();
+        return SocialMapper.INSTANCE.mapEntitySetToDtoSet(socialEntities);
     }
 
     @Override

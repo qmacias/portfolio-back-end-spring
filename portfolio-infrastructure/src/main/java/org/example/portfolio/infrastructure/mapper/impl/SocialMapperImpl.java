@@ -1,13 +1,12 @@
 package org.example.portfolio.infrastructure.mapper.impl;
 
+import com.google.common.collect.Sets;
 import org.example.portfolio.domain.model.SocialDto;
 
 import org.example.portfolio.infrastructure.entity.SocialEntity;
 import org.example.portfolio.infrastructure.mapper.SocialMapper;
 
-import java.util.List;
-
-import com.google.common.collect.Lists;
+import java.util.Set;
 
 public class SocialMapperImpl extends SocialMapper {
 
@@ -25,23 +24,23 @@ public class SocialMapperImpl extends SocialMapper {
     }
 
     @Override
-    public List<SocialDto> mapEntityListToDtoList(List<SocialEntity> socialEntityList) {
+    public Set<SocialDto> mapEntitySetToDtoSet(Set<SocialEntity> socialEntities) {
 
-        List<SocialDto> socialDtoList = Lists.newArrayList();
+        Set<SocialDto> socialDtoSet = Sets.newHashSet();
 
-        socialEntityList.forEach(socialEntity -> socialDtoList.add(
+        socialEntities.forEach(socialEntity -> socialDtoSet.add(
                 this.mapEntityToDto(socialEntity)
         ));
 
-        return socialDtoList;
+        return socialDtoSet;
     }
 
     @Override
-    public List<SocialEntity> mapDtoListToEntityList(List<SocialDto> socialDtoList) {
+    public Set<SocialEntity> mapDtoSetToEntitySet(Set<SocialDto> socialDtoSet) {
 
-        List<SocialEntity> socialEntities = Lists.newArrayList();
+        Set<SocialEntity> socialEntities = Sets.newHashSet();
 
-        socialDtoList.forEach(socialDto -> socialEntities.add(
+        socialDtoSet.forEach(socialDto -> socialEntities.add(
                 this.mapDtoToEntity(socialDto)
         ));
 

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import java.util.List;
+import java.util.Set;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({"id", "position", "description", "duration", "achievements"})
@@ -23,7 +23,7 @@ public class JobDto {
     protected DurationDto duration;
 
     @lombok.Getter(onMethod_ = {@JsonProperty("achievements")})
-    protected List<AchievementDto> achievementDtoList;
+    protected Set<AchievementDto> achievementDtoSet;
 
     JobDto() {
     }
@@ -33,14 +33,14 @@ public class JobDto {
             String position,
             String description,
             DurationDto duration,
-            List<AchievementDto> achievementDtoList
+            Set<AchievementDto> achievementDtoSet
     ) {
         this();
         this.id = id;
         this.position = position;
         this.description = description;
         this.duration = duration;
-        this.achievementDtoList = achievementDtoList;
+        this.achievementDtoSet = achievementDtoSet;
     }
 
 }

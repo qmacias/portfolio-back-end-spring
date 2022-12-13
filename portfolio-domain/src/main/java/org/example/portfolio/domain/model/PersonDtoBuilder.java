@@ -1,6 +1,6 @@
 package org.example.portfolio.domain.model;
 
-import java.util.List;
+import java.util.Set;
 
 public class PersonDtoBuilder extends PersonDto {
 
@@ -39,29 +39,29 @@ public class PersonDtoBuilder extends PersonDto {
         return this;
     }
 
-    public PersonDtoBuilder setPhoneDtoList(List<PhoneDto> phoneDtoList) {
-        this.phoneDtoList = phoneDtoList;
+    public PersonDtoBuilder setPhoneDtoSet(Set<PhoneDto> phoneDtoSet) {
+        this.phoneDtoSet = phoneDtoSet;
         return this;
     }
 
-    public PersonDtoBuilder setAddressDtoList(List<AddressDto> addressDtoList) {
-        this.addressDtoList = addressDtoList;
+    public PersonDtoBuilder setAddressDtoSet(Set<AddressDto> addressDtoSet) {
+        this.addressDtoSet = addressDtoSet;
         return this;
     }
 
-    public PersonDtoBuilder setSocialDtoList(List<SocialDto> socialDtoList) {
-        this.socialDtoList = socialDtoList;
+    public PersonDtoBuilder setSocialDtoSet(Set<SocialDto> socialDtoSet) {
+        this.socialDtoSet = socialDtoSet;
         return this;
     }
 
-    public PersonDtoBuilder setJobDtoList(List<JobDto> jobDtoList) {
-        this.jobDtoList = jobDtoList;
+    public PersonDtoBuilder setJobDtoSet(Set<JobDto> jobDtoSet) {
+        this.jobDtoSet = jobDtoSet;
         return this;
     }
 
     public PersonDto createPersonDto() {
         return new PersonDto(id, name, birthdate, degree, email, summary, imageDto,
-                phoneDtoList, addressDtoList, socialDtoList, jobDtoList
+                phoneDtoSet, addressDtoSet, socialDtoSet, jobDtoSet
         );
     }
 

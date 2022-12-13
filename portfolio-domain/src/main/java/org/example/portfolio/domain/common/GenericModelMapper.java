@@ -2,7 +2,7 @@ package org.example.portfolio.domain.common;
 
 import org.springframework.stereotype.Component;
 
-import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Component
@@ -12,9 +12,9 @@ public abstract class GenericModelMapper<Dto, Entity> {
 
     public abstract Dto mapEntityToDto(Entity sourceEntity);
 
-    public abstract List<Dto> mapEntityListToDtoList(List<Entity> sourceEntityList);
+    public abstract Set<Dto> mapEntitySetToDtoSet(Set<Entity> sourceEntitySet);
 
-    public abstract List<Entity> mapDtoListToEntityList(List<Dto> sourceDtoList);
+    public abstract Set<Entity> mapDtoSetToEntitySet(Set<Dto> sourceDtoSet);
 
     public String checkIdentity(String id) {
         if (id == null) {

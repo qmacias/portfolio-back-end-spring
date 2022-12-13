@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Set;
 
 @Service
 @Transactional(
@@ -17,7 +17,7 @@ import java.util.List;
 )
 public interface PersonServicePort {
 
-    List<PersonDto> getAllPerson();
+    Set<PersonDto> getAllPerson();
 
     PersonDto getPersonById(String id);
 

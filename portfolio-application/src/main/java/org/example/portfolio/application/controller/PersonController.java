@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
+import java.util.Set;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -22,7 +22,7 @@ public class PersonController {
     }
 
     @GetMapping
-    public List<PersonDto> getAllPerson() {
+    public Set<PersonDto> getAllPerson() {
         return personService.getAllPerson();
     }
 

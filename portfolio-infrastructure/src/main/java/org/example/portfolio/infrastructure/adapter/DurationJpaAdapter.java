@@ -8,7 +8,7 @@ import org.example.portfolio.infrastructure.entity.DurationEntity;
 import org.example.portfolio.infrastructure.mapper.DurationMapper;
 import org.example.portfolio.infrastructure.repository.DurationRepository;
 
-import java.util.List;
+import java.util.Set;
 
 public class DurationJpaAdapter implements DurationPersistencePort {
 
@@ -19,9 +19,9 @@ public class DurationJpaAdapter implements DurationPersistencePort {
     }
 
     @Override
-    public List<DurationDto> getAll() {
-        List<DurationEntity> durationEntities = durationRepository.findAll();
-        return DurationMapper.INSTANCE.mapEntityListToDtoList(durationEntities);
+    public Set<DurationDto> getAll() {
+        Set<DurationEntity> durationEntities = durationRepository.findAllSet();
+        return DurationMapper.INSTANCE.mapEntitySetToDtoSet(durationEntities);
     }
 
     @Override

@@ -5,9 +5,9 @@ import org.example.portfolio.domain.model.PhoneDto;
 import org.example.portfolio.infrastructure.entity.PhoneEntity;
 import org.example.portfolio.infrastructure.mapper.PhoneMapper;
 
-import java.util.List;
+import java.util.Set;
 
-import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 
 public class PhoneMapperImpl extends PhoneMapper {
 
@@ -25,23 +25,23 @@ public class PhoneMapperImpl extends PhoneMapper {
     }
 
     @Override
-    public List<PhoneDto> mapEntityListToDtoList(List<PhoneEntity> phoneEntityList) {
+    public Set<PhoneDto> mapEntitySetToDtoSet(Set<PhoneEntity> phoneEntities) {
 
-        List<PhoneDto> phoneDtoList = Lists.newArrayList();
+        Set<PhoneDto> phoneDtoSet = Sets.newHashSet();
 
-        phoneEntityList.forEach(phoneEntity -> phoneDtoList.add(
+        phoneEntities.forEach(phoneEntity -> phoneDtoSet.add(
                 this.mapEntityToDto(phoneEntity)
         ));
 
-        return phoneDtoList;
+        return phoneDtoSet;
     }
 
     @Override
-    public List<PhoneEntity> mapDtoListToEntityList(List<PhoneDto> phoneDtoList) {
+    public Set<PhoneEntity> mapDtoSetToEntitySet(Set<PhoneDto> phoneDtoSet) {
 
-        List<PhoneEntity> phoneEntities = Lists.newArrayList();
+        Set<PhoneEntity> phoneEntities = Sets.newHashSet();
 
-        phoneDtoList.forEach(phoneDto -> phoneEntities.add(
+        phoneDtoSet.forEach(phoneDto -> phoneEntities.add(
                 this.mapDtoToEntity(phoneDto)
         ));
 

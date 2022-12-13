@@ -5,9 +5,9 @@ import org.example.portfolio.domain.model.ImageDto;
 import org.example.portfolio.infrastructure.entity.ImageEntity;
 import org.example.portfolio.infrastructure.mapper.ImageMapper;
 
-import java.util.List;
+import java.util.Set;
 
-import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 
 public class ImageMapperImpl extends ImageMapper {
 
@@ -25,23 +25,23 @@ public class ImageMapperImpl extends ImageMapper {
     }
 
     @Override
-    public List<ImageDto> mapEntityListToDtoList(List<ImageEntity> imageEntityList) {
+    public Set<ImageDto> mapEntitySetToDtoSet(Set<ImageEntity> imageEntitySet) {
 
-        List<ImageDto> imageDtoList = Lists.newArrayList();
+        Set<ImageDto> imageDtoSet = Sets.newHashSet();
 
-        imageEntityList.forEach(imageEntity -> imageDtoList.add(
+        imageEntitySet.forEach(imageEntity -> imageDtoSet.add(
                 this.mapEntityToDto(imageEntity)
         ));
 
-        return imageDtoList;
+        return imageDtoSet;
     }
 
     @Override
-    public List<ImageEntity> mapDtoListToEntityList(List<ImageDto> imageDtoList) {
+    public Set<ImageEntity> mapDtoSetToEntitySet(Set<ImageDto> imageDtoSet) {
 
-        List<ImageEntity> imageEntities = Lists.newArrayList();
+        Set<ImageEntity> imageEntities = Sets.newHashSet();
 
-        imageDtoList.forEach(imageDto -> imageEntities.add(
+        imageDtoSet.forEach(imageDto -> imageEntities.add(
                 this.mapDtoToEntity(imageDto)
         ));
 
