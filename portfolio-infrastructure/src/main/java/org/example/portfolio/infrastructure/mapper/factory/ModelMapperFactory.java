@@ -4,7 +4,7 @@ import org.example.portfolio.infrastructure.mapper.*;
 
 public abstract class ModelMapperFactory {
 
-    public static ModelMapperFactory factory = null;
+    private static ModelMapperFactory factory = null;
 
     public static ModelMapperFactory getFactory() {
         assert factory != null;
@@ -28,5 +28,7 @@ public abstract class ModelMapperFactory {
     public abstract JobMapper getJobMapperInstance();
 
     public abstract AchievementMapper getAchievementMapperInstance();
+
+    public abstract DurationMapper getDurationMapperInstance();
 
 }

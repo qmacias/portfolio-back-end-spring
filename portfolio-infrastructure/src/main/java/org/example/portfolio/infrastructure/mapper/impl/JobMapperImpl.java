@@ -7,6 +7,7 @@ import org.example.portfolio.domain.util.CustomDateFormatter;
 import org.example.portfolio.infrastructure.entity.JobEntity;
 import org.example.portfolio.infrastructure.entity.JobEntityBuilder;
 
+import org.example.portfolio.infrastructure.mapper.DurationMapper;
 import org.example.portfolio.infrastructure.mapper.JobMapper;
 import org.example.portfolio.infrastructure.mapper.AchievementMapper;
 
@@ -25,9 +26,7 @@ public class JobMapperImpl extends JobMapper {
                 .setId(this.checkIdentity(jobDto.getId()))
                 .setPosition(jobDto.getPosition())
                 .setDescription(jobDto.getDescription())
-                .setStartDate(CustomDateFormatter.formatInputString(jobDto.getStartDate()))
-                .setFinishDate(CustomDateFormatter.formatInputString(jobDto.getFinishDate()))
-                .setPeriod(CustomDateFormatter.calculatePeriod(jobDto.getStartDate(), jobDto.getFinishDate()))
+                .setDuration(DurationMapper.INSTANCE.mapDtoToEntity(jobDto.getDuration()))
                 .setAchievementEntities(AchievementMapper.INSTANCE.mapDtoListToEntityList(jobDto.getAchievementDtoList()))
                 .createJobEntity();
     }
@@ -38,9 +37,7 @@ public class JobMapperImpl extends JobMapper {
                 .setId(jobEntity.getId())
                 .setPosition(jobEntity.getPosition())
                 .setDescription(jobEntity.getDescription())
-                .setStartDate(jobEntity.getStartDate())
-                .setFinishDate(jobEntity.getFinishDate())
-                .setPeriod(jobEntity.getPeriod())
+                .setDuration(DurationMapper.INSTANCE.mapEntityToDto(jobEntity.getDurationEntity()))
                 .setAchievementDtoList(AchievementMapper.INSTANCE.mapEntityListToDtoList(jobEntity.getAchievementEntities()))
                 .createJobDto();
     }

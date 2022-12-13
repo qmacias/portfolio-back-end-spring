@@ -17,14 +17,8 @@ public class JobDto {
     @lombok.Getter(onMethod_ = {@JsonProperty("description")})
     protected String description;
 
-    @lombok.Getter(onMethod_ = {@JsonProperty("start_date")})
-    protected String startDate;
-
-    @lombok.Getter(onMethod_ = {@JsonProperty("finish_date")})
-    protected String finishDate;
-
-    @lombok.Getter(onMethod_ = {@JsonProperty("period")})
-    protected String period;
+    @lombok.Getter(onMethod_ = {@JsonProperty("duration")})
+    protected DurationDto duration;
 
     @lombok.Getter(onMethod_ = {@JsonProperty("achievements")})
     protected List<AchievementDto> achievementDtoList;
@@ -36,18 +30,14 @@ public class JobDto {
             String id,
             String position,
             String description,
-            String startDate,
-            String finishDate,
-            String period,
+            DurationDto duration,
             List<AchievementDto> achievementDtoList
     ) {
         this();
         this.id = id;
         this.position = position;
         this.description = description;
-        this.startDate = startDate;
-        this.finishDate = finishDate;
-        this.period = period;
+        this.duration = duration;
         this.achievementDtoList = achievementDtoList;
     }
 

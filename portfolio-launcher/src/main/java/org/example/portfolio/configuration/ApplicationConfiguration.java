@@ -7,7 +7,7 @@ import org.example.portfolio.domain.port.output.PersonPersistencePort;
 import org.example.portfolio.infrastructure.adapter.PersonJpaAdapter;
 import org.example.portfolio.infrastructure.repository.PersonRepository;
 import org.example.portfolio.infrastructure.mapper.factory.ModelMapperFactory;
-import org.example.portfolio.infrastructure.mapper.factory.impl.ModelMapperFactoryImpl;
+import org.example.portfolio.infrastructure.mapper.factory.impl.JpaModelMapperFactoryImpl;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +19,7 @@ public class ApplicationConfiguration {
 
     @PostConstruct
     public void init() {
-        ModelMapperFactory.setFactory(new ModelMapperFactoryImpl());
+        ModelMapperFactory.setFactory(new JpaModelMapperFactoryImpl());
     }
 
     @Bean

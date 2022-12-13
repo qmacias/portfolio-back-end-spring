@@ -21,18 +21,8 @@ public class JobEntityBuilder extends JobEntity {
         return this;
     }
 
-    public JobEntityBuilder setStartDate(String startDate) {
-        this.startDate = startDate;
-        return this;
-    }
-
-    public JobEntityBuilder setFinishDate(String finishDate) {
-        this.finishDate = finishDate;
-        return this;
-    }
-
-    public JobEntityBuilder setPeriod(String period) {
-        this.period = period;
+    public JobEntityBuilder setDuration(DurationEntity durationEntity) {
+        this.durationEntity = durationEntity;
         return this;
     }
 
@@ -42,7 +32,7 @@ public class JobEntityBuilder extends JobEntity {
     }
 
     public JobEntity createJobEntity() {
-        return new JobEntity(id, position, description, startDate, finishDate, period, achievementEntities);
+        return new JobEntity(id, position, description, durationEntity, achievementEntities);
     }
 
 }

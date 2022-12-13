@@ -4,7 +4,7 @@ import org.example.portfolio.infrastructure.mapper.*;
 import org.example.portfolio.infrastructure.mapper.impl.*;
 import org.example.portfolio.infrastructure.mapper.factory.ModelMapperFactory;
 
-public class ModelMapperFactoryImpl extends ModelMapperFactory {
+public class JpaModelMapperFactoryImpl extends ModelMapperFactory {
 
     private PersonMapper personMapper = null;
 
@@ -19,6 +19,8 @@ public class ModelMapperFactoryImpl extends ModelMapperFactory {
     private JobMapper jobMapper = null;
 
     private AchievementMapper achievementMapper = null;
+
+    private DurationMapper durationMapper = null;
 
     @Override
     public PersonMapper getPersonMapperInstance() {
@@ -74,6 +76,14 @@ public class ModelMapperFactoryImpl extends ModelMapperFactory {
             achievementMapper = new AchievementMapperImpl();
         }
         return achievementMapper;
+    }
+
+    @Override
+    public DurationMapper getDurationMapperInstance() {
+        if (durationMapper == null) {
+            durationMapper = new DurationMapperImpl();
+        }
+        return durationMapper;
     }
 
 }

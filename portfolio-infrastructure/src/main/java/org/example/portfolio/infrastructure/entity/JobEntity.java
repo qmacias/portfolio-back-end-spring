@@ -23,14 +23,9 @@ public class JobEntity implements Serializable {
     @Column(name = "description")
     protected String description;
 
-    @Column(name = "start_date")
-    protected String startDate;
-
-    @Column(name = "finish_date")
-    protected String finishDate;
-
-    @Column(name = "period")
-    protected String period;
+    @JoinColumn(name = "duration_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    protected DurationEntity durationEntity;
 
     @JoinColumn(name = "job_id")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -44,18 +39,14 @@ public class JobEntity implements Serializable {
             String id,
             String position,
             String description,
-            String startDate,
-            String finishDate,
-            String period,
+            DurationEntity durationEntity,
             List<AchievementEntity> achievementEntities
     ) {
         this();
         this.id = id;
         this.position = position;
         this.description = description;
-        this.startDate = startDate;
-        this.finishDate = finishDate;
-        this.period = period;
+        this.durationEntity = durationEntity;
         this.achievementEntities = achievementEntities;
     }
 

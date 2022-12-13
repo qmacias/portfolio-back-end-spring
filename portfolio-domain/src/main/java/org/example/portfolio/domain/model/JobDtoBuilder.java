@@ -19,18 +19,8 @@ public class JobDtoBuilder extends JobDto {
         return this;
     }
 
-    public JobDtoBuilder setStartDate(String startDate) {
-        this.startDate = startDate;
-        return this;
-    }
-
-    public JobDtoBuilder setFinishDate(String finishDate) {
-        this.finishDate = finishDate;
-        return this;
-    }
-
-    public JobDtoBuilder setPeriod(String period) {
-        this.period = period;
+    public JobDtoBuilder setDuration(DurationDto duration) {
+        this.duration = duration;
         return this;
     }
 
@@ -40,7 +30,7 @@ public class JobDtoBuilder extends JobDto {
     }
 
     public JobDto createJobDto() {
-        return new JobDto(id, position, description, startDate, finishDate, period, achievementDtoList);
+        return new JobDto(id, position, description, duration, achievementDtoList);
     }
 
 }
