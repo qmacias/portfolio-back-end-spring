@@ -9,7 +9,7 @@ import java.util.Set;
 
 import com.google.common.collect.Sets;
 
-public class DurationMapperImpl extends DurationMapper {
+public class DurationMapperImpl implements DurationMapper {
 
     public DurationMapperImpl() {
     }

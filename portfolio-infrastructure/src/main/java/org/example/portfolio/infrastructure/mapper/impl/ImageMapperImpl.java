@@ -9,7 +9,7 @@ import java.util.Set;
 
 import com.google.common.collect.Sets;
 
-public class ImageMapperImpl extends ImageMapper {
+public class ImageMapperImpl implements ImageMapper {
 
     public ImageMapperImpl() {
     }

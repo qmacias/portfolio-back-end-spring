@@ -12,7 +12,7 @@ import java.util.Set;
 
 import com.google.common.collect.Sets;
 
-public class PersonMapperImpl extends PersonMapper {
+public class PersonMapperImpl implements PersonMapper {
 
     public PersonMapperImpl() {
     }

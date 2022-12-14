@@ -9,7 +9,7 @@ import java.util.Set;
 
 import com.google.common.collect.Sets;
 
-public class AddressMapperImpl extends AddressMapper {
+public class AddressMapperImpl implements AddressMapper {
 
     public AddressMapperImpl() {
     }

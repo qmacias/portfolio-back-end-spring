@@ -14,7 +14,7 @@ import java.util.Set;
 
 import com.google.common.collect.Sets;
 
-public class JobMapperImpl extends JobMapper {
+public class JobMapperImpl implements JobMapper {
 
     public JobMapperImpl() {
     }

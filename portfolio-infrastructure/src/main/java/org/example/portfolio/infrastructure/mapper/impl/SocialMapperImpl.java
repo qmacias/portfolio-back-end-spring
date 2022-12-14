@@ -8,7 +8,7 @@ import org.example.portfolio.infrastructure.mapper.SocialMapper;
 
 import java.util.Set;
 
-public class SocialMapperImpl extends SocialMapper {
+public class SocialMapperImpl implements SocialMapper {
 
     public SocialMapperImpl() {
     }

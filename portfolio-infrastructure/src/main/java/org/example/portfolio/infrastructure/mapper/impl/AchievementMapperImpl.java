@@ -9,7 +9,7 @@ import java.util.Set;
 
 import com.google.common.collect.Sets;
 
-public class AchievementMapperImpl extends AchievementMapper {
+public class AchievementMapperImpl implements AchievementMapper {
 
     public AchievementMapperImpl() {
     }

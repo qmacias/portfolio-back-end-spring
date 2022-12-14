@@ -9,7 +9,7 @@ import java.util.Set;
 
 import com.google.common.collect.Sets;
 
-public class PhoneMapperImpl extends PhoneMapper {
+public class PhoneMapperImpl implements PhoneMapper {
 
     public PhoneMapperImpl() {
     }
