@@ -1,4 +1,4 @@
-## Getting Started (updated at: 10-12-22)
+## Getting Started (updated at: 14-12-22)
 
 ### Clone Repository
 ```console
@@ -36,7 +36,7 @@ Add Person:
 ```json
 {
     "name": "Cristian Quinto",
-    "age": 28,
+    "birthdate": "03/10/1994",
     "degree": "Jr Full Stack Developer",
     "email": "ezequielqmacias@gmail.com",
     "summary": "This is a simple example of my summary.",
@@ -70,6 +70,27 @@ Add Person:
         {
             "link": "https://www.instagram.com/cristian.quinto.m"
         }
+    ],
+    "jobs": [
+        {
+            "position": "Java Developer",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            "duration": {
+                "start_date": "15/10/2022",
+                "finish_date": "20/12/2022"
+            },
+            "achievements": [
+                {
+                    "description": "Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit."
+                },
+                {
+                    "description": "Lorem ipsum dolor sit amet, 10% consectetuer adipiscing elit."
+                },
+                {
+                    "description": "Lorem ipsum dolor sit amet, 10% consectetuer adipiscing elit."
+                }
+            ]
+        }
     ]
 }
 ```
@@ -77,36 +98,76 @@ Add Person:
 Edit Person:
 ```json
 {
-    "id": "3049d9ae-9ca4-403c-bed8-7a058e0e300c",
-    "name": "Pepe Honguito",
-    "age": 30,
-    "degree": "Sr Full Stack Developer",
-    "email": "pepehonguito@gmail.com",
-    "summary": "This is another example of summary.",
+    "id": "3bb55f87-3aa2-46f7-8d95-f5c0b69b453a",
+    "name": "Cristian Quinto",
+    "birthdate": "03/10/1994",
+    "degree": "Jr Full Stack Developer",
+    "email": "ezequielqmacias@gmail.com",
+    "summary": "This is a simple example of my summary.",
     "image": {
-        "id": "a7ebfd26-c18c-4585-8818-8446d857381a",
-        "path": "https://ui-avatars.com/api/?name=Pepe+Honguito&size=255"
+        "id": "5ab0d331-220c-4a6c-9e41-f664fab1b324",
+        "path": "https://ui-avatars.com/api/?name=Cristian+Quinto&size=255"
     },
     "phones": [
         {
-            "id": "9802de07-4a6a-475d-9bb8-d970de5ce375",
-            "type": "Work",
-            "number": "+54 9 2646269904"
+            "id": "36e7eecb-9abb-41e4-8210-66e99ea1fc05",
+            "type": "House",
+            "number": "+54 9 2644216760"
         },
         {
-            "id": "f958afb8-c6a1-4055-83b7-a1fecaf0fa37",
-            "type": "Gym",
-            "number": "+54 9 2644216761"
+            "id": "b2e5c5fb-f58f-4169-8a1c-c94d774e4c4b",
+            "type": "Mobile",
+            "number": "+54 9 2646269903"
         }
     ],
     "address": [
         {
-            "id": "1c1916f9-7700-45e2-bea1-c19d5e48c3b0",
-            "type": "Other",
-            "description": "Av. Ign. De La Rosa, entre Rivadavia y Córdoba"
+            "id": "4dd65642-8dca-4e57-9803-9bd8ba01b1cb",
+            "type": "House",
+            "description": "Calle Asunción 36 Norte"
+        },
+        {
+            "id": "2c4fee1d-48f5-43af-b309-cf8a772fed39",
+            "type": "Work",
+            "description": "Av. Libertador 526 Oeste"
         }
     ],
-    "social": []
+    "social": [
+        {
+            "id": "5bc03f5e-01f2-490c-933c-8bc7b1c915c0",
+            "link": "https://www.instagram.com/cqube.argentina"
+        },
+        {
+            "id": "2e2a954c-5d8d-41ea-a5a4-09acfaab4283",
+            "link": "https://www.instagram.com/cristian.quinto.m"
+        }
+    ],
+    "jobs": [
+        {
+            "id": "706dac67-d37a-4ba6-a4cb-66716c9836dd",
+            "position": "Java Developer",
+            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            "duration": {
+                "id": "ce0b5406-f0f6-4582-b2dc-fb8eaa87b62d",
+                "start_date": "15/10/2022",
+                "finish_date": "20/12/2022"
+            },
+            "achievements": [
+                {
+                    "id": "27c41b34-bc19-40ce-baf7-677369b90a77",
+                    "description": "Lorem ipsum dolor sit amet, 10% consectetuer adipiscing elit."
+                },
+                {
+                    "id": "9792a6cb-3c90-47f4-bd24-862100927d84",
+                    "description": "Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit."
+                },
+                {
+                    "id": "47cfa889-e7a3-41e6-a3db-44a330913d10",
+                    "description": "Lorem ipsum dolor sit amet, 10% consectetuer adipiscing elit."
+                }
+            ]
+        }
+    ]
 }
 ```
 ---
