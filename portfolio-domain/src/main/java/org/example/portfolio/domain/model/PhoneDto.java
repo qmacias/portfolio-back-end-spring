@@ -17,11 +17,13 @@ public class PhoneDto {
     @JsonProperty("number")
     private String number;
 
-    PhoneDto() {
+    private PhoneDto() {
+        this.id = "";
+        this.type = "";
+        this.number = "";
     }
 
     private PhoneDto(String id, String type, String number) {
-        this();
         this.id = id;
         this.type = type;
         this.number = number;

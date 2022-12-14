@@ -2,7 +2,29 @@ package org.example.portfolio.domain.model;
 
 import java.util.Set;
 
-public class JobDtoBuilder extends JobDto {
+public class JobDtoBuilder {
+
+    private String id;
+
+    private String position;
+
+    private String description;
+
+    private DurationDto duration;
+
+    private Set<AchievementDto> achievementDtoSet;
+
+    private JobDtoBuilder() {
+        this.id = "";
+        this.position = "";
+        this.description = "";
+        this.duration = null;
+        this.achievementDtoSet = null;
+    }
+
+    public static JobDtoBuilder builder() {
+        return new JobDtoBuilder();
+    }
 
     public JobDtoBuilder setId(String id) {
         this.id = id;
@@ -29,7 +51,7 @@ public class JobDtoBuilder extends JobDto {
         return this;
     }
 
-    public JobDto createJobDto() {
+    public JobDto build() {
         return new JobDto(id, position, description, duration, achievementDtoSet);
     }
 

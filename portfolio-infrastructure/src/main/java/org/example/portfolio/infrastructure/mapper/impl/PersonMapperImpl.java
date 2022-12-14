@@ -3,10 +3,9 @@ package org.example.portfolio.infrastructure.mapper.impl;
 import org.example.portfolio.domain.model.PersonDto;
 import org.example.portfolio.domain.model.PersonDtoBuilder;
 
+import org.example.portfolio.infrastructure.mapper.*;
 import org.example.portfolio.infrastructure.entity.PersonEntity;
 import org.example.portfolio.infrastructure.entity.PersonEntityBuilder;
-
-import org.example.portfolio.infrastructure.mapper.*;
 
 import java.util.Set;
 
@@ -36,7 +35,7 @@ public class PersonMapperImpl implements PersonMapper {
 
     @Override
     public PersonDto mapEntityToDto(PersonEntity personEntity) {
-        return new PersonDtoBuilder()
+        return PersonDtoBuilder.builder()
                 .setId(personEntity.getId())
                 .setName(personEntity.getName())
                 .setBirthdate(personEntity.getBirthdate())
@@ -48,7 +47,7 @@ public class PersonMapperImpl implements PersonMapper {
                 .setAddressDtoSet(AddressMapper.INSTANCE.mapEntitySetToDtoSet(personEntity.getAddressEntities()))
                 .setSocialDtoSet(SocialMapper.INSTANCE.mapEntitySetToDtoSet(personEntity.getSocialEntities()))
                 .setJobDtoSet(JobMapper.INSTANCE.mapEntitySetToDtoSet(personEntity.getJobEntities()))
-                .createPersonDto();
+                .build();
     }
 
     @Override
