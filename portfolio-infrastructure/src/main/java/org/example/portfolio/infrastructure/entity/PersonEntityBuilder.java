@@ -2,7 +2,39 @@ package org.example.portfolio.infrastructure.entity;
 
 import java.util.Set;
 
-public class PersonEntityBuilder extends PersonEntity {
+import java.io.Serializable;
+
+public class PersonEntityBuilder implements Serializable {
+
+    private String id;
+
+    private String name;
+
+    private String birthdate;
+
+    private String degree;
+
+    private String email;
+
+    private String summary;
+
+    private ImageEntity imageEntity;
+
+    private Set<PhoneEntity> phoneEntities;
+
+    private Set<AddressEntity> addressEntities;
+
+    private Set<SocialEntity> socialEntities;
+
+    private Set<JobEntity> jobEntities;
+
+    private PersonEntityBuilder() {
+        super();
+    }
+
+    public static PersonEntityBuilder builder() {
+        return new PersonEntityBuilder();
+    }
 
     public PersonEntityBuilder setId(String id) {
         this.id = id;
@@ -59,7 +91,7 @@ public class PersonEntityBuilder extends PersonEntity {
         return this;
     }
 
-    public PersonEntity createPersonEntity() {
+    public PersonEntity build() {
         return new PersonEntity(id, name, birthdate, degree, email, summary, imageEntity,
                 phoneEntities, addressEntities, socialEntities, jobEntities
         );

@@ -18,7 +18,7 @@ public class PersonMapperImpl implements PersonMapper {
 
     @Override
     public PersonEntity mapDtoToEntity(PersonDto personDto) {
-        return new PersonEntityBuilder()
+        return PersonEntityBuilder.builder()
                 .setId(this.checkIdentity(personDto.getId()))
                 .setName(personDto.getName())
                 .setBirthdate(personDto.getBirthdate())
@@ -30,7 +30,7 @@ public class PersonMapperImpl implements PersonMapper {
                 .setAddressEntities(AddressMapper.INSTANCE.mapDtoSetToEntitySet(personDto.getAddressDtoSet()))
                 .setSocialEntities(SocialMapper.INSTANCE.mapDtoSetToEntitySet(personDto.getSocialDtoSet()))
                 .setJobEntities(JobMapper.INSTANCE.mapDtoSetToEntitySet(personDto.getJobDtoSet()))
-                .createPersonEntity();
+                .build();
     }
 
     @Override

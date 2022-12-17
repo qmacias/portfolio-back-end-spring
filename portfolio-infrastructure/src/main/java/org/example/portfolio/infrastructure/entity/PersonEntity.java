@@ -1,63 +1,61 @@
 package org.example.portfolio.infrastructure.entity;
 
-import lombok.Getter;
-
 import javax.persistence.*;
 
 import java.util.Objects;
 
-import java.io.Serializable;
 import java.util.Set;
 
-@Getter
+import java.io.Serializable;
+
 @Entity
 @Table(name = "person")
 public class PersonEntity implements Serializable {
 
     @Id
     @Column(name = "id", updatable = false)
-    protected String id;
+    private String id;
 
     @Column(name = "name")
-    protected String name;
+    private String name;
 
     @Column(name = "birthdate", nullable = false)
-    protected String birthdate;
+    private String birthdate;
 
     @Column(name = "degree")
-    protected String degree;
+    private String degree;
 
     @Column(name = "email", unique = true)
-    protected String email;
+    private String email;
 
     @Column(name = "summary")
-    protected String summary;
+    private String summary;
 
     @JoinColumn(name = "image_id")
     @OneToOne(cascade = CascadeType.ALL)
-    protected ImageEntity imageEntity;
+    private ImageEntity imageEntity;
 
     @JoinColumn(name = "person_id")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    protected Set<PhoneEntity> phoneEntities;
+    private Set<PhoneEntity> phoneEntities;
 
     @JoinColumn(name = "person_id")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    protected Set<AddressEntity> addressEntities;
+    private Set<AddressEntity> addressEntities;
 
     @JoinColumn(name = "person_id")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    protected Set<SocialEntity> socialEntities;
+    private Set<SocialEntity> socialEntities;
 
     @JoinColumn(name = "person_id")
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    protected Set<JobEntity> jobEntities;
+    private Set<JobEntity> jobEntities;
 
     protected PersonEntity() {
         super();
     }
 
-    protected PersonEntity(
+    PersonEntity(
             String id,
             String name,
             String birthdate,
@@ -84,9 +82,48 @@ public class PersonEntity implements Serializable {
         this.jobEntities = jobEntities;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(this.email);
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getBirthdate() {
+        return birthdate;
+    }
+
+    public String getDegree() {
+        return degree;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public ImageEntity getImageEntity() {
+        return imageEntity;
+    }
+
+    public Set<PhoneEntity> getPhoneEntities() {
+        return phoneEntities;
+    }
+
+    public Set<AddressEntity> getAddressEntities() {
+        return addressEntities;
+    }
+
+    public Set<SocialEntity> getSocialEntities() {
+        return socialEntities;
+    }
+
+    public Set<JobEntity> getJobEntities() {
+        return jobEntities;
     }
 
     @Override
@@ -96,6 +133,11 @@ public class PersonEntity implements Serializable {
             return Objects.equals(this.email, other.email);
         }
         return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.email);
     }
 
 }
