@@ -20,20 +20,20 @@ public class PersonJpaAdapter implements PersonPersistencePort {
     }
 
     @Override
-    public Set<PersonDto> getAll() {
+    public Set<PersonDto> findAllPerson() {
         Set<PersonEntity> personEntities = personRepository.findAllSet();
         return PersonMapper.INSTANCE.mapEntitySetToDtoSet(personEntities);
     }
 
     @Override
-    public PersonDto getById(String id) {
+    public PersonDto findPersonById(String id) {
         PersonEntity personEntity = personRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Person id: " + id));
         return PersonMapper.INSTANCE.mapEntityToDto(personEntity);
     }
 
     @Override
-    public PersonDto createOrUpdate(PersonDto personDto) {
+    public PersonDto insertOrUpdatePerson(PersonDto personDto) {
         PersonEntity personEntity = PersonMapper.INSTANCE.mapDtoToEntity(personDto);
         if (personEntity.getId() == null) {
             personRepository.findByEmail(personEntity.getEmail())
@@ -45,7 +45,7 @@ public class PersonJpaAdapter implements PersonPersistencePort {
     }
 
     @Override
-    public void removeById(String id) {
+    public void deletePersonById(String id) {
         personRepository.deleteById(id);
     }
 

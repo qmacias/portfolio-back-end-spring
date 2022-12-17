@@ -22,22 +22,22 @@ public class PersonController {
     }
 
     @GetMapping
-    public Set<PersonDto> getAllPerson() {
+    public Set<PersonDto> getAll() {
         return personService.getAllPerson();
     }
 
     @GetMapping("/{id}")
-    public PersonDto getPersonById(@PathVariable String id) {
+    public PersonDto getById(@PathVariable String id) {
         return personService.getPersonById(id);
     }
 
     @PostMapping
-    public PersonDto createOrUpdatePerson(@RequestBody PersonDto personDto) {
-        return personService.createOrUpdatePerson(personDto);
+    public PersonDto createOrEdit(@RequestBody PersonDto personDto) {
+        return personService.createOrEditPerson(personDto);
     }
 
     @DeleteMapping("/{id}")
-    public void removePersonById(@PathVariable String id) {
+    public void removeById(@PathVariable String id) {
         personService.removePersonById(id);
     }
 

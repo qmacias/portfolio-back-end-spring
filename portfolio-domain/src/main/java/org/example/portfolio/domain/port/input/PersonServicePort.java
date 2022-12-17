@@ -21,7 +21,7 @@ public interface PersonServicePort {
 
     PersonDto getPersonById(String id);
 
-    PersonDto createOrUpdatePerson(PersonDto personDto);
+    PersonDto createOrEditPerson(PersonDto personDto);
 
     void removePersonById(String id);
 
