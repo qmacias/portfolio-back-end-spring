@@ -7,65 +7,40 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.Set;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({"id", "position", "description",
-        "duration", "achievements"})
+@JsonPropertyOrder({"id", "position", "description", "duration", "achievements"})
 public class JobDto {
 
-    @JsonProperty("id")
-    private String id;
+    @lombok.Getter(onMethod_ = {@JsonProperty("id")})
+    protected String id;
 
-    @JsonProperty("position")
-    private String position;
+    @lombok.Getter(onMethod_ = {@JsonProperty("position")})
+    protected String position;
 
-    @JsonProperty("description")
-    private String description;
+    @lombok.Getter(onMethod_ = {@JsonProperty("description")})
+    protected String description;
 
-    @JsonProperty("duration")
-    private DurationDto duration;
+    @lombok.Getter(onMethod_ = {@JsonProperty("duration")})
+    protected DurationDto duration;
 
-    @JsonProperty("achievements")
-    private Set<AchievementDto> achievementDtoSet;
+    @lombok.Getter(onMethod_ = {@JsonProperty("achievements")})
+    protected Set<AchievementDto> achievementDtoSet;
 
-    private JobDto() {
-        this.id = "";
-        this.position = "";
-        this.description = "";
-        this.duration = null;
-        this.achievementDtoSet = null;
+    JobDto() {
     }
 
-    JobDto(
+    protected JobDto(
             String id,
             String position,
             String description,
             DurationDto duration,
             Set<AchievementDto> achievementDtoSet
     ) {
+        this();
         this.id = id;
         this.position = position;
         this.description = description;
         this.duration = duration;
         this.achievementDtoSet = achievementDtoSet;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public DurationDto getDuration() {
-        return duration;
-    }
-
-    public Set<AchievementDto> getAchievementDtoSet() {
-        return achievementDtoSet;
     }
 
 }

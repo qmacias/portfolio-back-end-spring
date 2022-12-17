@@ -6,8 +6,8 @@ import org.example.portfolio.domain.model.JobDtoBuilder;
 import org.example.portfolio.infrastructure.entity.JobEntity;
 import org.example.portfolio.infrastructure.entity.JobEntityBuilder;
 
-import org.example.portfolio.infrastructure.mapper.JobMapper;
 import org.example.portfolio.infrastructure.mapper.DurationMapper;
+import org.example.portfolio.infrastructure.mapper.JobMapper;
 import org.example.portfolio.infrastructure.mapper.AchievementMapper;
 
 import java.util.Set;
@@ -32,13 +32,13 @@ public class JobMapperImpl implements JobMapper {
 
     @Override
     public JobDto mapEntityToDto(JobEntity jobEntity) {
-        return JobDtoBuilder.builder()
+        return new JobDtoBuilder()
                 .setId(jobEntity.getId())
                 .setPosition(jobEntity.getPosition())
                 .setDescription(jobEntity.getDescription())
                 .setDuration(DurationMapper.INSTANCE.mapEntityToDto(jobEntity.getDurationEntity()))
                 .setAchievementDtoSet(AchievementMapper.INSTANCE.mapEntitySetToDtoSet(jobEntity.getAchievementEntities()))
-                .build();
+                .createJobDto();
     }
 
     @Override

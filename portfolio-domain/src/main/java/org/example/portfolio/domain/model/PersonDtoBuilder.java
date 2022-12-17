@@ -2,47 +2,7 @@ package org.example.portfolio.domain.model;
 
 import java.util.Set;
 
-public class PersonDtoBuilder {
-
-    private String id;
-
-    private String name;
-
-    private String birthdate;
-
-    private String degree;
-
-    private String email;
-
-    private String summary;
-
-    private ImageDto imageDto;
-
-    private Set<PhoneDto> phoneDtoSet;
-
-    private Set<AddressDto> addressDtoSet;
-
-    private Set<SocialDto> socialDtoSet;
-
-    private Set<JobDto> jobDtoSet;
-
-    private PersonDtoBuilder() {
-        this.id = "";
-        this.name = "";
-        this.birthdate = "";
-        this.degree = "";
-        this.email = "";
-        this.summary = "";
-        this.imageDto = null;
-        this.phoneDtoSet = null;
-        this.addressDtoSet = null;
-        this.socialDtoSet = null;
-        this.jobDtoSet = null;
-    }
-
-    public static PersonDtoBuilder builder() {
-        return new PersonDtoBuilder();
-    }
+public class PersonDtoBuilder extends PersonDto {
 
     public PersonDtoBuilder setId(String id) {
         this.id = id;
@@ -99,7 +59,7 @@ public class PersonDtoBuilder {
         return this;
     }
 
-    public PersonDto build() {
+    public PersonDto createPersonDto() {
         return new PersonDto(id, name, birthdate, degree, email, summary, imageDto,
                 phoneDtoSet, addressDtoSet, socialDtoSet, jobDtoSet
         );

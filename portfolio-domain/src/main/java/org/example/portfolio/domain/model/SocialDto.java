@@ -14,12 +14,11 @@ public class SocialDto {
     @JsonProperty("link")
     private String link;
 
-    private SocialDto() {
-        this.id = "";
-        this.link = "";
+    SocialDto() {
     }
 
     private SocialDto(String id, String link) {
+        this();
         this.id = id;
         this.link = link;
     }

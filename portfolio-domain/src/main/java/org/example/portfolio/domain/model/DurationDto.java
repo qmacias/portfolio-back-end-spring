@@ -17,13 +17,11 @@ public class DurationDto {
     @JsonProperty("finish_date")
     private String finishDate;
 
-    private DurationDto() {
-        this.id = "";
-        this.startDate = "";
-        this.finishDate = "";
+    DurationDto() {
     }
 
     private DurationDto(String id, String startDate, String finishDate) {
+        this();
         this.id = id;
         this.startDate = startDate;
         this.finishDate = finishDate;

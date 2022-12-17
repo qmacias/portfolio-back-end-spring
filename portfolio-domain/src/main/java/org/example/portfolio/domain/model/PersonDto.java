@@ -11,54 +11,43 @@ import java.util.Set;
         "image", "phones", "address", "social", "jobs"})
 public class PersonDto {
 
-    @JsonProperty("id")
-    private String id;
+    @lombok.Getter(onMethod_ = {@JsonProperty("id")})
+    protected String id;
 
-    @JsonProperty("name")
-    private String name;
+    @lombok.Getter(onMethod_ = {@JsonProperty("name")})
+    protected String name;
 
-    @JsonProperty("birthdate")
-    private String birthdate;
+    @lombok.Getter(onMethod_ = {@JsonProperty("birthdate")})
+    protected String birthdate;
 
-    @JsonProperty("degree")
-    private String degree;
+    @lombok.Getter(onMethod_ = {@JsonProperty("degree")})
+    protected String degree;
 
-    @JsonProperty("email")
-    private String email;
+    @lombok.Getter(onMethod_ = {@JsonProperty("email")})
+    protected String email;
 
-    @JsonProperty("summary")
-    private String summary;
+    @lombok.Getter(onMethod_ = {@JsonProperty("summary")})
+    protected String summary;
 
-    @JsonProperty("image")
-    private ImageDto imageDto;
+    @lombok.Getter(onMethod_ = {@JsonProperty("image")})
+    protected ImageDto imageDto;
 
-    @JsonProperty("phones")
-    private Set<PhoneDto> phoneDtoSet;
+    @lombok.Getter(onMethod_ = {@JsonProperty("phones")})
+    protected Set<PhoneDto> phoneDtoSet;
 
-    @JsonProperty("address")
-    private Set<AddressDto> addressDtoSet;
+    @lombok.Getter(onMethod_ = {@JsonProperty("address")})
+    protected Set<AddressDto> addressDtoSet;
 
-    @JsonProperty("social")
-    private Set<SocialDto> socialDtoSet;
+    @lombok.Getter(onMethod_ = {@JsonProperty("social")})
+    protected Set<SocialDto> socialDtoSet;
 
-    @JsonProperty("jobs")
-    private Set<JobDto> jobDtoSet;
+    @lombok.Getter(onMethod_ = {@JsonProperty("jobs")})
+    protected Set<JobDto> jobDtoSet;
 
-    private PersonDto() {
-        this.id = "";
-        this.name = "";
-        this.birthdate = "";
-        this.degree = "";
-        this.email = "";
-        this.summary = "";
-        this.imageDto = null;
-        this.phoneDtoSet = null;
-        this.addressDtoSet = null;
-        this.socialDtoSet = null;
-        this.jobDtoSet = null;
+    PersonDto() {
     }
 
-    PersonDto(
+    protected PersonDto(
             String id,
             String name,
             String birthdate,
@@ -71,6 +60,7 @@ public class PersonDto {
             Set<SocialDto> socialDtoSet,
             Set<JobDto> jobDtoSet
     ) {
+        this();
         this.id = id;
         this.name = name;
         this.birthdate = birthdate;
@@ -82,50 +72,6 @@ public class PersonDto {
         this.addressDtoSet = addressDtoSet;
         this.socialDtoSet = socialDtoSet;
         this.jobDtoSet = jobDtoSet;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getBirthdate() {
-        return birthdate;
-    }
-
-    public String getDegree() {
-        return degree;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getSummary() {
-        return summary;
-    }
-
-    public ImageDto getImageDto() {
-        return imageDto;
-    }
-
-    public Set<PhoneDto> getPhoneDtoSet() {
-        return phoneDtoSet;
-    }
-
-    public Set<AddressDto> getAddressDtoSet() {
-        return addressDtoSet;
-    }
-
-    public Set<SocialDto> getSocialDtoSet() {
-        return socialDtoSet;
-    }
-
-    public Set<JobDto> getJobDtoSet() {
-        return jobDtoSet;
     }
 
 }

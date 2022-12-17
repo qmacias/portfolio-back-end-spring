@@ -14,12 +14,11 @@ public class ImageDto {
     @JsonProperty("path")
     private String path;
 
-    private ImageDto() {
-        this.id = "";
-        this.path = "";
+    ImageDto() {
     }
 
     private ImageDto(String id, String path) {
+        this();
         this.id = id;
         this.path = path;
     }

@@ -14,12 +14,11 @@ public class AchievementDto {
     @JsonProperty("description")
     private String description;
 
-    private AchievementDto() {
-        this.id = "";
-        this.description = "";
+    AchievementDto() {
     }
 
     private AchievementDto(String id, String description) {
+        this();
         this.id = id;
         this.description = description;
     }

@@ -17,13 +17,11 @@ public class AddressDto {
     @JsonProperty("description")
     private String description;
 
-    private AddressDto() {
-        this.id = "";
-        this.type = "";
-        this.description = "";
+    AddressDto() {
     }
 
     private AddressDto(String id, String type, String description) {
+        this();
         this.id = id;
         this.type = type;
         this.description = description;
