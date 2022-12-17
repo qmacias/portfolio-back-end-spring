@@ -24,28 +24,4 @@ public class DurationMapperImpl implements DurationMapper {
         return DurationDto.of(durationEntity.getId(), durationEntity.getStartDate(), durationEntity.getFinishDate());
     }
 
-    @Override
-    public Set<DurationDto> mapEntitySetToDtoSet(Set<DurationEntity> durationEntities) {
-
-        Set<DurationDto> durationDtoSet = Sets.newHashSet();
-
-        durationEntities.forEach(durationEntity -> durationDtoSet.add(
-                this.mapEntityToDto(durationEntity)
-        ));
-
-        return durationDtoSet;
-    }
-
-    @Override
-    public Set<DurationEntity> mapDtoSetToEntitySet(Set<DurationDto> durationDtoSet) {
-
-        Set<DurationEntity> durationEntities = Sets.newHashSet();
-
-        durationDtoSet.forEach(durationDto -> durationEntities.add(
-                this.mapDtoToEntity(durationDto)
-        ));
-
-        return durationEntities;
-    }
-
 }

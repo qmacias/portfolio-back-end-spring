@@ -11,6 +11,7 @@ import org.example.portfolio.infrastructure.mapper.*;
 import java.util.Set;
 
 import com.google.common.collect.Sets;
+import org.hibernate.cfg.NotYetImplementedException;
 
 public class PersonMapperImpl implements PersonMapper {
 
@@ -53,14 +54,7 @@ public class PersonMapperImpl implements PersonMapper {
 
     @Override
     public Set<PersonDto> mapEntitySetToDtoSet(Set<PersonEntity> personEntities) {
-
-        Set<PersonDto> personDtoSet = Sets.newHashSet();
-
-        personEntities.forEach(personEntity -> personDtoSet.add(
-                this.mapEntityToDto(personEntity)
-        ));
-
-        return personDtoSet;
+        throw  new NotYetImplementedException();
     }
 
     @Override
