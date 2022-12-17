@@ -16,22 +16,22 @@ public class PersonServiceImpl implements PersonServicePort {
 
     @Override
     public Set<PersonDto> getAllPerson() {
-        return personPersistencePort.getAll();
+        return personPersistencePort.findAllPerson();
     }
 
     @Override
     public PersonDto getPersonById(String id) {
-        return personPersistencePort.getById(id);
+        return personPersistencePort.findPersonById(id);
     }
 
     @Override
-    public PersonDto createOrUpdatePerson(PersonDto personDto) {
-        return personPersistencePort.createOrUpdate(personDto);
+    public PersonDto createOrEditPerson(PersonDto personDto) {
+        return personPersistencePort.insertOrUpdatePerson(personDto);
     }
 
     @Override
     public void removePersonById(String id) {
-        personPersistencePort.removeById(id);
+        personPersistencePort.deletePersonById(id);
     }
 
 }
