@@ -21,13 +21,13 @@ public class JobMapperImpl implements JobMapper {
 
     @Override
     public JobEntity mapDtoToEntity(JobDto jobDto) {
-        return JobEntityBuilder.builder()
+        return new JobEntityBuilder()
                 .setId(this.checkIdentity(jobDto.getId()))
                 .setPosition(jobDto.getPosition())
                 .setDescription(jobDto.getDescription())
                 .setDuration(DurationMapper.INSTANCE.mapDtoToEntity(jobDto.getDuration()))
                 .setAchievementEntities(AchievementMapper.INSTANCE.mapDtoSetToEntitySet(jobDto.getAchievementDtoSet()))
-                .build();
+                .createJobEntity();
     }
 
     @Override

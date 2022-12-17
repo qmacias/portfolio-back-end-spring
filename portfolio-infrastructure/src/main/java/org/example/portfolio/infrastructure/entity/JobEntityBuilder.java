@@ -2,27 +2,7 @@ package org.example.portfolio.infrastructure.entity;
 
 import java.util.Set;
 
-import java.io.Serializable;
-
-public class JobEntityBuilder implements Serializable {
-
-    private String id;
-
-    private String position;
-
-    private String description;
-
-    private DurationEntity durationEntity;
-
-    private Set<AchievementEntity> achievementEntities;
-
-    protected JobEntityBuilder() {
-        super();
-    }
-
-    public static JobEntityBuilder builder() {
-        return new JobEntityBuilder();
-    }
+public class JobEntityBuilder extends JobEntity {
 
     public JobEntityBuilder setId(String id) {
         this.id = id;
@@ -49,7 +29,7 @@ public class JobEntityBuilder implements Serializable {
         return this;
     }
 
-    public JobEntity build() {
+    public JobEntity createJobEntity() {
         return new JobEntity(id, position, description, durationEntity, achievementEntities);
     }
 
